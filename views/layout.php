@@ -25,6 +25,9 @@
                     <a href="/timelines">Timelines</a>
                 </li>
                 <li>
+                    <a href="/timeline/create">Create</a>
+                </li>
+                <li>
                     <a href="/tags">Catégories</a>
                 </li>
                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>

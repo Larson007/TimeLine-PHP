@@ -20,6 +20,7 @@ body {
   font-family: "Bebas Neue", cursive;
   background-color: #434961;
   color: #fff;
+  font-size: 1.4em;
 }
 
 body header nav {
@@ -117,6 +118,10 @@ body main #globe-animation p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .cards .box .box-card {
@@ -166,7 +171,7 @@ body main #globe-animation p {
   position: absolute;
   top: 0;
   margin-left: 15px;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   color: #fff;
   background-color: #3a3a3a;
   padding: 10px;
@@ -201,7 +206,7 @@ body main #globe-animation p {
       -ms-flex-align: center;
           align-items: center;
   color: #555;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   -webkit-transition: color 0.25s;
   transition: color 0.25s;
   color: white;
@@ -292,5 +297,40 @@ body main #globe-animation p {
   transition: -webkit-transform ease-in-out 0.5s;
   transition: transform ease-in-out 0.5s;
   transition: transform ease-in-out 0.5s, -webkit-transform ease-in-out 0.5s;
+}
+
+.form {
+  background-color: #ee727a;
+  min-height: 50vh;
+  width: 100%;
+}
+
+.form .form__group {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 50%;
+  height: 100%;
+}
+
+.form .form__group .form__group--items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.left {
+  background-color: #feca72 !important;
+  padding: 1rem;
+}
+
+.right {
+  background-color: #c694e8 !important;
+  padding: 1rem;
 }
 /*# sourceMappingURL=app.css.map */

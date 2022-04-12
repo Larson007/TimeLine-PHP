@@ -28,6 +28,28 @@ class TimelinesController extends Controller
         return $this->view('timelines.show', compact('timeline'));
     }
 
+
+    public function create()
+    {
+
+        $tags = (new Tags($this->getDB()))->all();
+
+        return $this->view('timelines.create', compact('tags'));
+    }
+
+    public function createTimeline()
+    {
+
+        $timeline = new Timelines($this->getDB());
+
+        $tags = array_pop($_POST);
+
+        $result = $timeline->create($_POST, $tags);
+
+        if ($result) {
+            return header('Location: /timelines');
+        }
+    }
     // public function tag(int $id)
     // {
     //     $tag = (new Tags($this->getDB()))->findById($id);

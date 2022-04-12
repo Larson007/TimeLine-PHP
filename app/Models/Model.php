@@ -67,7 +67,6 @@ abstract class Model
             $secondParenthesis .= ":{$key}{$comma}";
             $i++;
         }
-
         return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUES ($secondParenthesis)", $data);
     }
 

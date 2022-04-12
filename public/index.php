@@ -21,7 +21,9 @@ $router->get('/', 'App\Controllers\HomepageController@index');
 
 //Timelines
 $router->get('/timelines', 'App\Controllers\TimelinesController@index');
-$router->get('/timeline/:id', 'App\Controllers\TimelinesController@show');
+$router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
+$router->get('/timeline/create', 'App\Controllers\TimelinesController@create');
+$router->post('/timeline/create', 'App\Controllers\TimelinesController@createTimeline');
 
 //Tags
 $router->get('/tags', 'App\Controllers\TagsController@index');

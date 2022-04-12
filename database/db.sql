@@ -1,50 +1,64 @@
--- phpMyAdmin SQL Dump
--- version 5.1.3
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 23 mars 2022 à 12:12
--- Version du serveur : 10.4.10-MariaDB
--- Version de PHP : 8.1.3
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données : `formations_php_framework`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `posts`
---
-
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `content` text DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `posts`
---
-
-INSERT INTO `posts` (`id`, `title`, `content`, `created_at`) VALUES
-(1, 'Mon premier article', 'Nunc vel libero ac nisi molestie interdum. Quisque quis nibh eget neque congue commodo a sed mauris. Proin vitae lectus at ipsum volutpat lobortis quis sed est. Vivamus lacinia molestie bibendum. Proin eu vulputate nulla. Maecenas pulvinar porttitor mi, at cursus dui. Duis ante est, efficitur quis faucibus ac, pulvinar in augue. Duis vitae lacinia lacus, nec elementum sem. Vivamus in suscipit dui. Sed molestie arcu eget mauris ornare, et ornare ipsum suscipit. Cras nec convallis massa. Vivamus lacinia, nunc non tincidunt porta, arcu leo pharetra magna, eget porta sapien tortor et nisi. Proin rutrum, ante vitae mattis mattis, mi nibh molestie nisl, quis gravida libero turpis sed risus. Donec id velit tincidunt, auctor lorem in, pretium urna.\r\n\r\n', '2022-03-23 11:39:44'),
-(2, 'Mon deuxième articles', 'Nam a molestie velit. Curabitur pretium nulla ligula, efficitur mollis enim laoreet aliquam. Vestibulum tempor tortor neque. Integer ut sem id dui semper posuere nec at purus. Aenean quam quam, condimentum vel elementum vitae, convallis id leo. Donec suscipit auctor sapien, a finibus tellus sollicitudin vel. Nullam molestie tortor id rutrum ultrices. Curabitur luctus massa ac ante vestibulum, at tristique est blandit. Fusce rutrum sem at tellus consectetur, et fermentum neque vulputate. Morbi non felis massa. Maecenas vitae magna eu sapien tempus interdum. Nam euismod viverra ipsum, eu consequat sapien. Proin dignissim vitae lectus quis placerat.\r\n\r\n', '2022-03-23 11:40:20');
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `users`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `role` INT NOT NULL
+);
+CREATE TABLE `timelines`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL,
+    `description` TEXT NOT NULL,
+    `created_at` DATETIME NOT NULL,
+    `thumbnail` VARCHAR(255) NOT NULL,
+    `date_start` DATETIME NULL,
+    `date_end` DATETIME NULL,
+    `rating` DECIMAL(8, 2) NULL,
+    `validated` INT NULL,
+    `user_id` INT NOT NULL,
+    `thumbnail_alt` VARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    `timelines` ADD INDEX `timelines_user_id_index`(`user_id`);
+CREATE TABLE `tags`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `color` VARCHAR(255) NOT NULL
+);
+CREATE TABLE `timeline_tag`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `tag_id` INT NOT NULL,
+    `timeline_id` INT NOT NULL
+);
+ALTER TABLE
+    `timeline_tag` ADD INDEX `timeline_tag_tag_id_index`(`tag_id`);
+ALTER TABLE
+    `timeline_tag` ADD INDEX `timeline_tag_timeline_id_index`(`timeline_id`);
+CREATE TABLE `events`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL,
+    `media` VARCHAR(255) NULL,
+    `text` TEXT NULL,
+    `color` VARCHAR(255) NULL,
+    `date_start` DATETIME NOT NULL,
+    `date_end` DATETIME NULL,
+    `timeline_id` INT NOT NULL
+);
+CREATE TABLE `tags_details`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `color` VARCHAR(255) NULL,
+    `tags_id` INT NOT NULL
+);
+ALTER TABLE
+    `tags_details` ADD INDEX `tags_details_tags_id_index`(`tags_id`);
+ALTER TABLE
+    `timeline_tag` ADD CONSTRAINT `timeline_tag_tag_id_foreign` FOREIGN KEY(`tag_id`) REFERENCES `tags`(`id`);
+ALTER TABLE
+    `tags_details` ADD CONSTRAINT `tags_details_tags_id_foreign` FOREIGN KEY(`tags_id`) REFERENCES `tags`(`id`);
+ALTER TABLE
+    `events` ADD CONSTRAINT `events_timeline_id_foreign` FOREIGN KEY(`timeline_id`) REFERENCES `timelines`(`id`);
+ALTER TABLE
+    `timelines` ADD CONSTRAINT `timelines_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `users`(`id`);
+ALTER TABLE
+    `timeline_tag` ADD CONSTRAINT `timeline_tag_timeline_id_foreign` FOREIGN KEY(`timeline_id`) REFERENCES `timelines`(`id`);

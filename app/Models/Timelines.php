@@ -43,8 +43,9 @@ class Timelines extends Model
     public function getButton(): string
     {
         return <<<HTML
-            <a class="style1" href="/timeline/$this->id" class="btn btn-primary"><span>Timeline</span></a>
+            <a class="style1" href="/timelines/$this->id" class="btn btn-primary"><span>Timeline</span></a>
 HTML;
     }
 
+    
 }

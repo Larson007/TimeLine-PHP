@@ -31,6 +31,7 @@ body {
     font-family: "Bebas Neue", cursive;
     background-color: $bg-light;
     color: #fff;
+    font-size: 1.4em;
 
     header {
         nav {
@@ -108,6 +109,7 @@ body {
 .cards {
     display: flex;
     justify-content: space-between;
+    flex-flow: row wrap;
     .box {
         .box-card {
             position: relative;
@@ -145,7 +147,7 @@ body {
                     position: absolute;
                     top: 0;
                     margin-left: 15px;
-                    font-size: 1.3em;
+                    font-size: 1.3rem;
                     color: #fff;
                     background-color: rgb(58, 58, 58);
                     padding: 10px;
@@ -173,7 +175,7 @@ body {
                 display: flex;
                 align-items: center;
                 color: #555;
-                font-size: 1.2em;
+                font-size: 1.2rem;
                 transition: color 0.25s;
                 color: white;
                 margin: 1rem 0;
@@ -244,4 +246,32 @@ body {
             }
         }
     }
+}
+
+// Formualire creation Timeline
+
+.form {
+background-color: #ee727a;
+min-height: 50vh;
+width: 100%;
+    .form__group{
+display: inline-flex;
+width: 50%;
+height: 100%;
+        .form__group--items{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+        }
+    }
+}
+
+.left {
+    background-color: #feca72 !important;
+    padding: 1rem;
+}
+.right {
+    background-color: #c694e8 !important;
+    padding: 1rem;
 }
