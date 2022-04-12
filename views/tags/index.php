@@ -1,0 +1,1 @@
+<h1>Index du TagsController</h1>

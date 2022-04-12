@@ -1,0 +1,19 @@
+{
+    "name": "mohamed/poo",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Router\\": "routes/",
+            "Database\\": "database/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Larson007",
+            "email": "mohamed.benallal.pro@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^6.0"
+    }
+}
