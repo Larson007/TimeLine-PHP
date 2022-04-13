@@ -1,10 +1,13 @@
 const cardToogle = () => {
     document.addEventListener('DOMContentLoaded', () =>{
-        const boxCard = document.querySelector('.box-card');
-        const boxCancel = document.querySelector('.box');
-        boxCancel.onclick = function () {
-            boxCard.classList.toggle('active');
-        };
+        const boxCard = document.querySelectorAll('.box-card');
+        const boxCancel = document.querySelectorAll('.box');
+        console.log(boxCard);
+        for (let i = 0; i < boxCard.length; i++) {
+            boxCancel[i].onclick = () => {
+                boxCard[i].classList.toggle('active');
+            };
+        }
     });
 };
 

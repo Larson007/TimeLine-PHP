@@ -7,36 +7,35 @@ $faker = Faker\Factory::create();
     <h1>Create TimeLine View</h1>
 
 
-<form action="" class="form">
-    <div class="form__group left">
-        <div class="form__group--items">
-            <label for="test">test</label>
-            <input type="text">
+    <form action="" class="form">
+        <div class="form__group--left">
+            <div class="form__group__items">
+                <label for="title">Titre</label>
+                <input class="form__group__items--input" type="text" name="title" id="title" value="<?= $faker->name(); ?>">
+            </div>
+            <div class="form__group__items">
+            <label for="description">description</label>
+                <textarea class="form__group__items--input" name="description" id="description" rows="8"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
+            </div>
         </div>
-        <div class="form__group--items">
-            <label for="test">test</label>
-            <input type="text">
+        <div class="form__group--right">
+            <div class="form__group__items">
+                <label for="thumbnail">thumbnail</label>
+                <input class="form__group__items--input" type="file" name="thumbnail" id="thumbnail">
+            </div>
+            <div class="form__group__items">
+            <label for="thumbnail_alt">thumbnail_alt</label>
+                <input class="form__group__items--input" type="text" name="thumbnail_alt" id="thumbnail_alt" value="descr img">
+            </div>
+            <div class="form__group__items">
+            <?php foreach ($params['tags'] as $tag) : ?>
+                    <input type="checkbox" name="tags[]" id="tags">
+                    <label for="tags"><?= $tag->name ?></label>
+                <?php endforeach ?>
+            </div>
         </div>
-        <div class="form__group--items">
-            <label for="test">test</label>
-            <input type="text">
-        </div>
-    </div>
-    <div class="form__group right">
-        <div class="form__group--items">
-            <label for="test">test</label>
-            <input type="text">
-        </div>
-        <div class="form__group--items">
-            <label for="test">test</label>
-            <input type="text">
-        </div>
-        <div class="form__group--items">
-            <label for="test">test</label>
-            <input type="text">
-        </div>
-    </div>
-</form>
+        <button type="submit" class="">Enregistrer</button>
+    </form>
 
     <!-- <form action="/timeline/create" method="POST" class="form">
         <div class="form__group">
