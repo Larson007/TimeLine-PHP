@@ -17,6 +17,7 @@ body a {
 }
 
 .container {
+  margin: 0 auto;
   padding: 0 10rem;
 }
 
@@ -31,6 +32,11 @@ body a {
 ::-webkit-scrollbar-thumb {
   background: #3a3f54;
   border: 1px solid #c694e8;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
 }
 
 header nav {
@@ -63,6 +69,29 @@ header nav ul li a {
   font-size: 1.5rem;
   margin: 0 2rem;
   color: #fff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  -webkit-transition: border-bottom 0.2s ease-in-out;
+  transition: border-bottom 0.2s ease-in-out;
+}
+
+header nav ul li a:hover {
+  border-bottom: 2px solid white;
+}
+
+header nav ul li:nth-child(1) a:hover {
+  color: #ee727a;
+}
+
+header nav ul li:nth-child(2) a:hover {
+  color: #c4e791;
+}
+
+header nav ul li:nth-child(3) a:hover {
+  color: #feca72;
+}
+
+header nav ul li:nth-child(4) a:hover {
+  color: #c694e8;
 }
 
 #globe-animation {
@@ -122,16 +151,13 @@ header nav ul li a {
 }
 
 .cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1em;
 }
 
 .cards .box {
@@ -405,16 +431,25 @@ header nav ul li a {
   width: 100%;
 }
 
-.tagGroup .tagCard {
-  position: relative;
-  margin: 2rem 0;
+.tagGroup {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1em;
 }
 
-.tagGroup .tagCard .tagCard__image {
+.tagGroup .tagCard .tagCard__content {
+  position: relative;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image {
   display: block;
   width: 400px;
   height: 170px;
-  background-color: #84acfc;
+  background-color: #2a2d3c;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -428,7 +463,7 @@ header nav ul li a {
   border-radius: 0.3rem;
 }
 
-.tagGroup .tagCard .tagCard__image img {
+.tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image img {
   max-width: 100%;
   width: auto;
   height: auto;
@@ -436,26 +471,50 @@ header nav ul li a {
   transition: all 0.5s ease-in-out;
 }
 
-.tagGroup .tagCard .tagCard__image img:hover {
+.tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image img:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
 
-.tagGroup .tagCard .tagCard__content {
-  padding: 1rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.tagGroup .tagCard .tagCard__content .tagCard__content--title, .tagGroup .tagCard .tagCard__content .tagCard__content--link {
+.tagGroup .tagCard .tagCard__content .tagCard__content--title,
+.tagGroup .tagCard .tagCard__content .tagCard__content--link {
   background: #3a3a3a;
-  padding: 0.5rem;
+  padding: 1rem;
   text-align: center;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
 }
 
 .tagGroup .tagCard .tagCard__content .tagCard__content--title {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
   margin: 0;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content__link {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid white;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(52, 58, 64, 0.4);
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn:hover {
+  background-color: #343a40;
+  color: #ee727a;
 }
 /*# sourceMappingURL=app.css.map */

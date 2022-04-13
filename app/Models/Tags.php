@@ -19,7 +19,7 @@ class Tags extends Model
     public function getButton(): string
     {
         return <<<HTML
-            <a class="tagCard__content--link" href="/tags/$this->id" class="btn btn-primary"><span>Voires les Timelines</span></a>
+            <a class="tagCard__content__link--btn" href="/tags/$this->id" class="btn btn-primary"><span>Voir les Timelines</span></a>
 HTML;
     }
 }

@@ -29,6 +29,7 @@ body {
 }
 
 .container {
+    margin: 0 auto;
     padding: 0 10rem;
 }
 
@@ -47,6 +48,8 @@ body {
 //********** LAYOUT
 //********************************************/
 header {
+    width: 100%;
+    display: inline-block;
     nav {
         display: flex;
         justify-content: space-between;
@@ -65,6 +68,31 @@ header {
                     font-size: 1.5rem;
                     margin: 0 2rem;
                     color: #fff;
+                    border-bottom: 2px solid rgba(255, 255, 255, 0);
+                    transition: border-bottom 0.2s ease-in-out;
+                }
+                a:hover {
+                    border-bottom: 2px solid rgba(255, 255, 255, 1);
+                }
+            }
+            li:nth-child(1) {
+                a:hover {
+                    color: $red;
+                }
+            }
+            li:nth-child(2) {
+                a:hover {
+                    color: $green;
+                }
+            }
+            li:nth-child(3) {
+                a:hover {
+                    color: $yellow;
+                }
+            }
+            li:nth-child(4) {
+                a:hover {
+                    color: $purple;
                 }
             }
         }
@@ -117,9 +145,10 @@ header {
 //********** TIMELINE INDEX
 //********************************************/
 .cards {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1em;
     .box {
         margin: 20px 0;
         border-radius: 0.3rem;
@@ -331,46 +360,75 @@ header {
 //********** TAGS INDEX
 //********************************************/
 .tagGroup {
+    // display: flex;
+    // justify-content: space-between;
+    // flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1em;
+
     .tagCard {
-        position: relative;
-        margin: 2rem 0;
-        .tagCard__image {
-            display: block;
-            width: 400px;
-            height: 170px;
-            background-color: #84acfc;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 0.3rem;
-            img {
-                max-width: 100%;
-                width: auto;
-                height: auto;
-                transition: all 0.5s ease-in-out;
-            }
-            img:hover {
-                transform: scale(1.2);
-            }
-        }
         .tagCard__content {
-            padding: 1rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            .tagCard__content--title, .tagCard__content--link {
-                background: rgb(58, 58, 58);
-                padding: 0.5rem;
-                text-align: center;
+            position: relative;
+            .tagCardtagCard__content--image {
+                display: block;
+                width: 400px;
+                height: 170px;
+                background-color: $bg-dark;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 border-radius: 0.3rem;
+                img {
+                    max-width: 100%;
+                    width: auto;
+                    height: auto;
+                    transition: all 0.5s ease-in-out;
+                }
+                img:hover {
+                    transform: scale(1.2);
+                }
+            }
+            .tagCard__content--title,
+            .tagCard__content--link {
+                background: rgb(58, 58, 58);
+                padding: 1rem;
+                text-align: center;
+                border-radius: 0.2rem;
             }
             .tagCard__content--title {
+                position: absolute;
+                top: 0.5rem;
+                left: 0.5rem;
                 margin: 0;
             }
-            .tagCard__content--link{
+            .tagCard__content__link {
+                position: absolute;
+                bottom: 0.5rem;
+                right: 0.5rem;
 
+                .tagCard__content__link--btn {
+                    position: relative;
+                    display: inline-block;
+                    padding: 15px 30px;
+                    border: 2px solid white;
+                    text-transform: uppercase;
+                    color: white;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                    transition: all 0.3s ease-in-out;
+                    background-color: rgba(52, 58, 64, 0.4);
+                }
+                .tagCard__content__link--btn:hover {
+                    background-color: $bg-grey;
+                    color: #ee727a;
+                }
             }
         }
     }
 }
+//tagCard__content__link--btn
