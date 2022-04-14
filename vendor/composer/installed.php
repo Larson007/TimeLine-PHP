@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '27ca524bbde0f1d695dc3347af25b8a072822f33',
+        'reference' => 'ed2a92af8b602220bb1ccbeb35c56e0931cee265',
         'name' => 'mohamed/poo',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '27ca524bbde0f1d695dc3347af25b8a072822f33',
+            'reference' => 'ed2a92af8b602220bb1ccbeb35c56e0931cee265',
             'dev_requirement' => false,
         ),
         'psr/container' => array(
