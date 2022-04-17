@@ -24,15 +24,15 @@ class Timelines extends Model
         return (new DateTime($this->created_at))->format('d/m/Y');
     }
 
-    public function getDateStart(): string
-    {
-        return (new DateTime($this->date_start))->format('d/m/Y');
-    }
+    // public function getDateStart(): string
+    // {
+    //     return (new DateTime($this->date_start))->format('d/m/Y');
+    // }
 
-    public function getDateEnd(): string
-    {
-        return (new DateTime($this->date_end))->format('d/m/Y');
-    }
+    // public function getDateEnd(): string
+    // {
+    //     return (new DateTime($this->date_end))->format('d/m/Y');
+    // }
 
 
     public function getExcerpt(): string
@@ -47,5 +47,17 @@ class Timelines extends Model
 HTML;
     }
 
-    
+    public function create(array $data, ?array $relation = null)
+    {
+        parent::create($data);
+
+        $id = $this->db->getPDO()->lastInsertId();
+
+        foreach ($relation as $tagId) {
+            $stmt = $this->db->getPDO()->prepare("INSERT timeline_tag (timeline_id, tag_id) VALUES (?, ?)");
+            $stmt->execute([$id, $tagId]);
+        }
+
+        return true;
+    }
 }

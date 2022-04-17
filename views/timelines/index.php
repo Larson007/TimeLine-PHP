@@ -14,7 +14,14 @@
                         <h3><?= $timeline->title ?></h3>
                     </div>
                     <div class="box-detail">
-                        <p class="box-date"><?= $timeline->getDateStart() ?><?php if (isset($timeline->date_end)) : ?><?= ' - ' . $timeline->getDateEnd() ?></p><?php endif ?>
+                        <p class="box-date">
+                            <?php if (isset($timeline->date_start) && !empty($timeline->date_start)) : ?>
+                                <?= $timeline->date_start ?>
+                            <?php endif ?>
+                            <?php if (isset($timeline->date_end) && !empty($timeline->date_end)) : ?>
+                                <?= ' - ' . $timeline->date_end ?>
+                            <?php endif ?>
+                        </p>
                         <p><?= $timeline->getExcerpt() ?></p>
                         <div class="box-link">
                             <div class="link">

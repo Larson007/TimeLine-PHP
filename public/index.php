@@ -28,6 +28,8 @@ $router->post('/timeline/create', 'App\Controllers\TimelinesController@createTim
 //Tags
 $router->get('/tags', 'App\Controllers\TagsController@index');
 $router->get('/tags/:id', 'App\Controllers\TagsController@show');
+$router->get('/tag/create', 'App\Controllers\TagsController@create');
+$router->post('/tag/create', 'App\Controllers\TagsController@createTags');
 
 
 

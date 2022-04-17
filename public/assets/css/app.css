@@ -473,8 +473,8 @@ header nav ul li:nth-child(4) a:hover {
 }
 
 .tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image img:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .tagGroup .tagCard .tagCard__content .tagCard__content--title,
@@ -516,6 +516,6 @@ header nav ul li:nth-child(4) a:hover {
 
 .tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn:hover {
   background-color: #343a40;
-  color: #ee727a;
+  color: #feca72;
 }
 /*# sourceMappingURL=app.css.map */

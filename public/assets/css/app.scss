@@ -390,7 +390,7 @@ header {
                     transition: all 0.5s ease-in-out;
                 }
                 img:hover {
-                    transform: scale(1.2);
+                    transform: scale(1.05);
                 }
             }
             .tagCard__content--title,
@@ -427,7 +427,7 @@ header {
                 }
                 .tagCard__content__link--btn:hover {
                     background-color: $bg-grey;
-                    color: #ee727a;
+                    color: $yellow;
                 }
             }
         }

@@ -16,7 +16,6 @@
             <a href="/">
                 <img src="<?= IMAGES . 'logo.svg' ?>" alt="logo timeline">
             </a>
-            </img>
             <ul>
                 <li>
                     <a href="/">Accueil</a>
@@ -25,10 +24,13 @@
                     <a href="/timelines">Timelines</a>
                 </li>
                 <li>
-                    <a href="/timeline/create">Create</a>
+                    <a href="/tags">Catégories</a>
                 </li>
                 <li>
-                    <a href="/tags">Catégories</a>
+                    <a href="/timeline/create">Create Timeline</a>
+                </li>
+                <li>
+                    <a href="/tag/create">Create Tag</a>
                 </li>
                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
                     <li>
