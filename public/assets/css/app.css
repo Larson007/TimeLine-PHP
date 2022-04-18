@@ -47,7 +47,11 @@ header nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #2a2d3c;
+  margin: 0 auto;
   padding: 0 10rem;
 }
 
@@ -56,43 +60,72 @@ header nav img {
 }
 
 header nav ul {
+  margin: 0;
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: row;
-      -ms-flex: row;
-          flex: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+header nav ul li {
+  position: relative;
+  text-align: center;
 }
 
 header nav ul li a {
+  padding: 1em;
+  min-width: 10rem;
+  display: inline-block;
   text-decoration: none;
-  font-size: 1.5rem;
-  margin: 0 2rem;
-  color: #fff;
-  border-bottom: 2px solid rgba(255, 255, 255, 0);
-  -webkit-transition: border-bottom 0.2s ease-in-out;
-  transition: border-bottom 0.2s ease-in-out;
+  border-bottom: 4px solid transparent;
 }
 
-header nav ul li a:hover {
-  border-bottom: 2px solid white;
+header nav ul li ul {
+  display: none;
+  background-color: #2a2d3c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 header nav ul li:nth-child(1) a:hover {
+  border-bottom: 4px solid #ee727a;
   color: #ee727a;
 }
 
 header nav ul li:nth-child(2) a:hover {
+  border-bottom: 4px solid #c4e791;
   color: #c4e791;
 }
 
 header nav ul li:nth-child(3) a:hover {
+  border-bottom: 4px solid #feca72;
   color: #feca72;
 }
 
-header nav ul li:nth-child(4) a:hover {
-  color: #c694e8;
+header nav ul li:hover ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2a2d3c;
+  border-radius: 0 0 0.2rem 0.2rem;
 }
 
 #globe-animation {

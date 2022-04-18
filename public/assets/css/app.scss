@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
 
 $red: #ee727a;
 $green: #c4e791;
@@ -49,52 +49,72 @@ body {
 
 //********** LAYOUT
 //********************************************/
+
 header {
     width: 100%;
     display: inline-block;
     nav {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         background-color: $bg-dark;
+        margin: 0 auto;
         padding: 0 10rem;
         img {
             width: 12rem;
         }
         ul {
+            margin: 0;
             list-style: none;
             display: flex;
-            flex: row;
+            flex-flow: row wrap;
+            justify-content: center;
+            position: relative;
             li {
+                position: relative;
+                text-align: center;
                 a {
+                    padding: 1em;
+                    min-width: 10rem;
+                    display: inline-block;
                     text-decoration: none;
-                    font-size: 1.5rem;
-                    margin: 0 2rem;
-                    color: #fff;
-                    border-bottom: 2px solid rgba(255, 255, 255, 0);
-                    transition: border-bottom 0.2s ease-in-out;
+                    border-bottom: 4px solid transparent;
                 }
-                a:hover {
-                    border-bottom: 2px solid rgba(255, 255, 255, 1);
+
+                ul {
+                    display: none;
+                    background-color:$bg-dark;
+                    transition: all 0.5s;
                 }
             }
             li:nth-child(1) {
                 a:hover {
+                    border-bottom: 4px solid $red;
                     color: $red;
                 }
             }
             li:nth-child(2) {
                 a:hover {
+                    border-bottom: 4px solid $green;
                     color: $green;
                 }
             }
             li:nth-child(3) {
                 a:hover {
+                    border-bottom: 4px solid $yellow;
                     color: $yellow;
                 }
             }
-            li:nth-child(4) {
-                a:hover {
-                    color: $purple;
+            li:hover{
+                ul {
+                    display: flex;
+                    flex-flow: column wrap;
+                    justify-content: center;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color:$bg-dark;
+                    border-radius: 0 0 0.2rem 0.2rem;
                 }
             }
         }

@@ -13,24 +13,28 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="/">
-                <img src="<?= IMAGES . 'logo.svg' ?>" alt="logo timeline">
+            <a class="navbar__logo" href="/">
+                <img class="navbar__logo--image" src="<?= IMAGES . 'logo.svg' ?>" alt="logo timeline">
             </a>
-            <ul>
-                <li>
+            <ul class="navbar__menu">
+                <li class="navbar__menu--item">
                     <a href="/">Accueil</a>
                 </li>
-                <li>
+                <li class="navbar__menu--item">
                     <a href="/timelines">Timelines</a>
+                    <ul class="navbar__menu__dropdown">
+                        <li class="nav__menu__dropdown--item">
+                            <a href="/timeline/create">Create Timeline</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
+                <li class="navbar__menu--item">
                     <a href="/tags">Catégories</a>
-                </li>
-                <li>
-                    <a href="/timeline/create">Create Timeline</a>
-                </li>
-                <li>
-                    <a href="/tag/create">Create Tag</a>
+                    <ul class="navbar__menu__dropdown">
+                        <li class="nav__menu__dropdown--item">
+                            <a href="/tag/create">Create Tag</a>
+                        </li>
+                    </ul>
                 </li>
                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
                     <li>
@@ -54,7 +58,7 @@
     <script src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'three.min.js' ?>"></script>
     <script src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'vanta.globe.min.js' ?>"></script>
     <script type="module" src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts.js' ?>"></script>
-    
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

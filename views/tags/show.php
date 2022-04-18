@@ -21,7 +21,7 @@
                                 <?= $timeline->date_start ?>
                             <?php endif ?>
                             <?php if (isset($timeline->date_end) && !empty($timeline->date_end)) : ?>
-                                <?= ' - ' . $timeline->date_end ?>
+                                <?= '  -  ' . $timeline->date_end ?>
                             <?php endif ?>
                         </p>
                         <p><?= $timeline->getExcerpt() ?></p>
