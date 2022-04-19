@@ -39,11 +39,11 @@ class TimelinesController extends Controller
 
     public function createTimeline()
     {
+        $_POST['thumbnail_alt'] = "Vignette de la timeline ". $_POST['title'];
+        $_POST['user_id'] = 1;
 
         $timeline = new Timelines($this->getDB());
-
         $tags = array_pop($_POST);
-
         $result = $timeline->create($_POST, $tags);
 
         if ($result) {
