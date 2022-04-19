@@ -10,9 +10,9 @@
                         <div class="box-image">
 
                         <?php if(isset($timeline->thumbnail) && !empty($timeline->thumbnail)) : ?>
-                            <img src="<?= IMAGES . $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>">
+                            <img src="<?= IMAGES ."timelines/". $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>">
                             <?php else : ?>
-                                <img src="<?= IMAGES . 'placeholder.jpg' ?>" alt="Pas de visuel disponible">
+                                <img src="<?= IMAGES ."timelines/". 'placeholder.jpg' ?>" alt="Pas de visuel disponible">
                         <?php endif ?>
                             <span class="box-created">Ajouté le <?= $timeline->getCreatedAt() ?></span>
                         </div>

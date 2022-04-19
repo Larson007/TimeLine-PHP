@@ -10,6 +10,7 @@ return array(
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Router\\' => array($baseDir . '/routes'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Gumlet\\' => array($vendorDir . '/gumlet/php-image-resize/lib'),
     'Faker\\' => array($vendorDir . '/fakerphp/faker/src/Faker'),
     'Database\\' => array($baseDir . '/database'),
     'App\\' => array($baseDir . '/app'),

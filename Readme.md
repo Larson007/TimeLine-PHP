@@ -1,1 +1,1 @@
-TODO position link tag index
+TODO conflit nom fichier images

@@ -15,6 +15,7 @@
     ],
     "require": {
         "symfony/var-dumper": "^6.0",
-        "fakerphp/faker": "^1.19"
+        "fakerphp/faker": "^1.19",
+        "gumlet/php-image-resize": "^2.0"
     }
 }

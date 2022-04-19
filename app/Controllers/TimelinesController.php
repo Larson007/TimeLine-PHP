@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use App\Models\Tags;
+use Gumlet\ImageResize;
 use App\Models\Timelines;
 
 class TimelinesController extends Controller
@@ -13,13 +14,13 @@ class TimelinesController extends Controller
         $timeline = new Timelines($this->getDB());
         $timelines = $timeline->all();
 
-        
+
         return $this->view('timelines.index', compact('timelines'));
     }
 
 
     public function show(int $id)
-    {   
+    {
         $timeline = new Timelines($this->getDB());
         $timeline = $timeline->findById($id);
 
@@ -39,19 +40,25 @@ class TimelinesController extends Controller
 
     public function createTimeline()
     {
-        $_POST['thumbnail'] = $_FILES['thumbnail_file']['name'];
-        $_POST['thumbnail_alt'] = "Vignette de la timeline ". $_POST['title'];
+        $imgName = trim($_POST['title']);
+        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        $imgFile = $imgName . $imgExtention;
+
+        $_POST['thumbnail'] = $imgFile;
+        $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
         $_POST['user_id'] = 1;
 
-        // var_dump($_POST);
-        // var_dump($_FILES);
-        // die();
+
 
         $timeline = new Timelines($this->getDB());
         $tags = array_pop($_POST);
         $result = $timeline->create($_POST, $tags);
 
         if ($result) {
+            // Image Resize and move tu upload folder 
+            $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+            $image->resizeToWidth(400);
+            $image->save("./assets/images/timelines/" . $imgFile);
             return header('Location: /timelines');
         }
     }

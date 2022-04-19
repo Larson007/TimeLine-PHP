@@ -10,7 +10,7 @@
                 <div class="tagCard__content">
                     <div class="tagCardtagCard__content--image">
                         <?php if (isset($tag->thumbnail) && $tag->thumbnail != null) : ?>
-                            <img src="<?= IMAGES . $tag->thumbnail ?>" alt="">
+                            <img src="<?= IMAGES ."tags/". $tag->thumbnail ?>" alt="">
                         <?php endif ?>
                     </div>
                     <h3 class="tagCard__content--title"><?= $tag->name ?></h3>

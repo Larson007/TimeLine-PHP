@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Tags;
-use App\Controllers\Controller;
+use Gumlet\ImageResize;
 use App\Models\Timelines;
+use App\Controllers\Controller;
 
 class TagsController extends Controller
 {
@@ -28,21 +29,30 @@ class TagsController extends Controller
         return $this->view('tags.show', compact('tag', 'timelines'));
     }
 
-    
+
     public function create()
     {
         return $this->view('tags.create');
     }
 
     public function createTags()
-    {   $_POST['thumbnail'] = $_FILES['thumbnail_file']['name'];
-        // var_dump($_POST);
-        // var_dump($_FILES);
-        // die();
+    {
+        $imgName = trim($_POST['name']);
+        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        $imgFile = $imgName.$imgExtention;
+        
+        
+        $_POST['thumbnail'] = $imgFile;
+
+
         $tags = new Tags($this->getDB());
         $result = $tags->create($_POST);
 
         if ($result) {
+        // Image Resize and move tu upload folder 
+        $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+        $image->resizeToWidth(400);
+        $image->save("./assets/images/tags/" . $imgFile);
             return header('Location: /tags');
         } else {
             echo "erreur";
