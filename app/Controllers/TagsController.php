@@ -35,18 +35,16 @@ class TagsController extends Controller
     }
 
     public function createTags()
-    {
-
+    {   $_POST['thumbnail'] = $_FILES['thumbnail_file']['name'];
+        // var_dump($_POST);
+        // var_dump($_FILES);
+        // die();
         $tags = new Tags($this->getDB());
-
-
         $result = $tags->create($_POST);
 
         if ($result) {
             return header('Location: /tags');
         } else {
-            // var_dump($result);
-            // die();
             echo "erreur";
         }
     }

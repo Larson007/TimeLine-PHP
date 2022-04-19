@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h1>Index du TimelineController</h1>
+    <h1>Toutes les Timelines</h1>
     <div class="cards">
 
         <?php foreach ($params['timelines'] as $timeline) : ?>
@@ -8,7 +8,12 @@
                 <div class="box-card">
                     <div class="box-content">
                         <div class="box-image">
+
+                        <?php if(isset($timeline->thumbnail) && !empty($timeline->thumbnail)) : ?>
                             <img src="<?= IMAGES . $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>">
+                            <?php else : ?>
+                                <img src="<?= IMAGES . 'placeholder.jpg' ?>" alt="Pas de visuel disponible">
+                        <?php endif ?>
                             <span class="box-created">Ajouté le <?= $timeline->getCreatedAt() ?></span>
                         </div>
                         <h3><?= $timeline->title ?></h3>

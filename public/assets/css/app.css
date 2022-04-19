@@ -513,6 +513,10 @@ header nav ul li:hover ul {
           justify-content: space-between;
 }
 
+.form .form__group--right .form__group__image .form__group__image--file p {
+  margin: 0 0 2rem 0;
+}
+
 .form .form__group--right .form__group__image .form__group__image--file input[type="file"] {
   display: none;
 }
@@ -613,7 +617,7 @@ header nav ul li:hover ul {
   height: 1.3rem;
   border: 1px solid;
   background-color: #2a2d3c;
-  accent-color: #84acfc;
+  accent-color: #c4e791;
 }
 
 .form .form__group--right .form__group__tags .form__group__tags--checkbox .form__group__tags--checkbox--item .check:hover {
@@ -621,7 +625,7 @@ header nav ul li:hover ul {
 }
 
 .form .form__group--right .form__group__tags .form__group__tags--checkbox .form__group__tags--checkbox--item .check:focus {
-  background-color: #84acfc;
+  background-color: #c4e791;
 }
 
 .form .form__group--right .form__group__tags .form__group__tags--checkbox .form__group__tags--checkbox--item .check[type="checkbox"]:checked {
@@ -630,7 +634,7 @@ header nav ul li:hover ul {
 }
 
 .form .form__group--right .form__group__tags .form__group__tags--checkbox .form__group__tags--checkbox--item .check[type="checkbox"]:checked + label {
-  border-bottom: 2px solid #84acfc;
+  border-bottom: 2px solid #c4e791;
 }
 
 .form button {
@@ -647,19 +651,23 @@ header nav ul li:hover ul {
   text-shadow: 2px 2px 2px #000000;
 }
 
-.form button:focus {
+.form button:hover {
   -webkit-box-shadow: inset 0px 0px 10px 1px #2a2d3c;
           box-shadow: inset 0px 0px 10px 1px #2a2d3c;
+}
+
+.form button:focus {
+  background-color: #c55a61;
 }
 
 .tagGroup {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 1em;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  gap: 3em;
 }
 
 .tagGroup .tagCard .tagCard__content {
@@ -715,11 +723,10 @@ header nav ul li:hover ul {
 .tagGroup .tagCard .tagCard__content .tagCard__content__link {
   position: absolute;
   bottom: 0.5rem;
-  right: 0.5rem;
+  left: 0.5rem;
 }
 
 .tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn {
-  position: relative;
   display: inline-block;
   padding: 15px 30px;
   border: 2px solid white;
@@ -737,5 +744,54 @@ header nav ul li:hover ul {
 .tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn:hover {
   background-color: #343a40;
   color: #feca72;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.192);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.form .form__tags--left {
+  width: 50%;
+  margin: 2rem;
+}
+
+.form .form__tags--left .form__tags__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 2rem;
+  width: 70%;
+}
+
+.form .form__tags--left .form__tags__color {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form .form__tags--left .form__tags__color input {
+  width: 6rem;
+  height: 3rem;
 }
 /*# sourceMappingURL=app.css.map */

@@ -6,7 +6,7 @@ $faker = Faker\Factory::create();
 <div class="container">
     <h1>Creation d'une TimeLine</h1>
 
-    <form action="/timeline/create" method="POST" class="form">
+    <form action="/timeline/create" method="POST" class="form"  enctype="multipart/form-data">
 
         <div class="form__group--left">
             <div class="form__group__items">
@@ -15,11 +15,11 @@ $faker = Faker\Factory::create();
             </div>
             <div class="form__group__date">
                 <div class="form__group__date__items">
-                    <label for="date_start">date-start</label>
+                    <label for="date_start">Date de début</label>
                     <input class="form__group__items--input" type="text" name="date_start" id="date_start">
                 </div>
                 <div class="form__group__date__items">
-                    <label for="date_end">date-end</label>
+                    <label for="date_end">Date de fin (optionnel)</label>
                     <input class="form__group__items--input" type="text" name="date_end" id="date_end">
                 </div>
             </div>
@@ -32,13 +32,14 @@ $faker = Faker\Factory::create();
             <div class="form__group__image">
                 <div class="form__group__image--file">
                     <p>Thumbnail</p>
-                    <input class="form__group__items--input" type="file" name="thumbnail" id="thumbnail" value="ww2.jpg">
-                    <label for="thumbnail"><i class="fa-solid fa-upload"></i>Choisir un fichier</label>
+                    <input class="form__group__items--input" type="file" name="thumbnail_file" id="thumbnail_file" value="ww2.jpg">
+                    <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier</label>
                 </div>
                 <div class="form__group__image--preview">
                     <img id="preview" src="#" alt="aperçu de l'image uploader" />
                 </div>
             </div>
+            <input type="hidden" name="thumbnail" id="thumbnail">
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt">
             <input type="hidden" name="user_id" id="user_id">
             <div class="form__group__tags">
