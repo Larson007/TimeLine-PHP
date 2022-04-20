@@ -38,11 +38,11 @@ class TagsController extends Controller
 
     public function createTags()
     {
-        $imgName = trim(str_replace(" ", "",$_POST['name'],$test));
+        $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName."_".$imgDate.$imgExtention;
-        
+        $imgFile = $imgName . "_" . $imgDate . $imgExtention;
+
         $_POST['thumbnail'] = $imgFile;
 
 
@@ -50,10 +50,11 @@ class TagsController extends Controller
         $result = $tags->create($_POST);
 
         if ($result) {
-        // Image Resize and move tu upload folder 
-        $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
-        $image->resizeToWidth(400);
-        $image->save("./assets/images/tags/" . $imgFile);
+            // Image Resize and move tu upload folder 
+            $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+            $image->resizeToWidth(400);
+            $image->save("./assets/images/tags/" . $imgFile);
+            
             return header('Location: /tags');
         } else {
             echo "erreur";

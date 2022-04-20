@@ -31,6 +31,8 @@
                         <div class="box-link">
                             <div class="link">
                                 <?= $timeline->getButton() ?>
+                                <?= $timeline->addEvents() ?>
+                                
                             </div>
                             <div class="badges">
                             <?php foreach ($timeline->getTags() as $tags) : ?>

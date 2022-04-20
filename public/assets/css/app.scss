@@ -351,7 +351,7 @@ header {
 //********** TIMELINE CREATE
 //********************************************/
 
-// Fil d'ariane
+//TODO Fil d'ariane
 .ariane {
     ul {
         display: flex;
@@ -390,12 +390,14 @@ header {
             -webkit-transform: rotate(65deg);
             -ms-transform: rotate(65deg);
             transform: rotate(45deg);
+            border-top-right-radius: 1px;
         }
         li:after {
             bottom: 9px;
             -webkit-transform: rotate(-65deg);
             -ms-transform: rotate(-65deg);
             transform: rotate(-45deg);
+            border-bottom-right-radius: 1px;
         }
         .test,
         .test:before,

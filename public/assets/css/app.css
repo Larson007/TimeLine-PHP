@@ -475,12 +475,14 @@ header nav ul li:hover ul {
   top: 8px;
   -webkit-transform: rotate(65deg);
   transform: rotate(45deg);
+  border-top-right-radius: 1px;
 }
 
 .ariane ul li:after {
   bottom: 9px;
   -webkit-transform: rotate(-65deg);
   transform: rotate(-45deg);
+  border-bottom-right-radius: 1px;
 }
 
 .ariane ul .test,

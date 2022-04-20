@@ -15,7 +15,6 @@ class TimelinesController extends Controller
         $timeline = new Timelines($this->getDB());
         $timelines = $timeline->all();
 
-
         return $this->view('timelines.index', compact('timelines'));
     }
 
@@ -24,8 +23,6 @@ class TimelinesController extends Controller
     {
         $timeline = new Timelines($this->getDB());
         $timeline = $timeline->findById($id);
-
-
 
         return $this->view('timelines.show', compact('timeline'));
     }
@@ -61,7 +58,7 @@ class TimelinesController extends Controller
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/timelines/" . $imgFile);
-            return header('Location: /timelines');
+            return header('Location: /timelines/');
         }
     }
     // public function tag(int $id)

@@ -33,7 +33,7 @@ class UserController extends Controller
         if (password_verify($_POST['password'], $user->password)) {
 
             $_SESSION['auth'] = (int) $user->admin;
-            return header('Location: /admin/posts?success=true');
+            return header('Location: /?success=true');
         } else {
 
             return header('Location: /login');
