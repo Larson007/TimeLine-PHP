@@ -10,7 +10,7 @@
                 <div class="box-card">
                     <div class="box-content">
                         <div class="box-image">
-                            <img src="<?= IMAGES . $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>">
+                            <img src="<?= IMAGES ."timelines/". $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>">
                             <span class="box-created">Ajouté le <?= $timeline->getCreatedAt() ?></span>
                         </div>
                         <h3><?= $timeline->title ?></h3>
