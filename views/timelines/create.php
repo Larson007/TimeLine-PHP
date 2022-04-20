@@ -6,7 +6,16 @@ $faker = Faker\Factory::create();
 <div class="container">
     <h1>Creation d'une TimeLine</h1>
 
-    <form action="/timeline/create" method="POST" class="form"  enctype="multipart/form-data">
+    <nav aria-label="Breadcrumb" class="ariane">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li class="test"><a href="">Category</a></li>
+            <li><a href="">Sub-Category</a></li>
+            <li><span aria-current="page">Product</span></li>
+        </ul>
+    </nav>
+
+    <form action="/timeline/create" method="POST" class="form" enctype="multipart/form-data">
 
         <div class="form__group--left">
             <div class="form__group__items">

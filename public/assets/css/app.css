@@ -430,6 +430,66 @@ header nav ul li:hover ul {
   transition: transform ease-in-out 0.5s, -webkit-transform ease-in-out 0.5s;
 }
 
+.ariane ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.ariane ul li {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 50px;
+  padding-left: 1rem;
+  background: #ee727a;
+  color: #3a3f54;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #ee727a;
+}
+
+.ariane ul li a {
+  color: #3a3f54;
+}
+
+.ariane ul li:before,
+.ariane ul li:after {
+  content: "";
+  position: absolute;
+  right: -26px;
+  width: 32px;
+  height: 15px;
+  background: #ee727a;
+  overflow: visible;
+  z-index: 999;
+  border: 2px solid #ee727a;
+}
+
+.ariane ul li:before {
+  top: 8px;
+  -webkit-transform: rotate(65deg);
+  transform: rotate(45deg);
+}
+
+.ariane ul li:after {
+  bottom: 9px;
+  -webkit-transform: rotate(-65deg);
+  transform: rotate(-45deg);
+}
+
+.ariane ul .test,
+.ariane ul .test:before,
+.ariane ul .test:after {
+  background-color: #84acfc;
+  border-color: #84acfc;
+}
+
 .form {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -350,6 +350,63 @@ header {
 
 //********** TIMELINE CREATE
 //********************************************/
+
+// Fil d'ariane
+.ariane {
+    ul {
+        display: flex;
+        flex-direction: row;
+        li {
+            position: relative;
+            display: block;
+            width: 150px;
+            height: 50px;
+            padding-left: 1rem;
+            background: $red;
+            color: $bg;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid $red;
+            a {
+                color: $bg;
+            }
+        }
+        li:before,
+        li:after {
+            content: "";
+            position: absolute;
+            right: -26px;
+            width: 32px;
+            height: 15px;
+            // border-radius: 5px;
+            background: $red;
+            overflow: visible;
+            z-index: 999;
+            border: 2px solid $red;
+        }
+        li:before {
+            top: 8px;
+            -webkit-transform: rotate(65deg);
+            -ms-transform: rotate(65deg);
+            transform: rotate(45deg);
+        }
+        li:after {
+            bottom: 9px;
+            -webkit-transform: rotate(-65deg);
+            -ms-transform: rotate(-65deg);
+            transform: rotate(-45deg);
+        }
+        .test,
+        .test:before,
+        .test:after {
+            background-color: $blue;
+            border-color: $blue;
+        }
+    }
+}
+
+// Formulaire
 .form {
     display: flex;
     justify-content: space-between;
@@ -399,7 +456,7 @@ header {
             padding-bottom: 2rem;
             justify-content: space-between;
             .form__group__image--file {
-                p{
+                p {
                     margin: 0 0 2rem 0;
                 }
                 input[type="file"] {
@@ -506,11 +563,10 @@ header {
         box-shadow: 0px 0px 10px -1px $bg-dark;
         text-shadow: 2px 2px 2px #000000;
     }
-    button:hover{
-        
+    button:hover {
         box-shadow: inset 0px 0px 10px 1px $bg-dark;
     }
-    button:focus{
+    button:focus {
         background-color: #c55a61;
     }
 }
@@ -609,10 +665,10 @@ header {
             margin-bottom: 2rem;
             width: 70%;
         }
-        .form__tags__color{
+        .form__tags__color {
             display: flex;
             flex-direction: column;
-            input{
+            input {
                 width: 6rem;
                 height: 3rem;
             }
