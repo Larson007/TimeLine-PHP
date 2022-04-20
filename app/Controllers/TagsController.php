@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use DateTime;
 use App\Models\Tags;
 use Gumlet\ImageResize;
 use App\Models\Timelines;
@@ -37,10 +38,10 @@ class TagsController extends Controller
 
     public function createTags()
     {
-        $imgName = trim($_POST['name']);
+        $imgName = trim(str_replace(" ", "",$_POST['name'],$test));
+        $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName.$imgExtention;
-        
+        $imgFile = $imgName."_".$imgDate.$imgExtention;
         
         $_POST['thumbnail'] = $imgFile;
 
