@@ -46,6 +46,10 @@
                     <li>
                         <a href="/logout">Se deconnecter</a>
                     </li>
+                <?php else : ?>
+                    <li>
+                        <a href="/login">Connexion</a>
+                    </li>
                 <?php endif ?>
             </ul>
         </nav>

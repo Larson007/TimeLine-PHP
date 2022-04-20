@@ -19,10 +19,10 @@ $router = new Router($_GET['url']);
 //Homepage
 $router->get('/', 'App\Controllers\HomepageController@index');
 
-// Connexion
-// $router->get('/login', 'App\Controllers\UserController@login');
-// $router->post('/login', 'App\Controllers\UserController@loginPost');
-// $router->get('/logout', 'App\Controllers\UserController@logout');
+//Connexion
+$router->get('/login', 'App\Controllers\UserController@login');
+$router->post('/login', 'App\Controllers\UserController@loginPost');
+$router->get('/logout', 'App\Controllers\UserController@logout');
 
 //Timelines
 $router->get('/timelines', 'App\Controllers\TimelinesController@index');
