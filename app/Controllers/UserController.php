@@ -30,9 +30,17 @@ class UserController extends Controller
 
         $user = (new User($this->getDB()))->getByUsername($_POST['username']);
 
+
+
         if (password_verify($_POST['password'], $user->password)) {
 
+            $_SESSION['username'] = (string) $user->username;
+            $_SESSION['email'] = (string) $user->email;
+            $_SESSION['password'] = (string) $user->password;
             $_SESSION['auth'] = (int) $user->admin;
+            if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
+                return header('Location: /admin/dashboard?success=true');
+            }
             return header('Location: /?success=true');
         } else {
 

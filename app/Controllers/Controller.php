@@ -23,13 +23,15 @@ abstract class Controller {
         $path = str_replace('.', DIRECTORY_SEPARATOR, $path);
         require VIEWS . $path . '.php';
         $content = ob_get_clean();
-        $controller = explode('\\', get_class($this))[2];
-        if($controller === 'AdminController' ){
-            require VIEWS . 'admin/dashboard.php';
-            
-        } else {
-            require VIEWS . 'layout.php';
-        }
+
+        //$controller = explode('\\', get_class($this))[2];
+        // if($controller === 'AdminController' ){
+        //     require VIEWS . 'admin/dashboard.php';
+        // } else {
+        //     require VIEWS . 'layout.php';
+        // }
+
+        require VIEWS . 'layout.php';
     }
 
     protected function getDB()

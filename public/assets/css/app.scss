@@ -73,6 +73,7 @@ header {
             li {
                 position: relative;
                 text-align: center;
+                overflow: visible;
                 a {
                     padding: 1em;
                     min-width: 10rem;
@@ -85,6 +86,7 @@ header {
                     display: none;
                     background-color: $bg-dark;
                     transition: all 0.5s;
+                    z-index: 999;
                 }
             }
             li:nth-child(1) {
@@ -675,5 +677,28 @@ header {
                 height: 3rem;
             }
         }
+    }
+}
+
+
+//********** Dashboard
+//********************************************/
+
+.table {
+
+    width: 100%;
+    th{
+        padding: 1rem;
+    }
+    tr{
+        background-color: rgba(255, 255, 255, 0.192);
+        td{
+            text-align: center;
+            padding: 1rem;
+        }
+    }
+    .table--action{
+        display: flex;
+        justify-content: center;
     }
 }

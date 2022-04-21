@@ -78,6 +78,7 @@ header nav ul {
 header nav ul li {
   position: relative;
   text-align: center;
+  overflow: visible;
 }
 
 header nav ul li a {
@@ -93,6 +94,7 @@ header nav ul li ul {
   background-color: #2a2d3c;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  z-index: 999;
 }
 
 header nav ul li:nth-child(1) a:hover {
@@ -855,5 +857,31 @@ header nav ul li:hover ul {
 .form .form__tags--left .form__tags__color input {
   width: 6rem;
   height: 3rem;
+}
+
+.table {
+  width: 100%;
+}
+
+.table th {
+  padding: 1rem;
+}
+
+.table tr {
+  background-color: rgba(255, 255, 255, 0.192);
+}
+
+.table tr td {
+  text-align: center;
+  padding: 1rem;
+}
+
+.table .table--action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=app.css.map */

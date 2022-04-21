@@ -37,16 +37,21 @@
                         </li>
                     </ul>
                 </li>
-                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
-                    <li>
-                        <a href="#">Admin</a>
-                    </li>
-                <?php endif ?>
                 <?php if (isset($_SESSION['auth'])) : ?>
-                    <li>
-                        <a href="/logout">Se deconnecter</a>
+                    <li class="navbar__menu--item">
+                        <a href=""><?= $_SESSION['username'] ?></a>
+                        <ul class="navbar__menu__dropdown">
+                            <?php if ($_SESSION['auth'] === 1) : ?>
+                                <li>
+                                    <a href="/admin/dashboard">Dashboard</a>
+                                </li>
+                            <?php endif ?>
+                            <li><a href="/logout">Se deconnecter</a></li>
+                        </ul>
                     </li>
-                <?php else : ?>
+
+                <?php endif ?>
+                <?php if (!isset($_SESSION['auth']) && empty($_SESSION['auth'])) :  ?>
                     <li>
                         <a href="/login">Connexion</a>
                     </li>
@@ -55,7 +60,9 @@
         </nav>
     </header>
     <main>
-
+        <?php if (isset($_GET['success'])) : ?>
+            <p>Bienvenu <?= $_SESSION['username'] ?></p>
+        <?php endif ?>
         <div>
             <?= $content ?>
         </div>
