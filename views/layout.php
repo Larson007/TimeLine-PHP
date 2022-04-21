@@ -45,6 +45,12 @@
                                 <li>
                                     <a href="/admin/dashboard">Dashboard</a>
                                 </li>
+                                <li>
+                                    <a href="/admin/timelines">timelines</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/tags">catégories</a>
+                                </li>
                             <?php endif ?>
                             <li><a href="/logout">Se deconnecter</a></li>
                         </ul>
@@ -54,6 +60,9 @@
                 <?php if (!isset($_SESSION['auth']) && empty($_SESSION['auth'])) :  ?>
                     <li>
                         <a href="/login">Connexion</a>
+                    </li>
+                    <li>
+                        <a href="/register">Inscription</a>
                     </li>
                 <?php endif ?>
             </ul>

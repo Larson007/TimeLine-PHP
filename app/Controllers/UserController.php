@@ -48,6 +48,16 @@ class UserController extends Controller
         }
     }
 
+    public function register()
+    {
+        return $this->view('auth.register');
+    }
+
+    public function registerPost()
+    {
+        return header('Location: /?success=true');
+    }
+
     public function logout()
     {
 

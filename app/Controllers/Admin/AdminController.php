@@ -18,6 +18,24 @@ class AdminController extends Controller {
 
         return $this->view('admin.dashboard', compact('timelines', 'tags'));
     }
+
+    public function timelines()
+    {
+        $this->isAdmin();
+
+        $timelines = (new Timelines($this->getDB()))->all();
+
+        return $this->view('admin.timelines', compact('timelines'));
+    }
+
+    public function tags()
+    {
+        $this->isAdmin();
+
+        $tags = (new Tags($this->getDB()))->all();
+
+        return $this->view('admin.tags', compact('tags'));
+    }
     
     public function createTimeline()
     {
@@ -63,7 +81,7 @@ class AdminController extends Controller {
         $result = $timeline->destroy($id);
 
         if ($result) {
-            return header('Location: /admin/dashboard');
+            return header('Location: /admin/timelines');
         }
     }
 
@@ -107,7 +125,7 @@ class AdminController extends Controller {
         $result = $tags->destroy($id);
 
         if ($result) {
-            return header('Location: /admin/dashboard');
+            return header('Location: /admin/tags');
         }
     }
 }

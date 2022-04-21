@@ -22,6 +22,8 @@ $router->get('/', 'App\Controllers\HomepageController@index');
 //Connexion
 $router->get('/login', 'App\Controllers\UserController@login');
 $router->post('/login', 'App\Controllers\UserController@loginPost');
+$router->get('/register', 'App\Controllers\UserController@register');
+$router->post('/register', 'App\Controllers\UserController@registerPost');
 $router->get('/logout', 'App\Controllers\UserController@logout');
 
 // //Timelines
@@ -55,6 +57,8 @@ $router->get('/account', 'App\Controllers\AccountController@index');
 
 //Admin routes
 $router->get('/admin/dashboard', 'App\Controllers\Admin\AdminController@index');
+$router->get('/admin/timelines', 'App\Controllers\Admin\AdminController@timelines');
+$router->get('/admin/tags', 'App\Controllers\Admin\AdminController@tags');
 
 $router->get('/timeline/create', 'App\Controllers\Admin\AdminController@createTimeline');
 $router->post('/timeline/create', 'App\Controllers\Admin\AdminController@postTimeline');
