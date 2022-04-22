@@ -1,3 +1,9 @@
+<?php if (isset($_GET['success'])) : ?>
+    <div class="container">
+        <p>Bienvenu <?= $_SESSION['username'] ?></p>
+    </div>
+<?php endif ?>
+
 <div id="globe-animation">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit enim molestiae culpa, ipsum repellendus recusandae? Obcaecati soluta consectetur inventore ullam, nulla provident facilis ducimus aliquid natus ut, quidem veritatis, minus corrupti ipsa quos perspiciatis maiores!</p>
 </div>

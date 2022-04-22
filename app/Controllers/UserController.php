@@ -55,7 +55,18 @@ class UserController extends Controller
 
     public function registerPost()
     {
-        return header('Location: /?success=true');
+        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+        $user = new User($this->getDB());
+        $result = $user->create($_POST);
+
+        if ($result) {
+            return header('Location: /login');
+        } else {
+            return header('Location: /register');
+        }
+
+
     }
 
     public function logout()
