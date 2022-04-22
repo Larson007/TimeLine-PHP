@@ -2,7 +2,7 @@
 
     <h1>Administration des Catégories</h1>
 
-    <a href="/tag/create" class="btn btn-success my-3">Créer une nouvelle catégories</a>
+    <a class="btn btn-create" href="/tag/create">Créer une nouvelle catégories</a>
 
     <table class="table">
         <thead>
@@ -19,12 +19,16 @@
                 <tr>
                     <th><?= $tag->id ?></th>
                     <td><?= $tag->name ?></td>
-                    <td><?= $tag->color ?></td>
-                    <td><?= $tag->thumbnail ?></td>
-                    <td class="table--action">
-                        <a href="/admin/posts/edit/<?= $tag->id ?>" class="">Modifier</a>
+                    <td class="tag__color">
+                        <div class="tag__color--color" style="background-color:<?= $tag->color ?>"><p><?= $tag->color ?></p></div>
+                    </td>
+                    <td class="dashboard--images"><img src="<?= IMAGES . "tags/" . $tag->thumbnail ?>" alt=""></td>
+                    <td>
+                        <div class="table--action">
+                        <a href="/tags/edit/<?= $tag->id ?>" class="btn btn-edit">Modifier</a>
                         <form action="/tag/delete/<?= $tag->id ?>" method="POST" class="">
-                            <button type="submit" class="">Supprimer</button>
+                            <button type="submit" class="btn btn-delete">Supprimer</button>
+                            </div>
                         </form>
                     </td>
                 </tr>

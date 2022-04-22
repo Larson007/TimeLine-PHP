@@ -24,6 +24,16 @@ class Timelines extends Model
         return (new DateTime($this->created_at))->format('d/m/Y');
     }
 
+    public function getCreator(): string
+    {
+
+        return $this->query(
+            "SELECT username FROM users 
+            INNER JOIN timelines 
+            WHERE users.id = ?",
+            [$this->user_id]);
+    }
+
     // public function getDateStart(): string
     // {
     //     return (new DateTime($this->date_start))->format('d/m/Y');
@@ -51,7 +61,7 @@ HTML;
     public function addEvents(): string
     {
         return <<<HTML
-            <a class="style1" href="/events/create/$this->id" class="btn btn-primary"><span>Add Events</span></a>
+            <a href="/events/create/$this->id" class="btn btn-add"><span>Add Events</span></a>
 HTML;
     }
 

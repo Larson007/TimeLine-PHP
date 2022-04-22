@@ -46,6 +46,7 @@ $router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
 $router->get('/tags', 'App\Controllers\TagsController@index');
 $router->get('/tags/:id', 'App\Controllers\TagsController@show');
 
+
 //Events
 $router->get('/events/create/:id', 'App\Controllers\EventsController@create');
 $router->post('/events/create/', 'App\Controllers\EventsController@createEvents');
@@ -60,13 +61,19 @@ $router->get('/admin/dashboard', 'App\Controllers\Admin\AdminController@index');
 $router->get('/admin/timelines', 'App\Controllers\Admin\AdminController@timelines');
 $router->get('/admin/tags', 'App\Controllers\Admin\AdminController@tags');
 
+// Admin Timelines
 $router->get('/timeline/create', 'App\Controllers\Admin\AdminController@createTimeline');
 $router->post('/timeline/create', 'App\Controllers\Admin\AdminController@postTimeline');
 $router->post('/timeline/delete/:id', 'App\Controllers\Admin\AdminController@destroyTimeline');
+$router->get('/timeline/edit/:id', 'App\Controllers\Admin\AdminController@editTimeline');
+$router->post('/timeline/edit/:id', 'App\Controllers\Admin\AdminController@updateTimeline');
 
+// Admin Tags
 $router->get('/tag/create', 'App\Controllers\Admin\AdminController@createTags');
 $router->post('/tag/create', 'App\Controllers\Admin\AdminController@postTags');
 $router->post('/tag/delete/:id', 'App\Controllers\Admin\AdminController@destroyTags');
+$router->get('/tags/edit/:id', 'App\Controllers\Admin\AdminController@editTag');
+$router->post('/tags/edit/:id', 'App\Controllers\Admin\AdminController@updateTag');
 
 // $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
 // $router->post('/admin/posts/create', 'App\Controllers\Admin\PostController@createPost');

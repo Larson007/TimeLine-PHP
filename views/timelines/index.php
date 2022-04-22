@@ -31,7 +31,7 @@
                         <div class="box-link">
                             <div class="link">
                                 <?= $timeline->getButton() ?>
-                                <?= $timeline->addEvents() ?>
+                                <!-- <?= $timeline->addEvents() ?> -->
                                 
                             </div>
                             <div class="badges">

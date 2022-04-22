@@ -93,4 +93,10 @@ abstract class Model
     {
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
+
+
+    // public function check(string $username): bool
+    // {
+    //     return $this->query("SELECT username FROM {$this->table} WHERE username = ?", [$username]);
+    // }
 }

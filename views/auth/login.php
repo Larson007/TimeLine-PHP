@@ -1,5 +1,4 @@
 <?php if (isset($_SESSION['errors'])) : ?>
-
     <?php foreach ($_SESSION['errors'] as $errorsArray) : ?>
         <?php foreach ($errorsArray as $errors) : ?>
             <div class="alert alert-danger">
@@ -10,9 +9,19 @@
         <?php endforeach ?>
     <?php endforeach ?>
 <?php endif ?>
+
 <?php session_destroy(); ?>
 <div class="container">
-
+<?php if(isset($_GET['register']) && $_GET['register'] === 'true') : ?>
+    <div>
+        <p>Votre Compte à été créer avec succès ! Veuillez vous connecter</p>
+    </div>
+<?php endif ?>
+<?php if(isset($_GET['message']) && $_GET['message'] === 'true') : ?>
+    <div>
+        <p>Cette utilisateur n'existe pas</p>
+    </div>
+<?php endif ?>
     <h1>Connexion</h1>
     
     <form action="/login" method="POST">

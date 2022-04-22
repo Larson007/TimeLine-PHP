@@ -10,6 +10,7 @@ body {
 body ul {
   list-style: none;
   padding: 0;
+  color: tom;
 }
 
 body a {
@@ -110,6 +111,16 @@ header nav ul li:nth-child(2) a:hover {
 header nav ul li:nth-child(3) a:hover {
   border-bottom: 4px solid #feca72;
   color: #feca72;
+}
+
+header nav ul li:nth-child(4) a:hover {
+  border-bottom: 4px solid #c694e8;
+  color: #c694e8;
+}
+
+header nav ul li:nth-child(5) a:hover {
+  border-bottom: 4px solid #84acfc;
+  color: #84acfc;
 }
 
 header nav ul li:hover ul {
@@ -859,7 +870,61 @@ header nav ul li:hover ul {
   height: 3rem;
 }
 
+.dashboard--images {
+  padding: 0;
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+  margin: 0;
+}
+
+.dashboard--images img {
+  max-width: 100%;
+  width: auto;
+  height: 65px;
+}
+
+.btn {
+  display: inline-block;
+}
+
+.btn-create {
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #343a40;
+  background-color: #feca72;
+}
+
+.btn-delete {
+  all: unset;
+  padding: 0.5rem;
+  color: white;
+  background-color: #ee727a;
+}
+
+.btn:focus {
+  outline: #343a40 5px auto;
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+}
+
+.btn-edit {
+  padding: 0.5rem;
+  margin: 0 0.4rem;
+  color: #343a40;
+  background-color: #c4e791;
+}
+
+.btn-add {
+  padding: 0.5rem;
+  color: white;
+  background-color: #84acfc;
+}
+
 .table {
+  margin-bottom: 2rem;
   width: 100%;
 }
 
@@ -868,12 +933,33 @@ header nav ul li:hover ul {
 }
 
 .table tr {
-  background-color: rgba(255, 255, 255, 0.192);
+  background-color: #3a3a3a;
 }
 
 .table tr td {
   text-align: center;
   padding: 1rem;
+}
+
+.table tr .tag__color {
+  width: 100px;
+}
+
+.table tr .tag__color .tag__color--color {
+  border: 1px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.table tr .tag__color .tag__color--color p {
+  text-shadow: 2px 2px 2px black;
 }
 
 .table .table--action {
@@ -883,5 +969,8 @@ header nav ul li:hover ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=app.css.map */

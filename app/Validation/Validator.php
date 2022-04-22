@@ -2,6 +2,9 @@
 
 namespace App\Validation;
 
+use App\Controllers\UserController;
+use App\Models\User;
+
 class Validator
 {
     private $data;
@@ -20,6 +23,9 @@ class Validator
                     switch ($rule) {
                         case 'required':
                             $this->required($name, $this->data[$name]);
+                            break;
+                        case 'valide':
+                            $this->emailFormat($name, $this->data[$name]);
                             break;
                         case substr($rule, 0, 3) === 'min':
                             $this->min($name, $this->data[$name], $rule);
@@ -54,6 +60,14 @@ class Validator
             $this->errors[$name][] = "$name doit comprendre un minimum de {$limit} caractères.";
         }
     }
+
+    private function emailFormat(string $name, string $value)
+    {
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[$name][] = "Veuillez indiquez une adrese $name valide.";
+        }
+    }
+
 
     private function getErrors(): ?array
     {
