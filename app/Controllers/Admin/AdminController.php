@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers\Admin;
 
 use DateTime;
@@ -8,7 +9,8 @@ use App\Models\Timelines;
 use App\Controllers\Controller;
 use App\Models\User;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
     public function index()
     {
@@ -33,13 +35,13 @@ class AdminController extends Controller {
         return $this->view('admin.timelines', compact('timelines', 'users'));
     }
 
-    
+
     public function createTimeline()
     {
         $this->isAdmin();
-        
+
         $tags = (new Tags($this->getDB()))->all();
-        
+
         return $this->view('timelines.create', compact('tags'));
     }
 
@@ -48,7 +50,7 @@ class AdminController extends Controller {
         $imgName = trim(str_replace(" ", "", $_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName."_".$imgDate.$imgExtention;
+        $imgFile = $imgName . "_" . $imgDate . $imgExtention;
 
         $_POST['thumbnail'] = $imgFile;
         $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
@@ -83,40 +85,37 @@ class AdminController extends Controller {
     }
 
 
-    
+
     public function editTimeline(int $id)
     {
         $this->isAdmin();
 
         $timeline = (new Timelines($this->getDB()))->findById($id);
         $tags = (new Tags($this->getDB()))->all();
-        return $this->view('timelines.edit', compact('timeline', 'tags'));
 
+        return $this->view('timelines.edit', compact('timeline', 'tags'));
     }
+
 
     public function updateTimeline(int $id)
     {
         $this->isAdmin();
-        
+
         $timeline = new Timelines($this->getDB());
-        
+
         $tags = array_pop($_POST);
-        
-        
+
         $result = $timeline->update($id, $_POST, $tags);
-        var_dump($result);
-        die();
 
         if ($result) {
             return header('Location: /admin/timelines');
         }
-
     }
 
     //* TAGS
     //***************************************************** */
 
-    
+
     public function tags()
     {
         $this->isAdmin();
@@ -148,14 +147,14 @@ class AdminController extends Controller {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/tags/" . $imgFile);
-            
+
             return header('Location: /admin/tags');
         } else {
             echo "erreur";
         }
     }
 
-    
+
     public function destroyTags(int $id)
     {
         $this->isAdmin();
@@ -169,20 +168,19 @@ class AdminController extends Controller {
         }
     }
 
-    
+
     public function editTag(int $id)
     {
         $this->isAdmin();
 
         $tags = (new Tags($this->getDB()))->findById($id);
         return $this->view('tags.edit', compact('tags'));
-
     }
 
     public function updateTag(int $id)
     {
         $this->isAdmin();
-        
+
         $tags = new Tags($this->getDB());
 
         $result = $tags->update($id, $_POST);
@@ -190,6 +188,5 @@ class AdminController extends Controller {
         if ($result) {
             return header('Location: /admin/tags');
         }
-
     }
 }

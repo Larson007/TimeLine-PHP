@@ -78,4 +78,22 @@ HTML;
 
         return true;
     }
+
+    public function update(int $id, array $data, ?array $relation = null)
+    {
+        // Suppression des anciens tags
+        parent::update($id, $data);
+        $stmt = $this->db->getPDO()->prepare("DELETE FROM timeline_tag WHERE timeline_id = ?");
+        $result = $stmt->execute([$id]);
+
+        // Update des nouveaux tags
+        foreach ($relation as $tagId) {
+            $stmt = $this->db->getPDO()->prepare("INSERT timeline_tag (timeline_id, tag_id) VALUES (?, ?)");
+            $stmt->execute([$id, $tagId]);
+        }
+
+        if ($result) {
+            return true;
+        }
+    }
 }

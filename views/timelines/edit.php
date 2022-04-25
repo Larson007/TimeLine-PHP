@@ -48,9 +48,13 @@
                 <div class="form__group__tags--checkbox">
                     <?php foreach ($params['tags'] as $tag) : ?>
                         <div class="form__group__tags--checkbox--item">
-                            <!-- FAIRE UN IF POUR SI TRUE ALORS CHECKED -->
-                            <input class="check" type="checkbox" name="tags[]" id=<?= $tag->id ?> value="<?= $tag->id ?>">
-                            <label for=<?= $tag->id ?>><?= $tag->name ?></label>
+
+                        <input class="check" type="checkbox" name="tags[]" id=<?= $tag->id ?> value="<?= $tag->id ?>"
+                        <?php foreach ($params['timeline']->getTags() as $timelineTags){
+                                echo ($timelineTags->tag_id === $tag->id) ? 'checked': '';
+                            } ?> >
+                        <label for=<?= $tag->id ?>><?= $tag->name ?></label>
+
                         </div>
                     <?php endforeach ?>
                 </div>
