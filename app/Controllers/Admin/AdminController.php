@@ -269,4 +269,17 @@ class AdminController extends Controller
             echo "erreur";
         }
     }
+
+    public function destroyEvent(int $id)
+    {
+        $this->isAdmin();
+
+        $event = new Events($this->getDB());
+
+        $result = $event->destroy($id);
+
+        if ($result) {
+            return header('Location: /admin/timelines');
+        }
+    }
 }

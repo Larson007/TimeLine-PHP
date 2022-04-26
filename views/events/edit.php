@@ -50,12 +50,16 @@ dump($params['event']);
             </div>
             <div class="form__group__image--current">
                 <p>Images Actuel</p>
-                <img src="<?= ((isset($params['event']->thumbnail)) && !empty($params['event']->thumbnail)) ? IMAGES . "events/" . $params['event']->thumbnail : IMAGES .'placeholder.jpg' ?>" alt="Image actuellemnt uploader" />
+                <img src="<?= ((isset($params['event']->thumbnail)) && !empty($params['event']->thumbnail)) ? IMAGES . "events/" . $params['event']->thumbnail : IMAGES . 'placeholder.jpg' ?>" alt="Image actuellemnt uploader" />
             </div>
             <input type="hidden" name="thumbnail" id="thumbnail" value="<?= $params['event']->thumbnail ?>">
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt" value="<?= $params['event']->thumbnail_alt ?>">
             <input type="hidden" name="timeline_id" id="timeline_id" value="<?= $params['event']->timeline_id ?>">
         </div>
-        <button type="submit" class="">Enregistrer</button>
+        <button type="submit" class="">Editer</button>
     </form>
+    <form action="/events/delete/<?= $params['event']->id ?>" method="POST" class="">
+        <button type="submit" class="btn btn-delete">Supprimer</button>
+</div>
+</form>
 </div>

@@ -74,6 +74,7 @@ $router->post('/tags/edit/:id', 'App\Controllers\Admin\AdminController@updateTag
 // Admin Events
 $router->get('/events/create/:id', 'App\Controllers\Admin\AdminController@createEvent');
 $router->post('/events/create/:id', 'App\Controllers\Admin\AdminController@addEvent');
+$router->post('/events/delete/:id', 'App\Controllers\Admin\AdminController@destroyEvent');
 $router->get('/events/edit/:id', 'App\Controllers\Admin\AdminController@editEvent');
 $router->post('/events/edit/:id', 'App\Controllers\Admin\AdminController@updateEvent');
 
