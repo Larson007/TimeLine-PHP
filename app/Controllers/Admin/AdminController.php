@@ -4,10 +4,11 @@ namespace App\Controllers\Admin;
 
 use DateTime;
 use App\Models\Tags;
+use App\Models\User;
+use App\Models\Events;
 use Gumlet\ImageResize;
 use App\Models\Timelines;
 use App\Controllers\Controller;
-use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -47,6 +48,8 @@ class AdminController extends Controller
 
     public function postTimeline()
     {
+        $this->isAdmin();
+
         $imgName = trim(str_replace(" ", "", $_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
@@ -134,6 +137,8 @@ class AdminController extends Controller
 
     public function postTags()
     {
+        $this->isAdmin();
+
         $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
@@ -187,6 +192,81 @@ class AdminController extends Controller
 
         if ($result) {
             return header('Location: /admin/tags');
+        }
+    }
+
+    //* Events
+    //***************************************************** */
+
+    public function createEvent($id)
+    {
+        $this->isAdmin();
+
+        $timeline = (new Timelines($this->getDB()))->findById((int)$id);
+        $events = (new Events($this->getDB()))->getTimeline($id);
+
+        return $this->view('events.create', compact('timeline', 'events',));
+    }
+
+    public function addEvent()
+    {
+        $this->isAdmin();
+
+        $imgName = trim(str_replace(" ", "",$_POST['title']));
+        $imgDate = (new DateTime())->getTimestamp();
+        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        $imgFile = $imgName."_".$imgDate.$imgExtention;
+        $_POST['thumbnail'] = $imgFile;
+        $_POST['thumbnail_alt'] = "Image de l'event " . $_POST['title'];
+        $event = new Events($this->getDB());
+
+        $result = $event->create($_POST);
+
+        if ($result) {
+            $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+            $image->resizeToWidth(800);
+            $image->save("./assets/images/events/" . $imgFile);
+
+            return header('Location: /admin/timelines/');
+        } else {
+            echo "erreur";
+        }
+
+    }
+
+    public function editEvent($id)
+    {
+        $this->isAdmin();
+
+        $event = (new Events($this->getDB()))->findById($id);
+
+        return $this->view('events.edit', compact('event'));
+    
+    }
+
+    public function updateEvent($id)
+    {
+        $this->isAdmin();
+
+        $imgName = trim(str_replace(" ", "",$_POST['title']));
+        $imgDate = (new DateTime())->getTimestamp();
+        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        $imgFile = $imgName."_".$imgDate.$imgExtention;
+
+        $_POST['thumbnail'] = $imgFile;
+
+        $event = new Events($this->getDB());
+
+        $result = $event->update($id,$_POST);
+
+        if ($result) {
+            $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+            $image->resizeToWidth(800);
+            $image->save("./assets/images/events/" . $imgFile);
+
+            return header('Location: /admin/timelines');
+        } else {
+            echo "erreur";
         }
     }
 }

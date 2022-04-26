@@ -1,7 +1,7 @@
 <div class="container">
-    <h1>Show du TagsController</h1>
+    <h1>Catégories <?= $params['tag']->name ?></h1>
 
-    <h5 class="card-title"><?= $params['tag']->name ?></h5>
+    <h5 class="card-title"></h5>
     <div class="cards">
         <?php foreach ($params['tag']->getTimelines() as $timelineTag) : ?>
             <?php foreach ($params['timelines'] as $timeline) : ?>
@@ -10,7 +10,11 @@
                 <div class="box-card">
                     <div class="box-content">
                         <div class="box-image">
+                        <?php if(isset($timeline->thumbnail) && !empty($timeline->thumbnail)) : ?>
                             <img src="<?= IMAGES ."timelines/". $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>">
+                            <?php else : ?>
+                                <img src="<?= IMAGES ."timelines/". 'placeholder.jpg' ?>" alt="Pas de visuel disponible">
+                        <?php endif ?>
                             <span class="box-created">Ajouté le <?= $timeline->getCreatedAt() ?></span>
                         </div>
                         <h3><?= $timeline->title ?></h3>

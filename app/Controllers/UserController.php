@@ -39,6 +39,7 @@ class UserController extends Controller
 
             if (password_verify($_POST['password'], $user->password)) {
 
+                $_SESSION['id'] = (int) $user->id;
                 $_SESSION['username'] = (string) $user->username;
                 $_SESSION['email'] = (string) $user->email;
                 $_SESSION['password'] = (string) $user->password;

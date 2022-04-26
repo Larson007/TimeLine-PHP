@@ -10,10 +10,12 @@ use App\Models\Timelines;
 class EventsController extends Controller
 {
 
-    public function create()
+    public function createEvent($idTimeline)
     {
-        $idTimeline = str_replace("events/create/", "",  $_GET['url']);
-        $idTimeline = intval($idTimeline);
+        $this->isAdmin();
+
+        // $idTimeline = str_replace("events/create/", "",  $_GET['url']);
+        // $idTimeline = intval($idTimeline);
 
         $timeline = (new Timelines($this->getDB()))->findById($idTimeline);
         $events = (new Events($this->getDB()))->all();
@@ -21,8 +23,9 @@ class EventsController extends Controller
         return $this->view('events.create', compact('timeline', 'events',));
     }
 
-    public function createEvents()
+    public function addEvent()
     {
+        $this->isAdmin();
 
         $imgName = trim(str_replace(" ", "",$_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
@@ -44,8 +47,9 @@ class EventsController extends Controller
         }
     }
 
-    public function edit()
+    public function editEvent()
     {
+        $this->isAdmin();
 
         $timelines = (new Timelines($this->getDB()))->all();
         $events = (new Events($this->getDB()))->all();
@@ -57,9 +61,10 @@ class EventsController extends Controller
             }       
     }
 
-    public function update()
+    public function updateEvent()
     {
-
+        $this->isAdmin();
+        
         $imgName = trim(str_replace(" ", "",$_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);

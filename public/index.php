@@ -47,14 +47,10 @@ $router->get('/tags', 'App\Controllers\TagsController@index');
 $router->get('/tags/:id', 'App\Controllers\TagsController@show');
 
 
-//Events
-$router->get('/events/create/:id', 'App\Controllers\EventsController@create');
-$router->post('/events/create/', 'App\Controllers\EventsController@createEvents');
-$router->get('/events/edit/:id', 'App\Controllers\EventsController@edit');
-$router->post('/events/edit/:id', 'App\Controllers\EventsController@update');
+
 
 //Account
-$router->get('/account', 'App\Controllers\AccountController@index');
+$router->get('/account/:id', 'App\Controllers\AccountController@index');
 
 //Admin routes
 $router->get('/admin/dashboard', 'App\Controllers\Admin\AdminController@index');
@@ -74,6 +70,13 @@ $router->post('/tag/create', 'App\Controllers\Admin\AdminController@postTags');
 $router->post('/tag/delete/:id', 'App\Controllers\Admin\AdminController@destroyTags');
 $router->get('/tags/edit/:id', 'App\Controllers\Admin\AdminController@editTag');
 $router->post('/tags/edit/:id', 'App\Controllers\Admin\AdminController@updateTag');
+
+// Admin Events
+$router->get('/events/create/:id', 'App\Controllers\Admin\AdminController@createEvent');
+$router->post('/events/create/:id', 'App\Controllers\Admin\AdminController@addEvent');
+$router->get('/events/edit/:id', 'App\Controllers\Admin\AdminController@editEvent');
+$router->post('/events/edit/:id', 'App\Controllers\Admin\AdminController@updateEvent');
+
 
 // $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
 // $router->post('/admin/posts/create', 'App\Controllers\Admin\PostController@createPost');

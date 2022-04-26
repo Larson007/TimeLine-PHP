@@ -44,6 +44,10 @@
                                 <li>
                                     <a href="/admin/tags">catégories</a>
                                 </li>
+                            <?php elseif($_SESSION['auth'] === 0) : ?>
+                                <li>
+                                    <a href="/account/<?= $_SESSION['id'] ?>">Mon compte</a>
+                                </li>
                             <?php endif ?>
                             <li><a href="/logout">Se deconnecter</a></li>
                         </ul>

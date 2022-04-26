@@ -35,7 +35,7 @@
                     <?php endforeach ?>
                     <td>
                         <div class="table--action">
-                            <?= $timeline->addEvents() ?>
+                            <a href="/events/create/<?= $timeline->id ?>" class="btn btn-add"><span>Add Events</span></a>
                             <a href="/timeline/edit/<?= $timeline->id ?>" class="btn btn-edit">Modifier</a>
                             <form action="/timeline/delete/<?= $timeline->id ?>" method="POST">
                                 <button type="submit" class="btn btn-delete">Supprimer</button>

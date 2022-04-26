@@ -1,7 +1,8 @@
 <?php
+
 $faker = Faker\Factory::create();
-// dump($params['timeline']);
-// dump($params['events']);
+dump($params['events']);
+
 ?>
 
 <div class="container">
@@ -11,9 +12,7 @@ $faker = Faker\Factory::create();
         <ul>
             <li class="test"><a href=""><?= $params['timeline']->date_start ?></a></li>
             <?php foreach ($params['events'] as $event) : ?>
-                <?php if ($event->timeline_id === $params['timeline']->id): ?>
                     <li><a href="/events/edit/<?= $event->id ?>"><?= $event->date_start ?></a></li>
-                    <?php endif?>
             <?php endforeach ?>
         </ul>
     </nav>

@@ -8,13 +8,13 @@ class AccountController extends Controller
 {
 
 
-    public function index()
+    public function index($id)
     {
         $user = new User($this->getDB());
-        $user = $user->all();
+        $user = $user->findById($id);
 
         
-        return $this->view('blog.index', compact('posts'));
+        return $this->view('account.index', compact('user'));
     }
 
 }
