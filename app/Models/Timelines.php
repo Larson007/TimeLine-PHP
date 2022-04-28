@@ -19,6 +19,15 @@ class Timelines extends Model
             [$this->id]);
     }
 
+    public function getEvents()
+    {
+        return $this->query(
+            "SELECT * FROM events 
+
+            WHERE events.timeline_id = ?",
+            [$this->id]);
+    }
+
     public function getCreatedAt(): string
     {
         return (new DateTime($this->created_at))->format('d/m/Y');
