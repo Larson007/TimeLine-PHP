@@ -22,6 +22,7 @@
         <nav id="navbar">
             <ul class="navbar__menu">
                 <li class="navbar__menu__item">
+                
                     <a class="navbar__menu__item--link" href="/">Accueil</a>
                 </li>
                 <li class="navbar__menu__item">
@@ -33,9 +34,9 @@
                 <?php if (isset($_SESSION['auth'])) : ?>
                     <li class="navbar__menu__item">
                         <a class="navbar__menu__item--link" href=""><?= $_SESSION['username'] ?></a>
-                        <ul class="navbar__menu__item__dropdown">
+                        <ul class="navbar__menu__item--dropdown">
                             <?php if ($_SESSION['auth'] === 1) : ?>
-                                <li class="navbar__menu__item__dropdown__item">
+                                <li class="navbar__menu__item--dropdown__item">
                                     <a class="navbar__menu__item__dropdown__item--link" href="/admin/dashboard">Dashboard</a>
                                 </li>
                                 <li class="navbar__menu__item__dropdown__item">

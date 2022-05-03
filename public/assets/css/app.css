@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -6,8 +8,6 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -344,51 +344,6 @@ template {
   display: none;
 }
 
-body {
-  font-family: "Bebas Neue", cursive;
-  background-color: #434961;
-  color: #fff;
-  font-size: 1.4em;
-}
-
-body ul {
-  list-style: none;
-  padding: 0;
-  color: tom;
-}
-
-body a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.container {
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-::-webkit-scrollbar {
-  width: 0.7rem;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #343a40;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3a3f54;
-  border: 1px solid #c694e8;
-}
-
 header {
   position: fixed;
   top: 0;
@@ -421,6 +376,7 @@ header .logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 9999;
 }
 
 header .logo .logo--image {
@@ -504,17 +460,15 @@ header #burger-menu.close span:after {
 
 #navbar {
   z-index: 1;
-  min-width: 100%;
+  min-width: 60%;
   min-height: 100%;
   position: fixed;
   top: 0;
+  left: 0;
   height: 0;
   visibility: hidden;
   opacity: 0;
-  text-align: center;
-  padding-top: 20px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  padding: 2rem 4rem;
 }
 
 #navbar.overlay {
@@ -522,6 +476,7 @@ header #burger-menu.close span:after {
   opacity: 1;
   padding-top: 100px;
   background: #2a2d3c;
+  overflow: hidden;
 }
 
 #navbar.overlay .navbar__menu {
@@ -540,6 +495,39 @@ header #burger-menu.close span:after {
   text-decoration: none;
 }
 
+#navbar.overlay .navbar__menu .navbar__menu__item:nth-child(1) .navbar__menu__item--link::first-letter {
+  color: #ee727a;
+  font-size: 2.5rem;
+}
+
+#navbar.overlay .navbar__menu .navbar__menu__item:nth-child(2) .navbar__menu__item--link::first-letter {
+  color: #c4e791;
+  font-size: 2.5rem;
+}
+
+#navbar.overlay .navbar__menu .navbar__menu__item:nth-child(3) .navbar__menu__item--link::first-letter {
+  color: #feca72;
+  font-size: 2.5rem;
+}
+
+#navbar.overlay .navbar__menu .navbar__menu__item:nth-child(4) .navbar__menu__item--link::first-letter {
+  color: #c694e8;
+  font-size: 2.5rem;
+}
+
+#navbar.overlay .navbar__menu .navbar__menu__item:nth-child(5) .navbar__menu__item--link::first-letter {
+  color: #84acfc;
+  font-size: 2.5rem;
+}
+
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+  /* Mettre ici les différentes règles concernées la tablette*/
+}
+
+@media screen and (min-width: 1200px) {
+  /* Mettre ici les différentes règles concernées le desktop */
+}
+
 .cards {
   display: -ms-grid;
   display: grid;
@@ -547,17 +535,17 @@ header #burger-menu.close span:after {
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .cards .box {
-  margin: 20px 0;
   border-radius: 0.3rem;
 }
 
 .cards .box .box-card {
   position: relative;
-  width: 350px;
+  max-width: 100%;
+  width: 100%;
   height: 200px;
   background-color: #3a3a3a;
   -webkit-box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
@@ -581,8 +569,8 @@ header #burger-menu.close span:after {
 .cards .box .box-card .box-content .box-image {
   position: relative;
   display: block;
-  width: 350px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   overflow: hidden;
 }
 
@@ -624,7 +612,9 @@ header #burger-menu.close span:after {
 }
 
 .cards .box .box-card.active {
-  height: 28rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .cards .box .box-card.active .box-toggle ion-icon {
@@ -671,6 +661,7 @@ header #burger-menu.close span:after {
       -ms-flex-align: center;
           align-items: center;
   height: 93px;
+  margin-top: 1rem;
 }
 
 .cards .box .box-detail .box-link .link {
@@ -784,6 +775,138 @@ header #burger-menu.close span:after {
   transition: -webkit-transform ease-in-out 0.5s;
   transition: transform ease-in-out 0.5s;
   transition: transform ease-in-out 0.5s, -webkit-transform ease-in-out 0.5s;
+}
+
+.tagGroup {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  gap: 3em;
+}
+
+.tagGroup .tagCard .tagCard__content {
+  position: relative;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image {
+  display: block;
+  width: 400px;
+  height: 170px;
+  background-color: #2a2d3c;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.3rem;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCardtagCard__content--image img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content--title,
+.tagGroup .tagCard .tagCard__content .tagCard__content--link {
+  background: #3a3a3a;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.2rem;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content--title {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  margin: 0;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content__link {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid white;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(52, 58, 64, 0.4);
+}
+
+.tagGroup .tagCard .tagCard__content .tagCard__content__link .tagCard__content__link--btn:hover {
+  background-color: #343a40;
+  color: #feca72;
+}
+
+body {
+  font-family: "Bebas Neue", cursive;
+  background-color: #434961;
+  color: #fff;
+  font-size: 1.4em;
+}
+
+body ul {
+  list-style: none;
+  padding: 0;
+  color: tom;
+}
+
+body a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #343a40;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3f54;
+  border: 1px solid #c694e8;
 }
 
 @media screen and (min-width: 780px) and (max-width: 1200px) {
