@@ -31,9 +31,10 @@ class AdminController extends Controller
         $this->isAdmin();
 
         $timelines = (new Timelines($this->getDB()))->all();
+        $tags = (new Tags($this->getDB()))->all();
         $users = (new User($this->getDB()))->all();
 
-        return $this->view('admin.timelines', compact('timelines', 'users'));
+        return $this->view('admin.timelines', compact('timelines', 'tags', 'users'));
     }
 
 

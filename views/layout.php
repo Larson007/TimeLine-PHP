@@ -1,3 +1,7 @@
+<?php
+
+use App\Models\Timelines;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,7 +12,8 @@
     <link rel="stylesheet" href="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'app.css' ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>TimeLine</title>
+    <title><?= $params['timeline']->title ?? "Timelines" ?></title>
+    <meta name="description" content="<?= $params['timeline']->description ?? "Bienvenu sur le site ..."?>">
 </head>
 
 <body>
@@ -22,7 +27,7 @@
         <nav id="navbar">
             <ul class="navbar__menu">
                 <li class="navbar__menu__item">
-                
+
                     <a class="navbar__menu__item--link" href="/">Accueil</a>
                 </li>
                 <li class="navbar__menu__item">
@@ -33,24 +38,31 @@
                 </li>
                 <?php if (isset($_SESSION['auth'])) : ?>
                     <li class="navbar__menu__item">
-                        <a class="navbar__menu__item--link" href=""><?= $_SESSION['username'] ?></a>
-                        <ul class="navbar__menu__item--dropdown">
+                        <a class="navbar__menu__item--link" href=""><?= htmlspecialchars($_SESSION['username']) ?></a>
+                        <ul class="navbar__menu__item dropdown">
                             <?php if ($_SESSION['auth'] === 1) : ?>
-                                <li class="navbar__menu__item--dropdown__item">
-                                    <a class="navbar__menu__item__dropdown__item--link" href="/admin/dashboard">Dashboard</a>
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    <a href="/admin/dashboard">Dashboard</a>
                                 </li>
-                                <li class="navbar__menu__item__dropdown__item">
-                                    <a class="navbar__menu__item__dropdown__item--link" href="/admin/timelines">timelines</a>
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-timeline"></i>
+                                    <a href="/admin/timelines">timelines</a>
                                 </li>
-                                <li class="navbar__menu__item__dropdown__item">
-                                    <a class="navbar__menu__item__dropdown__item--link" href="/admin/tags">catégories</a>
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-tags"></i>
+                                    <a href="/admin/tags">catégories</a>
                                 </li>
                             <?php elseif ($_SESSION['auth'] === 0) : ?>
-                                <li>
-                                    <a class="navbar__menu__item--link" href="/account/<?= $_SESSION['id'] ?>">Mon compte</a>
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-user"></i>
+                                    <a href="/account/<?= htmlspecialchars($_SESSION['id']) ?>">Mon compte</a>
                                 </li>
                             <?php endif ?>
-                            <li><a class="navbar__menu__item--link" href="/logout">Se deconnecter</a></li>
+                            <li class="dropdown__item">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <a href="/logout">Se deconnecter</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -67,7 +79,7 @@
         </nav>
     </header>
     <main>
-        <div>
+        <div class="container">
             <?= $content ?>
         </div>
     </main>

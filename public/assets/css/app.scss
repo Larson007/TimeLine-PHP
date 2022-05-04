@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 
 @import "normalize";
 @import "color";
@@ -8,20 +9,24 @@
 @import "timelines";
 @import "tags";
 @import "admin";
+@import "auth";
 
 
 
 //********** CSS GLOBALE
 //********************************************/
+* {
+    scroll-behavior: smooth;
+}
 body {
     font-family: "Bebas Neue", cursive;
     background-color: $bg-light;
     color: #fff;
     font-size: 1.4em;
+    
     ul {
         list-style: none;
         padding: 0;
-        color: tom;
     }
     a {
         text-decoration: none;
@@ -29,12 +34,11 @@ body {
     }
 }
 
+
 .container {
-    margin: 0 auto;
-    display: flex;
+    margin: 10vh auto 0;
     padding: 0 0.5rem;
-    align-items: center;
-    flex-direction: column;
+
 }
 
 //********** ScrollBar

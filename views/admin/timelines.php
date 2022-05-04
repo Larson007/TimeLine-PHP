@@ -1,5 +1,3 @@
-<div class="container">
-
     <h1>Administration des timelines</h1>
 
     <a class="btn btn-create" href="/timeline/create" class="btn btn-success my-3">Créer une nouvelle timeline</a>
@@ -14,6 +12,7 @@
                 <th>Date de fin</th>
                 <th>Thumbnail</th>
                 <th>Description du thumbnail</th>
+                <th>Catégories</th>
                 <th>Créér par</th>
                 <th>Actions</th>
             </tr>
@@ -26,8 +25,19 @@
                     <td><?= $timeline->getCreatedAt() ?></td>
                     <td><?= $timeline->date_start ?></td>
                     <td><?= $timeline->date_end ?></td>
-                    <td class="dashboard--images"><img src="<?= IMAGES . "timelines/" . $timeline->thumbnail ?>" alt=""></td>
+                    <td class="dashboard--images">
+                        <?php if (isset($timeline->thumbnail) && !empty($timeline->thumbnail)) : ?>
+                            <img src="<?= IMAGES . "timelines/" . $timeline->thumbnail ?>" alt="">
+                        <?php endif ?>
+                    </td>
                     <td><?= $timeline->thumbnail_alt ?></td>
+                    <td>
+                        <div class="table--tags">
+                            <?php foreach ($timeline->getTags() as $tags) : ?>
+                                <p><?= $tags->name ?></p>
+                            <?php endforeach ?>
+                        </div>
+                    </td>
                     <?php foreach ($params['users'] as $user) : ?>
                         <?php if ($user->id === $timeline->user_id) : ?>
                             <td><?= $user->username ?></td>
@@ -35,10 +45,10 @@
                     <?php endforeach ?>
                     <td>
                         <div class="table--action">
-                            <a href="/events/create/<?= $timeline->id ?>" class="btn btn-add"><span>Add Events</span></a>
-                            <a href="/timeline/edit/<?= $timeline->id ?>" class="btn btn-edit">Modifier</a>
+                            <a href="/events/create/<?= $timeline->id ?>" class="btn btn-add"><span>Add Event</span></a>
+                            <a href="/timeline/edit/<?= $timeline->id ?>" class="btn btn-edit">Edit</a>
                             <form action="/timeline/delete/<?= $timeline->id ?>" method="POST">
-                                <button type="submit" class="btn btn-delete">Supprimer</button>
+                                <button type="submit" class="btn btn-delete">Delete</button>
                             </form>
                         </div>
                     </td>
@@ -46,4 +56,3 @@
             <?php endforeach ?>
         </tbody>
     </table>
-</div>

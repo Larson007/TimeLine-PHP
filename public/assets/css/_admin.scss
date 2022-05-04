@@ -1,0 +1,103 @@
+//********** Dashboard
+//********************************************/
+
+.dashboard--images {
+    padding: 0;
+    height: auto;
+    overflow: hidden;
+    margin: 0;
+    img {
+        max-width: 100%;
+        width: 150px;
+        height: auto;
+    }
+}
+
+.table--id{
+    width: 40px;
+}
+
+.table--tags {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    p {
+        margin-right: 0.2rem;
+        padding: 0.5rem;
+        background-color: $yellow;
+        color: $bg-grey;
+        border-radius: 3px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    border-radius: 3px;
+}
+.btn-create {
+    padding: 1rem;
+    margin: 1rem 0;
+    color: $bg-grey;
+    background-color: $yellow;
+}
+
+.btn-delete {
+    all: unset;
+    padding: 0.5rem;
+    color: white;
+    background-color: $red;
+}
+.btn:focus {
+    outline: $bg-grey 5px auto;
+}
+.btn-delete:hover {
+    cursor: pointer;
+}
+
+.btn-edit {
+    padding: 0.5rem;
+    margin: 0 0.4rem;
+    color: $bg-grey;
+    background-color: $green;
+}
+
+.btn-add {
+    padding: 0.5rem;
+    color: white;
+    background-color: $blue;
+}
+
+.table {
+    margin-bottom: 2rem;
+    width: 100%;
+    th {
+        padding: 1rem;
+    }
+    tr {
+        background-color: $cards;
+        // background-color: rgba(255, 255, 255, 0.192);
+        td {
+            text-align: center;
+            padding: 1rem;
+        }
+        .tag__color {
+
+            .tag__color--color {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                p{
+                    text-shadow: 2px 2px 2px black;
+
+                }
+            }
+        }
+    }
+    .table--action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

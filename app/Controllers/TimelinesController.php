@@ -41,7 +41,8 @@ class TimelinesController extends Controller
         $imgName = trim(str_replace(" ", "", $_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName."_".$imgDate.$imgExtention;
+        // $imgFile = $imgName."_".$imgDate.$imgExtention;
+        $imgFile = $imgName."_".$imgDate.".webp";
 
         $_POST['thumbnail'] = $imgFile;
         $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];

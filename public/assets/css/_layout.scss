@@ -12,6 +12,7 @@ header {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    align-items: center;
     background-color: $bg-dark;
     overflow: visible;
     z-index: 998;
@@ -21,9 +22,11 @@ header {
         justify-content: flex-start;
         align-items: center;
         z-index: 9999;
+        margin: 15px 30px;
         .logo--image {
             max-width: 100%;
-            width: 80%;
+            width: auto;
+            height: 27px;
         }
     }
     #burger-menu {
@@ -135,12 +138,6 @@ header {
                     margin-bottom: 30px;
                     text-decoration: none;
                 }
-                .navbar__menu__item__dropdown {
-                    .navbar__menu__item__dropdown__item {
-                        .navbar__menu__item__dropdown__item--link {
-                        }
-                    }
-                }
             }
             .navbar__menu__item:nth-child(1) {
                 .navbar__menu__item--link::first-letter {
@@ -161,6 +158,8 @@ header {
                 }
             }
             .navbar__menu__item:nth-child(4) {
+                border-top: 2px solid white;
+                padding-top: 2rem;
                 .navbar__menu__item--link::first-letter {
                     color: $purple;
                     font-size: 2.5rem;
@@ -172,6 +171,49 @@ header {
                     font-size: 2.5rem;
                 }
             }
+        }
+    }
+}
+
+.dropdown {
+
+    
+    margin: 2.5rem;
+    .dropdown__item {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        i {
+            font-size: 1rem;
+            margin-right: 1.5rem;
+
+        }
+
+    }
+    .dropdown__item:nth-child(1) {
+        a::first-letter {
+            color: $red;
+            font-size: 2rem;
+        }
+    }
+    .dropdown__item:nth-child(2) {
+        a::first-letter {
+            color: $green;
+            font-size: 2rem;
+        }
+    }
+    .dropdown__item:nth-child(3) {
+        a::first-letter {
+            color: $yellow;
+            font-size: 2rem;
+        }
+    }
+    .dropdown__item:nth-child(4) {
+        a::first-letter {
+            color: $blue;
+            font-size: 2rem;
         }
     }
 }

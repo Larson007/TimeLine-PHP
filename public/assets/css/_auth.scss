@@ -1,0 +1,154 @@
+.login {
+    .login--title {
+        text-align: center;
+    }
+    .login--title::first-letter {
+        color: $purple;
+    }
+    .login__link {
+        background-color: $bg-dark;
+        border: 1px solid $purple;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 2px black;
+        a {
+            padding: 1rem 0;
+            width: 50%;
+            text-align: center;
+        }
+        .login__link--login {
+            background-color: $purple;
+        }
+        .login__link--register {
+            background-color: transparent;
+        }
+    }
+    .login__form {
+        background-color: $bg-dark;
+        padding: 1rem;
+        border: 1px solid $purple;
+        border-radius: 5px;
+        .login__form--item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+            label {
+                font-size: 1.5rem;
+            }
+            input {
+                background-color: $cards;
+                margin-top: 0.5rem;
+                border: 1px solid white;
+                border-radius: 3px;
+                color: $yellow;
+                font-family: "Roboto Condensed", sans-serif;
+                padding: 0.5rem;
+            }
+        }
+        .login__form--submit {
+            background-color: $purple;
+            padding: 0.75rem 1.5rem;
+            display: block;
+            margin: 1rem auto;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            border: 1px solid white;
+            border-radius: 5px;
+
+        }
+    }
+    .login__messages--success {
+        p {
+            padding: 0.75rem;
+            margin: 1rem 0;
+            background-color: $green;
+            border-radius: 5px;
+            color: $bg-dark;
+        }
+    }
+    .login__messages--error {
+        p {
+            padding: 0.75rem;
+            margin: 1rem 0;
+            background-color: $red;
+            border-radius: 5px;
+            text-shadow: 2px 2px 2px black;
+        }
+    }
+}
+
+.register {
+    .register--title {
+        text-align: center;
+    }
+    .register--title::first-letter {
+        color: $blue;
+    }
+    .register__link {
+        background-color: $bg-dark;
+        border: 1px solid $blue;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 2px black;
+        a {
+            padding: 1rem 0;
+            width: 50%;
+            text-align: center;
+        }
+        .register__link--register {
+            background-color: transparent;
+        }
+        .register__link--register {
+            background-color: $blue;
+        }
+    }
+    .register__form {
+        background-color: $bg-dark;
+        padding: 1rem;
+        border: 1px solid $blue;
+        border-radius: 5px;
+        .register__form--item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+            label {
+                font-size: 1.5rem;
+            }
+            input {
+                background-color: $cards;
+                margin-top: 0.5rem;
+                border: 1px solid white;
+                border-radius: 3px;
+                color: $yellow;
+                font-family: "Roboto Condensed", sans-serif;
+                padding: 0.5rem;
+            }
+        }
+        .register__form--submit {
+            background-color: $blue;
+            padding: 0.75rem 1.5rem;
+            display: block;
+            margin: 1rem auto;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            border: 1px solid white;
+            border-radius: 5px;
+
+        }
+    }
+    .register__error--message {
+        p {
+            padding: 0.75rem;
+            margin: 1rem 0;
+            background-color: $red;
+            border-radius: 5px;
+        }
+    }
+}
+

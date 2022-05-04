@@ -3,7 +3,7 @@
 const globeAnimation = () => {
     document.addEventListener('DOMContentLoaded', () =>{
         VANTA.GLOBE({
-            el: "#globe-animation",
+            el: ".globe-animation",
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -11,8 +11,9 @@ const globeAnimation = () => {
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            size: 0.60,
-            color2: 0xee727a,
+            size: 1,
+            color: 0x84acfc,
+            color2: 0xfeca72,
             backgroundColor: 0x434961
         });
     });
