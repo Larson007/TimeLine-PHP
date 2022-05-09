@@ -496,7 +496,7 @@ header #burger-menu.close span:after {
   color: #fff;
   display: block;
   font-size: 32px;
-  margin-bottom: 30px;
+  margin: 0 0 30px;
   text-decoration: none;
 }
 

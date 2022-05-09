@@ -5,8 +5,9 @@
     <p><?= $params['timeline']->date_start ?></p>
     <p><?= $params['timeline']->date_end ?></p>
     <p><?= $params['timeline']->getCreatedAt() ?></p>
+
     <p><?= $params['timeline']->description ?></p>
-    <img src="<?= IMAGES ."timelines/". $params['timeline']->thumbnail ?>" alt="<?= $params['timeline']->thumbnail_alt ?>">
+    <img src="<?= IMAGES . "timelines/" . $params['timeline']->thumbnail ?>" alt="<?= $params['timeline']->thumbnail_alt ?>">
     <div>
         <?php foreach ($params['timeline']->getTags() as $tag) : ?>
             <span class="badge bg-info"><?= $tag->name ?></span>
@@ -20,3 +21,9 @@
 
     <a href="/timelines" class="btn btn-secondary">Revenir aux articles</a>
 </div>
+
+
+<?php foreach ($params['timeline']->getEvents() as $event) : ?>
+    <p><?= $event->title ?></p>
+<?php endforeach ?>
+
