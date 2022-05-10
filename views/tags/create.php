@@ -16,8 +16,8 @@
         <div class="tags__create__form__thumbnail">
             <div class="thumbnail__file">
                 <p>Thumbnail</p>
-                <input class="form__group__items--input" type="file" name="thumbnail_file" id="thumbnail_file" hidden>
-                <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier</label>
+                <input type="file" name="thumbnail_file" id="thumbnail_file" hidden>
+                <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier <span>(max 2mo)</span></label>
             </div>
             <div class="thumbnail__preview">
                 <img id="preview" src="#" alt="aperçu de l'image uploader" />

@@ -47,6 +47,9 @@ class TagsController extends Controller
 
 
         $tags = new Tags($this->getDB());
+
+
+
         $result = $tags->create($_POST);
 
         if ($result) {
@@ -54,7 +57,7 @@ class TagsController extends Controller
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/tags/" . $imgFile);
-            
+
             return header('Location: /tags');
         } else {
             echo "erreur";

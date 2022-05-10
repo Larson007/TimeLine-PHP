@@ -675,7 +675,7 @@ header #burger-menu.close span:after {
 }
 
 .globe-animation .globe-animation--text {
-  margin: 3rem;
+  margin: 0 3rem;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.2);
   text-shadow: 2px 2px 2px black;
@@ -694,7 +694,7 @@ header #burger-menu.close span:after {
 
 .globe-animation .bounce {
   position: absolute;
-  bottom: 30px;
+  bottom: 80px;
   left: 50%;
   width: 60px;
   height: 60px;
@@ -1026,7 +1026,7 @@ header #burger-menu.close span:after {
 .timeline__create {
   background-color: #2a2d3c;
   padding: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .timeline__create .timeline__create--title {
@@ -1138,6 +1138,11 @@ header #burger-menu.close span:after {
 .timeline__create__form__detail__thumbnail .thumbnail__file label i {
   font-size: 1rem;
   margin-right: 0.75rem;
+}
+
+.timeline__create__form__detail__thumbnail .thumbnail__file span {
+  color: white;
+  margin-left: 0.5rem;
 }
 
 .timeline__create__form__detail__thumbnail .thumbnail__preview {
@@ -1267,7 +1272,7 @@ header #burger-menu.close span:after {
 .tags__create {
   background-color: #2a2d3c;
   padding: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .tags__create .tags__create--title {
@@ -1343,6 +1348,11 @@ header #burger-menu.close span:after {
 .tags__create__form__thumbnail .thumbnail__file label i {
   font-size: 1rem;
   margin-right: 0.75rem;
+}
+
+.tags__create__form__thumbnail .thumbnail__file span {
+  color: white;
+  margin-left: 0.5rem;
 }
 
 .tags__create__form__thumbnail .thumbnail__preview {

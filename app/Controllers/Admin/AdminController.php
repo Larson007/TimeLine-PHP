@@ -54,7 +54,7 @@ class AdminController extends Controller
         $imgName = trim(str_replace(" ", "", $_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . $imgExtention;
+        $imgFile = $imgName . "_" . $imgDate . ".webp";
 
         $_POST['thumbnail'] = $imgFile;
         $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
@@ -105,6 +105,14 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
+        $imgName = trim(str_replace(" ", "", $_POST['title']));
+        $imgDate = (new DateTime())->getTimestamp();
+        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        $imgFile = $imgName . "_" . $imgDate . ".webp";
+
+        $_POST['thumbnail'] = $imgFile;
+        $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+
         $timeline = new Timelines($this->getDB());
 
         $tags = array_pop($_POST);
@@ -112,7 +120,13 @@ class AdminController extends Controller
         $result = $timeline->update($id, $_POST, $tags);
 
         if ($result) {
+            $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+            $image->resizeToWidth(400);
+            $image->save("./assets/images/timelines/" . $imgFile);
+
             return header('Location: /admin/timelines');
+        } else {
+            echo "error";
         }
     }
 
@@ -143,8 +157,9 @@ class AdminController extends Controller
         $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . $imgExtention;
+        $imgFile = $imgName . "_" . $imgDate . ".webp";
         $_POST['thumbnail'] = $imgFile;
+
         $tags = new Tags($this->getDB());
         $result = $tags->create($_POST);
 
@@ -187,12 +202,24 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
+        $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
+        $imgDate = (new DateTime())->getTimestamp();
+        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        $imgFile = $imgName . "_" . $imgDate . ".webp";
+        $_POST['thumbnail'] = $imgFile;
+
         $tags = new Tags($this->getDB());
 
         $result = $tags->update($id, $_POST);
 
         if ($result) {
+            $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
+            $image->resizeToWidth(400);
+            $image->save("./assets/images/tags/" . $imgFile);
+
             return header('Location: /admin/tags');
+        } else {
+            echo "erreur";
         }
     }
 
@@ -252,7 +279,7 @@ class AdminController extends Controller
         $imgName = trim(str_replace(" ", "",$_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName."_".$imgDate.$imgExtention;
+        $imgFile = $imgName."_".$imgDate. ".webp";
 
         $_POST['thumbnail'] = $imgFile;
 

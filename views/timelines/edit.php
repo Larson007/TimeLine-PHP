@@ -1,53 +1,53 @@
-<div class="container">
-    <h1>Edition : <?= $params['timeline']->title ?></h1>
+<div class="timeline__create">
+    <h1 class="timeline__create--title">Edition : <?= $params['timeline']->title ?></h1>
 
-    <nav aria-label="Breadcrumb" class="ariane">
+    <nav aria-label="Breadcrumb" class="timeline__create__ariane">
         <ul>
             <li><span aria-current="page">Timeline</span></li>
         </ul>
     </nav>
 
-    <form method="POST" class="form" enctype="multipart/form-data">
+    <form method="POST" class="timeline__create__form" enctype="multipart/form-data">
 
-        <div class="form__group--left">
-            <div class="form__group__items">
+        <div class="timeline__create__form__content">
+            <div class="timeline__create__form__content--item">
                 <label for="title">Titre</label>
-                <input class="form__group__items--input" type="text" name="title" id="title" value="<?= $params['timeline']->title ?>">
+                <input type="text" name="title" id="title" value="<?= $params['timeline']->title ?>">
             </div>
-            <div class="form__group__date">
-                <div class="form__group__date__items">
+            <div class="timeline__create__form__content--date">
+                <div class="date__group date__group--start">
                     <label for="date_start">Date de début</label>
                     <input class="form__group__items--input" type="text" name="date_start" id="date_start" value="<?= $params['timeline']->date_start ?>">
                 </div>
-                <div class="form__group__date__items">
-                    <label for="date_end">Date de fin (optionnel)</label>
+                <div class="date__group">
+                    <label for="date_end">Date de fin <span>(optionnel)</span></label>
                     <input class="form__group__items--input" type="text" name="date_end" id="date_end" value="<?= $params['timeline']->date_end ?>">
                 </div>
             </div>
-            <div class="form__group__items">
+            <div class="timeline__create__form__content--item">
                 <label for="description">description</label>
                 <textarea class="form__group__items--input" name="description" id="description" rows="8"><?= $params['timeline']->description ?></textarea>
             </div>
         </div>
-        <div class="form__group--right">
-            <div class="form__group__image">
-                <div class="form__group__image--file">
+        <div class="timeline__create__form__detail">
+            <div class="timeline__create__form__detail__thumbnail">
+                <div class="thumbnail__file">
                     <p>Thumbnail</p>
-                    <input class="form__group__items--input" type="file" name="thumbnail_file" id="thumbnail_file" value="<?= $params['timeline']->thumbnail ?>">
-                    <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier</label>
+                    <input class="form__group__items--input" type="file" name="thumbnail_file" id="thumbnail_file" hidden>
+                    <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier <span>(max 2mo)</span></label>
                 </div>
-                <div class="form__group__image--preview">
-                    <img id="preview" src="#" alt="aperçu de l'image uploader" />
+                <div class="thumbnail__preview">
+                    <img id="preview" src="<?= IMAGES . "timelines/". $params['timeline']->thumbnail ?>" alt="aperçu de l'image uploader" />
                 </div>
             </div>
             <input type="hidden" name="thumbnail" id="thumbnail" value="<?= $params['timeline']->thumbnail ?>">
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt" value="<?= $params['timeline']->thumbnail_alt ?>">
             <input type="hidden" name="user_id" id="user_id" value="<?= $params['timeline']->user_id ?>">
-            <div class="form__group__tags">
-                <p class="form__group__tags--title">Catégories</p>
-                <div class="form__group__tags--checkbox">
+            <div class="timeline__create__form__detail__tags">
+                <p>Catégories</p>
+                <div class="tags__group">
                     <?php foreach ($params['tags'] as $tag) : ?>
-                        <div class="form__group__tags--checkbox--item">
+                        <div class="tags__group--item">
 
                         <input class="check" type="checkbox" name="tags[]" id=<?= $tag->id ?> value="<?= $tag->id ?>"
                         <?php foreach ($params['timeline']->getTags() as $timelineTags){
