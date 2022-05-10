@@ -1,29 +1,32 @@
-<div class="container">
-    <h1>Show du TimelineController</h1>
-
-    <h1><?= $params['timeline']->title ?></h1>
-    <p><?= $params['timeline']->date_start ?></p>
-    <p><?= $params['timeline']->date_end ?></p>
-    <p><?= $params['timeline']->getCreatedAt() ?></p>
-
-    <p><?= $params['timeline']->description ?></p>
-    <img src="<?= IMAGES . "timelines/" . $params['timeline']->thumbnail ?>" alt="<?= $params['timeline']->thumbnail_alt ?>">
-    <div>
-        <?php foreach ($params['timeline']->getTags() as $tag) : ?>
-            <span class="badge bg-info"><?= $tag->name ?></span>
-        <?php endforeach ?>
-    </div>
-    <div>
+<div class="anchors">
+    <ul>
+        <li><a href="#page-1" class="active"><?= $params['timeline']->date_start ?></a></li>
         <?php foreach ($params['timeline']->getEvents() as $event) : ?>
-            <span class="badge bg-info"><?= $event->title ?></span>
+            <li><a href="#page-<?= $event->id ?>"><?= $event->date_start ?></a></li>
+        <?php endforeach ?>
+
+    </ul>
+</div>
+<div class="pg-wrapper">
+    <div id="container" class="pg-container">
+        <!-- pages -->
+        <div data-anchor="page-1" class="pg-page active slider-timeline">
+            <h2 class=""><?= $params['timeline']->title ?></h2>
+            <div class="slider-timeline__media">
+                <img src="<?= IMAGES . "timelines/" . $params['timeline']->thumbnail ?>" alt="<?= $params['timeline']->thumbnail_alt ?>">
+            </div>
+            <div class="slider-timeline__date">
+                <p><?= $params['timeline']->date_start . " - " . $params['timeline']->date_end ?></p>
+            </div>
+            <div class="slider-timeline__description">
+                <p><?= $params['timeline']->description ?></p>
+            </div>
+        </div>
+        <?php foreach ($params['timeline']->getEvents() as $event) : ?>
+            <div data-anchor="page-<?= $event->id ?>" class="pg-page slider-event">
+                <h2 class="test"><?= $event->title ?></h2>
+            </div>
         <?php endforeach ?>
     </div>
-
-    <a href="/timelines" class="btn btn-secondary">Revenir aux articles</a>
+    <!-- pips will go here -->
 </div>
-
-
-<?php foreach ($params['timeline']->getEvents() as $event) : ?>
-    <p><?= $event->title ?></p>
-<?php endforeach ?>
-

@@ -1,5 +1,3 @@
-
-
 const globeAnimation = () => {
     document.addEventListener('DOMContentLoaded', () =>{
         VANTA.GLOBE({

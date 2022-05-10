@@ -3,6 +3,7 @@
 
 
 @import "normalize";
+@import "pageable";
 @import "color";
 @import "layout";
 @import "homepage";
@@ -10,6 +11,7 @@
 @import "tags";
 @import "admin";
 @import "auth";
+@import "slider";
 
 
 
@@ -35,8 +37,8 @@ body {
 }
 
 
-.container {
-    margin: 10vh auto 0;
+.containers {
+    margin: 80px auto 0;
     padding: 0 0.5rem;
 
 }

@@ -24,7 +24,7 @@ abstract class Controller {
         require VIEWS . $path . '.php';
         $content = ob_get_clean();
 
-        //$controller = explode('\\', get_class($this))[2];
+        // $controller = explode('\\', get_class($this))[2];
         // if($controller === 'AdminController' ){
         //     require VIEWS . 'admin/dashboard.php';
         // } else {

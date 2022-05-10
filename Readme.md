@@ -135,3 +135,5 @@ Demo :
 > [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=bebas#standard-styles)
 >
 > [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed?query=roboto+conden)
+
+TODO Comportement pageable lors du click sur une slide qui passe en plein ecran et supprime la bar de tâche

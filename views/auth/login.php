@@ -10,7 +10,7 @@
         <a href="/register" class="login__link--register">Inscription</a>
     </div>
 
-    <form action="/login" method="POST" class="login__form">
+    <form action="/login" method="POST" class="login__form" autocomplete="off">
         <div class="login__form--item">
             <label for="username">Nom d'utilisateur</label>
             <input type="text" name="username" id="username">
