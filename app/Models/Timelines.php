@@ -16,7 +16,8 @@ class Timelines extends Model
             INNER JOIN timeline_tag 
             ON timeline_tag.tag_id = tags.id 
             WHERE timeline_tag.timeline_id = ?",
-            [$this->id]);
+            [$this->id]
+        );
     }
 
     public function getEvents()
@@ -25,7 +26,8 @@ class Timelines extends Model
             "SELECT * FROM events 
 
             WHERE events.timeline_id = ?",
-            [$this->id]);
+            [$this->id]
+        );
     }
 
     public function getCreatedAt(): string
@@ -40,13 +42,24 @@ class Timelines extends Model
             "SELECT username FROM users 
             INNER JOIN timelines 
             WHERE users.id = ?",
-            [$this->user_id]);
+            [$this->user_id]
+        );
     }
 
-    // public function getDateStart(): string
-    // {
-    //     return (new DateTime($this->date_start))->format('d/m/Y');
-    // }
+    public function getDateStart()
+    {
+        if ($this->date_start_bc === 1) {
+            return <<<HTML
+            <p class="box-date">$this->date_start<span>av. J.-C.</span></p>
+HTML;
+        } else {
+            return <<<HTML
+            <p class="box-date">$this->date_start</p>
+HTML;
+        }
+
+        return $this->date_start;
+    }
 
     // public function getDateEnd(): string
     // {
@@ -60,7 +73,7 @@ class Timelines extends Model
     }
 
     public function getButton(): string
-    {   
+    {
 
         return <<<HTML
             <a class="style1" href="/timelines/$this->id" class="btn btn-primary"><span>Timeline</span></a>

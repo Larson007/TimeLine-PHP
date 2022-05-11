@@ -21,12 +21,24 @@ $faker = Faker\Factory::create();
             </div>
             <div class="timeline__create__form__content--date">
                 <div class="date__group date__group--start">
-                    <label for="date_start">Date de début</label>
-                    <input type="text" name="date_start" id="date_start">
+                    <label for="date_start">Année de début</label>
+                    <div class="date__group__item">
+                        <input type="text" name="date_start" id="date_start">
+                        <div class="date__group__check">
+                            <label for="date_start_bc">Avant J.C.</label>
+                            <input type="checkbox" name="date_start_bc" id="date_start_bc" value="on">
+                        </div>
+                    </div>
                 </div>
                 <div class="date__group">
-                    <label for="date_end">Date de fin <span>(optionnel)</span></label>
-                    <input type="text" name="date_end" id="date_end">
+                    <label for="date_end">Année de fin <span>(optionnel)</span></label>
+                    <div class="date__group__item">
+                        <input type="text" name="date_end" id="date_end">
+                        <div class="date__group__check">
+                            <label for="date_end_bc">Avant JC</label>
+                            <input type="checkbox" name="date_end_bc" id="date_end_bc" value="on">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="timeline__create__form__content--item">

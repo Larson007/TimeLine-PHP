@@ -9,21 +9,14 @@
                         <?php if (isset($timeline->thumbnail) && !empty($timeline->thumbnail)) : ?>
                             <img src="<?= IMAGES . "timelines/" . $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>" width="380px" height="210px">
                         <?php else : ?>
-                            <img src="<?= IMAGES . "timelines/" . 'placeholder.jpg' ?>" alt="Pas de visuel disponible" width="380px" height="210px">
+                            <img src="<?= IMAGES . "timelines/" . 'placeholder.webp' ?>" alt="Pas de visuel disponible" width="380px" height="210px">
                         <?php endif ?>
                         <span class="box-created">Ajouté le <?= $timeline->getCreatedAt() ?></span>
                     </div>
                     <h2 class="timeline__content--title"><?= $timeline->title ?></h2>
                 </div>
                 <div class="box-detail">
-                    <p class="box-date">
-                        <?php if (isset($timeline->date_start) && !empty($timeline->date_start)) : ?>
-                            <?= $timeline->date_start ?>
-                        <?php endif ?>
-                        <?php if (isset($timeline->date_end) && !empty($timeline->date_end)) : ?>
-                            <?= '  -  ' . $timeline->date_end ?>
-                        <?php endif ?>
-                    </p>
+                            <?= $timeline->getDateStart()?>
                     <p><?= $timeline->getExcerpt() ?></p>
                     <div class="badges">
                         <?php foreach ($timeline->getTags() as $tags) : ?>

@@ -33,6 +33,18 @@ class Events extends Model
         );
     }
 
+    public function dateStart($id)
+    {
+        return $this->query(
+            "SELECT date_start FROM events 
+            WHERE timeline_id = :id",
+            [":id" => $id]
+            // ,
+            // [$this->timeline_id]
+
+        );
+    }
+
     // public function getTimeline()
     // {
     //     return $this->query(

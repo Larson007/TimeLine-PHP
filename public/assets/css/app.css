@@ -876,6 +876,11 @@ header #burger-menu.close span:after {
   margin-bottom: 0.5rem;
 }
 
+.cards .box .box-detail .box-date span {
+  color: #84acfc;
+  margin-left: 0.2rem;
+}
+
 .cards .box .box-detail p {
   text-decoration: none;
   display: -webkit-box;
@@ -1110,6 +1115,47 @@ header #burger-menu.close span:after {
 .timeline__create__form__content .timeline__create__form__content--item .date__group--start,
 .timeline__create__form__content .timeline__create__form__content--date .date__group--start {
   padding-bottom: 2rem;
+}
+
+.timeline__create__form__content .timeline__create__form__content--item .date__group__item,
+.timeline__create__form__content .timeline__create__form__content--date .date__group__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.timeline__create__form__content .timeline__create__form__content--item .date__group__item .date__group__check,
+.timeline__create__form__content .timeline__create__form__content--date .date__group__item .date__group__check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.timeline__create__form__content .timeline__create__form__content--item .date__group__item .date__group__check label,
+.timeline__create__form__content .timeline__create__form__content--date .date__group__item .date__group__check label {
+  font-size: 1.3rem;
+  padding: 0;
+}
+
+.timeline__create__form__content .timeline__create__form__content--item .date__group__item .date__group__check label::first-letter,
+.timeline__create__form__content .timeline__create__form__content--date .date__group__item .date__group__check label::first-letter {
+  color: #c694e8;
+}
+
+.timeline__create__form__content .timeline__create__form__content--item .date__group__item .date__group__check input[type="checkbox"],
+.timeline__create__form__content .timeline__create__form__content--date .date__group__item .date__group__check input[type="checkbox"] {
+  -webkit-transform: scale(2.5);
+          transform: scale(2.5);
+  margin: 0 2rem 0 1rem;
 }
 
 .timeline__create__form__detail__thumbnail {
@@ -1618,6 +1664,7 @@ header #burger-menu.close span:after {
   max-width: 100%;
   width: 150px;
   height: auto;
+  border: 1px solid white;
 }
 
 .table--id {

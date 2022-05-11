@@ -51,27 +51,52 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "", $_POST['title']));
-        $imgDate = (new DateTime())->getTimestamp();
-        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . ".webp";
+        // dump($_POST);
+        // dump($_FILES);
+        // die();
 
-        $_POST['thumbnail'] = $imgFile;
-        $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+        if ($_FILES['thumbnail_file']['error'] === 0) {
+
+            $imgName = trim(str_replace(" ", "", $_POST['title']));
+            $imgDate = (new DateTime())->getTimestamp();
+            $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            $imgFile = $imgName . "_" . $imgDate . ".webp";
+
+            $_POST['thumbnail'] = $imgFile;
+            $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            $_POST['thumbnail'] = 'placeholder.webp';
+            $_POST['thumbnail_alt'] = 'Pas de visuel disponible';
+        }
+
         $_POST['user_id'] = 1;
-
+        
+        // Gestion de la valeur checkbox date_start_bc
+        if (isset($_POST['date_start_bc']) && !empty( $_POST['date_start_bc']) && $_POST['date_start_bc'] === 'on') {
+            $_POST['date_start_bc'] = 1;
+        }
+        
+        // Gestion de la valeur checkbox date_end_bc
+        if (isset( $_POST['date_end_bc']) && !empty( $_POST['date_end_bc']) && $_POST['date_end_bc'] === 'on') {
+            $_POST['date_end_bc'] = 1;
+        }
+        
 
 
         $timeline = new Timelines($this->getDB());
         $tags = array_pop($_POST);
         $result = $timeline->create($_POST, $tags);
 
-        if ($result) {
-            // Image Resize and move tu upload folder 
+        if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/timelines/" . $imgFile);
-            return header('Location: /admin/timelines/');
+
+            return header('Location: /admin/timelines');
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            return header('Location: /admin/timelines');
+        } else {
+            echo "error";
         }
     }
 
@@ -105,13 +130,24 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "", $_POST['title']));
-        $imgDate = (new DateTime())->getTimestamp();
-        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . ".webp";
+        dump($_POST);
+        dump($_FILES);
+        die();
 
-        $_POST['thumbnail'] = $imgFile;
-        $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+        if ($_FILES['thumbnail_file']['error'] === 0) {
+
+            $imgName = trim(str_replace(" ", "", $_POST['title']));
+            $imgDate = (new DateTime())->getTimestamp();
+            $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            $imgFile = $imgName . "_" . $imgDate . ".webp";
+
+            $_POST['thumbnail'] = $imgFile;
+            $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+        } else if ($_FILES['thumbnail_file']['error'] !== 1) {
+            $_POST['thumbnail'] = $_POST['thumbnail'];
+            $_POST['thumbnail_alt'] = $_POST['thumbnail_alt'];
+        }
+
 
         $timeline = new Timelines($this->getDB());
 
@@ -119,11 +155,13 @@ class AdminController extends Controller
 
         $result = $timeline->update($id, $_POST, $tags);
 
-        if ($result) {
+        if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/timelines/" . $imgFile);
 
+            return header('Location: /admin/timelines');
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
             return header('Location: /admin/timelines');
         } else {
             echo "error";
@@ -240,10 +278,10 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "",$_POST['title']));
+        $imgName = trim(str_replace(" ", "", $_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName."_".$imgDate.$imgExtention;
+        $imgFile = $imgName . "_" . $imgDate . $imgExtention;
         $_POST['thumbnail'] = $imgFile;
         $_POST['thumbnail_alt'] = "Image de l'event " . $_POST['title'];
         $event = new Events($this->getDB());
@@ -259,7 +297,6 @@ class AdminController extends Controller
         } else {
             echo "erreur";
         }
-
     }
 
     public function editEvent($id)
@@ -269,23 +306,22 @@ class AdminController extends Controller
         $event = (new Events($this->getDB()))->findById($id);
 
         return $this->view('events.edit', compact('event'));
-    
     }
 
     public function updateEvent($id)
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "",$_POST['title']));
+        $imgName = trim(str_replace(" ", "", $_POST['title']));
         $imgDate = (new DateTime())->getTimestamp();
         $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName."_".$imgDate. ".webp";
+        $imgFile = $imgName . "_" . $imgDate . ".webp";
 
         $_POST['thumbnail'] = $imgFile;
 
         $event = new Events($this->getDB());
 
-        $result = $event->update($id,$_POST);
+        $result = $event->update($id, $_POST);
 
         if ($result) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
