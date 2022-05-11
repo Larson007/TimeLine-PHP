@@ -23,7 +23,7 @@
                     <img id="preview" src="<?= IMAGES . "tags/" . $params['tags']->thumbnail ?>" alt="aperçu de l'image uploader" />
                 </div>
         </div>
-        <button type="submit" class="">Enregistrer</button>
+        <button type="submit" class="submit--edit">Mettre à jour</button>
     </form>
 
 </div>

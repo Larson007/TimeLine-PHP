@@ -1,0 +1,145 @@
+
+//********** Event form
+//********************************************/
+
+.event {
+    background-color: $bg-dark;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    .event--title {
+        margin: 0.5rem 0 0;
+        text-align: center;
+    }
+    .event--title::first-letter {
+        color: $blue;
+        font-size: 3.25rem;
+    }
+    &__ariane {
+        ul{
+            overflow-x: auto;
+            display: flex;
+            padding-bottom: 0.75rem;
+            li {
+                border: 2px solid $bg-light;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: row nowrap;
+                margin: 0 0.75rem;
+                a {
+                    background-color: $blue;
+                    color: $bg-light;
+                    padding: 0.5rem;
+                    border-radius: 5px 0 0 5px;
+                }
+                i{
+                    padding: 0.6rem;
+                    background-color: $bg-light;
+                    color: $blue;
+                }
+            }
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        label,
+        p {
+            font-size: 1.75rem;
+            margin: 0;
+        }
+        label::first-letter,
+        p::first-letter {
+            color: $blue;
+            font-size: 2.25rem;
+        }
+        &__content {
+            .event__form__content--item,
+            .event__form__content--date {
+                padding: 1rem 0;
+                display: flex;
+                flex-flow: column;
+                .date__group {
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        color: $yellow;
+                        font-size: 1.75rem;
+                    }
+                }
+                .date__group--start {
+                    padding-bottom: 2rem;
+                }
+            }
+        }
+        &__detail {
+            &__thumbnail {
+                margin: 1rem 0;
+                .thumbnail__file {
+                    label {
+                        background-color: $blue;
+                        color: #3a3a3a;
+                        margin: 1rem 0;
+                        padding: 0.5rem;
+                        display: block;
+                        border-radius: 5px;
+                        border: 2px solid $bg-grey;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        i {
+                            font-size:1rem;
+                            margin-right: 0.75rem;
+                        }
+                    }
+                    span {
+                        color: white;
+                        margin-left: 0.5rem;
+                    }
+                }
+                .thumbnail__preview {
+                    display: block;
+                    border: 2px solid white;
+                    border-radius: 5px;
+                    height: 170px;
+                    width: 100%;
+                    background-color: $bg-grey;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                        width: auto;
+                        height: auto;
+                        position: relative;
+                    }
+                    img[alt]:after {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $bg-grey;
+                        text-align: center;
+                        content: attr(alt);
+                    }
+                }
+            }
+        }
+    }
+    .submit--edit {
+        background-color: $green;
+    }
+    button {
+        margin: 1.5rem 0 3em;
+        padding: 1.5rem;
+        background-color: $red;
+        border: 2px solid $bg-grey;
+        color: $bg-grey;
+    }
+}

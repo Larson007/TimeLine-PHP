@@ -60,6 +60,6 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="">Enregistrer</button>
+        <button type="submit" class="submit--edit">Mettre à jour</button>
     </form>
 </div>

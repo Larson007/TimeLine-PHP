@@ -27,7 +27,7 @@
                     <div class="table--action">
                         <a href="/tags/edit/<?= $tag->id ?>" class="btn btn-edit">Edit</a>
                         <form action="/tag/delete/<?= $tag->id ?>" method="POST" class="">
-                            <button type="submit" class="btn btn-delete">Delete</button>
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Delete</button>
                     </div>
                     </form>
                 </td>

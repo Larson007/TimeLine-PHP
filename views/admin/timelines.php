@@ -48,7 +48,7 @@
                             <a href="/events/create/<?= $timeline->id ?>" class="btn btn-add"><span>Add Event</span></a>
                             <a href="/timeline/edit/<?= $timeline->id ?>" class="btn btn-edit">Edit</a>
                             <form action="/timeline/delete/<?= $timeline->id ?>" method="POST">
-                                <button type="submit" class="btn btn-delete">Delete</button>
+                                <button type="submit" class="btn btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Delete</button>
                             </form>
                         </div>
                     </td>
