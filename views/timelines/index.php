@@ -16,7 +16,10 @@
                     <h2 class="timeline__content--title"><?= $timeline->title ?></h2>
                 </div>
                 <div class="box-detail">
-                            <?= $timeline->getDateStart()?>
+                    <div class="box-date">
+                        <?= $timeline->getDateStart()?>
+                        <?= (isset($timeline->date_end) ? $timeline->getDateEnd() : '') ?>
+                    </div>
                     <p><?= $timeline->getExcerpt() ?></p>
                     <div class="badges">
                         <?php foreach ($timeline->getTags() as $tags) : ?>

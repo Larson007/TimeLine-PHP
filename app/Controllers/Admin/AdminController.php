@@ -56,7 +56,6 @@ class AdminController extends Controller
         // die();
 
         if ($_FILES['thumbnail_file']['error'] === 0) {
-
             $imgName = trim(str_replace(" ", "", $_POST['title']));
             $imgDate = (new DateTime())->getTimestamp();
             $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
@@ -69,20 +68,8 @@ class AdminController extends Controller
             $_POST['thumbnail_alt'] = 'Pas de visuel disponible';
         }
 
-        $_POST['user_id'] = 1;
+        $_POST['user_id'] = $_SESSION['id'];
         
-        // Gestion de la valeur checkbox date_start_bc
-        if (isset($_POST['date_start_bc']) && !empty( $_POST['date_start_bc']) && $_POST['date_start_bc'] === 'on') {
-            $_POST['date_start_bc'] = 1;
-        }
-        
-        // Gestion de la valeur checkbox date_end_bc
-        if (isset( $_POST['date_end_bc']) && !empty( $_POST['date_end_bc']) && $_POST['date_end_bc'] === 'on') {
-            $_POST['date_end_bc'] = 1;
-        }
-        
-
-
         $timeline = new Timelines($this->getDB());
         $tags = array_pop($_POST);
         $result = $timeline->create($_POST, $tags);
@@ -130,12 +117,12 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        dump($_POST);
-        dump($_FILES);
-        die();
+        // dump($_POST);
+        // dump($_FILES);
+        // dump($_SESSION);
+        // die();
 
         if ($_FILES['thumbnail_file']['error'] === 0) {
-
             $imgName = trim(str_replace(" ", "", $_POST['title']));
             $imgDate = (new DateTime())->getTimestamp();
             $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
@@ -147,7 +134,6 @@ class AdminController extends Controller
             $_POST['thumbnail'] = $_POST['thumbnail'];
             $_POST['thumbnail_alt'] = $_POST['thumbnail_alt'];
         }
-
 
         $timeline = new Timelines($this->getDB());
 

@@ -80,11 +80,20 @@
             display: block;
             z-index: 99;
             .box-date {
-                color: $red;
-                margin-bottom: 0.5rem;
-                span {
-                    color: $blue;
-                    margin-left: 0.2rem;
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                margin: 1rem 0 2rem;
+                .date {
+                    color: $red;
+                    margin-left: 0.5rem;
+                    span {
+                        color: $blue;
+                        margin-left: 0.2rem;
+                    }
+                }
+                .date--end {
+                    margin-left: 1rem;
                 }
             }
             p {

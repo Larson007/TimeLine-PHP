@@ -21,7 +21,8 @@
                         <input class="form__group__items--input" type="text" name="date_start" id="date_start" value="<?= $params['timeline']->date_start ?>">
                         <div class="date__group__check">
                             <label for="date_start_bc">Avant J.C.</label>
-                            <input type="checkbox" name="date_start_bc" id="date_start_bc" value="on" <?= ($params['timeline']->date_start_bc === 1) ? "checked" : ''?>>
+                            <input type="hidden" name="date_start_bc" value="0">
+                            <input type="checkbox" name="date_start_bc" id="date_start_bc" value="1" <?= ($params['timeline']->date_start_bc === 1) ? "checked" : ''?>>
                         </div>
                     </div>
                 </div>
@@ -31,7 +32,8 @@
                         <input class="form__group__items--input" type="text" name="date_end" id="date_end" value="<?= $params['timeline']->date_end ?>">
                         <div class="date__group__check">
                             <label for="date_end_bc">Avant JC</label>
-                            <input type="checkbox" name="date_end_bc" id="date_end_bc" value="on" <?= ($params['timeline']->date_end_bc === 1) ? "checked" : ''?>>
+                            <input type="hidden" name="date_end_bc" value="0">
+                            <input type="checkbox" name="date_end_bc" id="date_end_bc" value="1" <?= ($params['timeline']->date_end_bc === 1) ? "checked" : ''?>>
                         </div>
                     </div>
                 </div>
