@@ -4,7 +4,6 @@
     flex-flow: column wrap;
     padding-top: 1rem;
     background-color: $bg-grey;
-    z-index: 100;
     h2 {
         text-align: center;
     }
@@ -43,19 +42,30 @@
 
     ul {
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: space-between;
         align-items: stretch;
 
         li {
-            background-color: $red;
+            background-color: $blue;
             padding: 0rem;
             border-radius: 5px;
             margin: 0.3rem;
             a{
-                font-size: 1rem;
+                font-size: 1.3rem;
                 padding: 0.5rem;
+                color: $bg-grey;
             }
         }
     }
+}
+
+.pg-wrapper {
+    max-width: fit-content;
+    width: 100%;
+}
+
+.pg-page {
+    // max-width: min-content;
+    // width: 100%;
 }

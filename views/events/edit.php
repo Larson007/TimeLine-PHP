@@ -1,65 +1,58 @@
-<?php
+<div class="event">
+    <h1 class="event--title">Edition : <?= $params['event']->title ?></h1>
 
-dump($params['event']);
+    <form method="POST" enctype="multipart/form-data" class="event__form">
 
-
-?>
-
-<div class="container">
-    <h1>Creation d'un événement</h1>
-
-    <nav aria-label="Breadcrumb" class="ariane">
-        <ul>
-            <li class="test"><?= $params['event']->date_start ?></li>
-        </ul>
-    </nav>
-
-    <form method="POST" class="form" enctype="multipart/form-data">
-
-        <div class="form__group--left">
-            <div class="form__group__items">
+        <div class="event__form__content">
+            <div class="event__form__content--item">
                 <label for="title">Titre de l'évènement</label>
-                <input class="form__group__items--input" type="text" name="title" id="title" value="<?= $params['event']->title ?? '' ?>">
+                <input type="text" name="title" id="title" value="<?= $params['event']->title ?>">
             </div>
-            <div class="form__group__date">
-                <div class="form__group__date__items">
-                    <label for="date_start">Date de début</label>
-                    <input class="form__group__items--input" type="text" name="date_start" id="date_start" value="<?= $params['event']->date_start ?? '' ?>">
-                </div>
-                <div class="form__group__date__items">
-                    <label for="date_end">Date de fin (optionnel)</label>
-                    <input class="form__group__items--input" type="text" name="date_end" id="date_end" value="<?= $params['event']->date_end ?? '' ?>">
+            <div class="date">
+                <p class="date--title">Date <span>(Mois et jour optionnel)</span></p>
+                <div class="date__group">
+                    <div class="date__group__item">
+                        <label for="year">Année</label>
+                        <input type="text" name="year" id="year" value="<?= $params['event']->year ?>">
+                    </div>
+                    <div class="date__group__item date__short">
+                        <label for="month">Mois</label>
+                        <input type="text" name="month" id="month" value="<?= $params['event']->month ?>">
+                    </div>
+                    <div class="date__group__item date__short">
+                        <label for="day">jour</label>
+                        <input type="text" name="day" id="day" value="<?= $params['event']->day ?>">
+                    </div>
+                    <div class="date__group__item date--bc">
+                        <label for="date_bc">avant J.c.</label>
+                        <input type="hidden" name="date_bc" id="date_bc" value="0">
+                        <input type="checkbox" name="date_bc" id="date_bc" value="1" <?= ($params['event']->date_bc === 1) ? "checked" : ''?>>
+                    </div>
                 </div>
             </div>
-            <div class="form__group__items">
+            <div class="event__form__content--item">
                 <label for="text">description</label>
-                <textarea class="form__group__items--input" name="text" id="text" rows="8"><?= $params['event']->text ?? '' ?></textarea>
+                <textarea name="text" id="text" rows="8"><?= $params['event']->text ?></textarea>
             </div>
         </div>
-        <div class="form__group--right">
-            <div class="form__group__image">
-                <div class="form__group__image--file">
+        <div class="event__form__detail">
+            <div class="event__form__detail__thumbnail">
+                <div class="thumbnail__file">
                     <p>Média</p>
-                    <input class="form__group__items--input" type="file" name="thumbnail_file" id="thumbnail_file">
-                    <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier</label>
+                    <input type="file" name="thumbnail_file" id="thumbnail_file" value="<?= $params['event']->thumbnail ?>" hidden>
+                    <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier <span>(max 2mo)</span></label>
                 </div>
-
-                <div class="form__group__image--preview">
-                    <img id="preview" src="#" alt="aperçu de l'image uploader" />
+                <div class="thumbnail__preview">
+                    <img id="preview" src="<?= IMAGES . "events/" . $params['event']->thumbnail ?>" alt="aperçu de l'image uploader" />
                 </div>
-            </div>
-            <div class="form__group__image--current">
-                <p>Images Actuel</p>
-                <img src="<?= ((isset($params['event']->thumbnail)) && !empty($params['event']->thumbnail)) ? IMAGES . "events/" . $params['event']->thumbnail : IMAGES . 'placeholder.jpg' ?>" alt="Image actuellemnt uploader" />
             </div>
             <input type="hidden" name="thumbnail" id="thumbnail" value="<?= $params['event']->thumbnail ?>">
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt" value="<?= $params['event']->thumbnail_alt ?>">
             <input type="hidden" name="timeline_id" id="timeline_id" value="<?= $params['event']->timeline_id ?>">
         </div>
-        <button type="submit" class="">Editer</button>
+        <button type="submit" class="event__submit--update event--btn">mettre à jour</button>
     </form>
-    <form action="/events/delete/<?= $params['event']->id ?>" method="POST" class="">
-        <button type="submit" class="btn btn-delete">Supprimer</button>
-</div>
-</form>
+    <form action="/events/delete/<?= $params['event']->id ?>" method="POST" class="event__submit--delete">
+        <button type="submit" class="event--btn event--btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Delete</button>
+    </form>
 </div>

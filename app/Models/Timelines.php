@@ -57,23 +57,19 @@ HTML;
             <p>début : </p><p class="date">$this->date_start</p>
 HTML;
         }
-
-        return $this->date_start;
     }
 
     public function getDateEnd()
     {
         if ($this->date_end_bc === 1) {
             return <<<HTML
-            <p class="date--end">Fin : </p><p class="date">$this->date_end<span>ap. J.-C.</span></p>
+            <p class="date--end">Fin : </p><p class="date">$this->date_end<span>av. J.-C.</span></p>
 HTML;
         } else {
             return <<<HTML
             <p class="date--end">Fin : </p><p class="date">$this->date_end</p>
 HTML;
         }
-
-        return $this->date_end;
     }
 
 

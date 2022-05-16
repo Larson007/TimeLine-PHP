@@ -8,9 +8,9 @@ $faker = Faker\Factory::create();
     <nav aria-label="Breadcrumb" class="event__ariane">
         <p>Selectionner une date pour editer l'évènement</p>
         <ul>
-            <li><a href=""><?= $params['timeline']->date_start ?></a><i class="fa-solid fa-circle-chevron-right"></i></li>
+            <li><a href=""><?= $params['timeline']->date_start ?> <span><?= ($params['timeline']->date_start_bc === 1) ? "av. J.C." : "" ?></span></a><i class="fa-solid fa-circle-chevron-right"></i></li>
             <?php foreach ($params['events'] as $event) : ?>
-                    <li><a href="/events/edit/<?= $event->id ?>"><?= $event->date_start ?></a><i class="fa-solid fa-circle-chevron-right"></i></li>
+                <li><a href="/events/edit/<?= $event->id ?>"><?= $event->year ?><span><?= ($event->date_bc === 1) ? " av. J.C. : " : " : " ?></span><?= $event->title ?></a><i class="fa-solid fa-circle-chevron-right"></i></li>
             <?php endforeach ?>
         </ul>
     </nav>
@@ -22,14 +22,26 @@ $faker = Faker\Factory::create();
                 <label for="title">Titre de l'évènement</label>
                 <input type="text" name="title" id="title">
             </div>
-            <div class="event__form__content--date">
-                <div class="date__group date__group--start">
-                    <label for="date_start">Date de début</label>
-                    <input type="text" name="date_start" id="date_start">
-                </div>
-                <div class="date__group date__group--end">
-                    <label for="date_end">Date de fin <span>(optionnel)</span></label>
-                    <input type="text" name="date_end" id="date_end">
+            <div class="date">
+                <p class="date--title">Date <span>(Mois et jour optionnel)</span></p>
+                <div class="date__group">
+                    <div class="date__group__item">
+                        <label for="year">Année</label>
+                        <input type="text" name="year" id="year">
+                    </div>
+                    <div class="date__group__item date__short">
+                        <label for="month">Mois</label>
+                        <input type="text" name="month" id="month">
+                    </div>
+                    <div class="date__group__item date__short">
+                        <label for="day">jour</label>
+                        <input type="text" name="day" id="day">
+                    </div>
+                    <div class="date__group__item date--bc">
+                        <label for="date_bc">avant J.c.</label>
+                        <input type="hidden" name="date_bc" id="date_bc" value="0">
+                        <input type="checkbox" name="date_bc" id="date_bc" value="1">
+                    </div>
                 </div>
             </div>
             <div class="event__form__content--item">
@@ -52,6 +64,6 @@ $faker = Faker\Factory::create();
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt">
             <input type="hidden" name="timeline_id" id="timeline_id" value="<?= $params['timeline']->id ?>">
         </div>
-        <button type="submit" class="">Enregistrer</button>
+        <button type="submit" class="event__submit--create event--btn">Enregistrer</button>
     </form>
 </div>

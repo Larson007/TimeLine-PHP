@@ -51,10 +51,6 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        // dump($_POST);
-        // dump($_FILES);
-        // die();
-
         if ($_FILES['thumbnail_file']['error'] === 0) {
             $imgName = trim(str_replace(" ", "", $_POST['title']));
             $imgDate = (new DateTime())->getTimestamp();
@@ -116,11 +112,6 @@ class AdminController extends Controller
     public function updateTimeline(int $id)
     {
         $this->isAdmin();
-
-        // dump($_POST);
-        // dump($_FILES);
-        // dump($_SESSION);
-        // die();
 
         if ($_FILES['thumbnail_file']['error'] === 0) {
             $imgName = trim(str_replace(" ", "", $_POST['title']));
@@ -264,24 +255,36 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "", $_POST['title']));
-        $imgDate = (new DateTime())->getTimestamp();
-        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . $imgExtention;
-        $_POST['thumbnail'] = $imgFile;
-        $_POST['thumbnail_alt'] = "Image de l'event " . $_POST['title'];
-        $event = new Events($this->getDB());
+        // Récupération de l'id de la timeline sur laquel on a ajouter un event afin de faire la redirection vers celle-ci lors du submit
+        $timelineId = $_GET['url'];
+        $timelineId = trim($timelineId, 'events/create/');
 
+        if ($_FILES['thumbnail_file']['error'] === 0) {
+            $imgName = trim(str_replace(" ", "", $_POST['title']));
+            $imgDate = (new DateTime())->getTimestamp();
+            $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            $imgFile = $imgName . "_" . $imgDate . ".webp";
+
+            $_POST['thumbnail'] = $imgFile;
+            $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            $_POST['thumbnail'] = 'placeholder.webp';
+            $_POST['thumbnail_alt'] = 'Pas de visuel disponible';
+        }
+
+        $event = new Events($this->getDB());
         $result = $event->create($_POST);
 
-        if ($result) {
+        if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(800);
             $image->save("./assets/images/events/" . $imgFile);
 
-            return header('Location: /admin/timelines/');
+            return header('Location: /events/create/'. $timelineId);
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            return header('Location: /events/create/'. $timelineId);
         } else {
-            echo "erreur";
+            echo "error";
         }
     }
 
@@ -298,25 +301,37 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "", $_POST['title']));
-        $imgDate = (new DateTime())->getTimestamp();
-        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . ".webp";
+        // dump($_POST);
+        // dump($_FILES);
+        // die();
 
-        $_POST['thumbnail'] = $imgFile;
+        if ($_FILES['thumbnail_file']['error'] === 0) {
+            $imgName = trim(str_replace(" ", "", $_POST['title']));
+            $imgDate = (new DateTime())->getTimestamp();
+            $imgFile = $imgName . "_" . $imgDate . ".webp";
+
+            $_POST['thumbnail'] = $imgFile;
+            $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
+        } else if ($_FILES['thumbnail_file']['error'] !== 1) {
+            $_POST['thumbnail'] = $_POST['thumbnail'];
+            $_POST['thumbnail_alt'] = $_POST['thumbnail_alt'];
+        }
 
         $event = new Events($this->getDB());
 
         $result = $event->update($id, $_POST);
 
-        if ($result) {
+
+        if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(800);
             $image->save("./assets/images/events/" . $imgFile);
 
-            return header('Location: /admin/timelines');
+            return header('Location: /events/create/'. $_POST['timeline_id']);
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            return header('Location: /events/create/'. $_POST['timeline_id']);
         } else {
-            echo "erreur";
+            echo "error";
         }
     }
 

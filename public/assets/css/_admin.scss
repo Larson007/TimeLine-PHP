@@ -14,7 +14,7 @@
     }
 }
 
-.table--id{
+.table--id {
     width: 40px;
 }
 
@@ -24,11 +24,12 @@
     justify-content: center;
     align-items: center;
     p {
-        margin-right: 0.2rem;
+        margin: 0 0.2rem 0.75rem 0;
         padding: 0.5rem;
         background-color: $yellow;
         color: $bg-grey;
         border-radius: 3px;
+        white-space: nowrap;
     }
 }
 
@@ -83,22 +84,21 @@
             padding: 1rem;
         }
         .tag__color {
-
             .tag__color--color {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border-radius: 3px;
-                p{
+                p {
                     text-shadow: 2px 2px 2px black;
-
                 }
             }
         }
     }
     .table--action {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        white-space: nowrap;
     }
 }
