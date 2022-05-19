@@ -1,4 +1,5 @@
 .globe-animation {
+    
     display: flex;
     min-height: 90vh;
     justify-content: center;
@@ -36,6 +37,7 @@
         -webkit-animation: bounce 2s infinite;
         -moz-animation: bounce 2s infinite;
         -o-animation: bounce 2s infinite;
+        
     }
 
     @keyframes bounce {

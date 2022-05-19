@@ -1,71 +1,131 @@
-.slider-timeline {
-    display: flex;
-    align-items: center;
-    flex-flow: column wrap;
-    padding-top: 1rem;
-    background-color: $bg-grey;
-    h2 {
-        text-align: center;
-    }
-    &__media {
-        position: relative;
-        display: block;
-        width: 350px;
-        height: 200px;
-        margin: 0 auto;
-        img {
-            max-width: 100%;
-            width: auto;
-            height: auto;
-        }
-    }
-    &__date {
-        color: $red;
-    }
-    &__description {
-        padding: 1rem;
-        text-align: justify;
-    }
-}
-.slider-event {
-    padding: 1rem 0.5rem 0;
-}
-
 .anchors {
-    position: fixed;
-    bottom: 43%;
-    left: 0;
+    position: sticky;
+    top: 50%;
+    left: 0rem;
     z-index: 100;
-    transform: translateX(-43%) rotate(-90deg);
+    transform: translateX(-46%) rotate(-90deg);
     padding: 0;
     margin: 0;
-
+    max-width: fit-content;
+    width: 600px;
+    display: block;
     ul {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
-        align-items: stretch;
-
+        align-items: center;
+        max-width: 100%;
+        width: 815px;
+        overflow-x: auto;
+        border-right: 2px solid white;
+        border-left: 2px solid white;
+        span {
+            margin: 0 0.75rem;
+        }
         li {
-            background-color: $blue;
-            padding: 0rem;
+            background-color: $yellow;
+            padding: 0.2rem 0.5rem;
             border-radius: 5px;
-            margin: 0.3rem;
-            a{
+            margin-right: 0.5rem;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
                 font-size: 1.3rem;
-                padding: 0.5rem;
                 color: $bg-grey;
+                white-space: nowrap;
+                span {
+                    color: $red;
+                    margin: 0 0.75rem 0 0;
+                }
             }
         }
+        .anchors-timeline {
+            background-color: $green;
+
+        }
+    }
+    ul::-webkit-scrollbar {
+        height: 0;
     }
 }
 
-.pg-wrapper {
-    max-width: fit-content;
-    width: 100%;
-}
+// .anchors::-webkit-scrollbar {
+//     height: 0.4rem;
+// }
+// .anchors::-webkit-scrollbar-track {
+//     background-color: $bg-grey;
+// }
+// .anchors::-webkit-scrollbar-thumb {
+//     background: white;
+//     border: 1px solid white;
 
-.pg-page {
-    // max-width: min-content;
-    // width: 100%;
+// }
+
+.pg-wrapper, .pg-vertical {
+    padding: 0 !important;
+    max-width: fit-content;
+    .pg-container {
+        max-width: fit-content;
+        width: 100%;
+        .slider-timeline {
+            background-color: $bg-grey;
+            .content-slider {
+                display: flex;
+                align-items: center;
+                flex-flow: column nowrap;
+
+                padding: 1rem 3rem;
+            }
+            h2 {
+                margin-top: 70px;
+                text-align: center;
+            }
+            img {
+                max-width: 100%;
+                width: auto;
+                height: auto;
+
+            }
+            &__media {
+                position: relative;
+                display: block;
+                width: 350px;
+                height: 200px;
+                margin: 0 auto;
+                img {
+                    max-width: 100%;
+                    width: auto;
+                    height: auto;
+                }
+            }
+            &__date {
+                margin: 0.5rem;
+                font-size: 2rem;
+                color: $red;
+                p {
+                    font-size: 1rem;
+                    color: white;
+                }
+                span {
+                    font-size: 1.5rem;
+                    color: $red;
+                    margin: 0 0.75rem;
+
+                }
+            }
+            &__description {
+                text-align: justify;
+                font-size: 1.2rem;
+            }
+            p {
+                margin: 0;
+            }
+        }
+        // .slider-event {
+        //     padding: 1rem 0.5rem 0;
+        // }
+    }
 }

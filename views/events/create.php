@@ -46,7 +46,7 @@ $faker = Faker\Factory::create();
             </div>
             <div class="event__form__content--item">
                 <label for="text">description</label>
-                <textarea name="text" id="text" rows="8"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
+                <textarea name="text" id="text" rows="8" maxlength="687"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
             </div>
         </div>
         <div class="event__form__detail">

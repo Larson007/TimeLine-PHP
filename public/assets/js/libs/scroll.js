@@ -3,7 +3,7 @@ const scroll = () => {
         new Pageable("#container", {
             childSelector: "[data-anchor]", // CSS3 selector string for the pages
             anchors: [], // define the page anchors
-            pips: true, // display the pips
+            pips: false, // display the pips
             animation: 300, // the duration in ms of the scroll animation
             delay: 0, // the delay in ms before the scroll animation starts
             throttle: 50, // the interval in ms that the resize callback is fired
@@ -23,30 +23,30 @@ const scroll = () => {
                 touch: true, // enable / disable touch / swipe scrolling
                 keydown: true, // enable / disable keyboard navigation
             },
-            easing: function() {
-                // the easing function used for the scroll animation
+            // easing: function() {
+            //     // the easing function used for the scroll animation
 
-            },
-            onInit: function() {
-                // do something when the instance is ready
-            },
-            onUpdate: function() {
-                // do something when the instance updates
-            },    
-            onBeforeStart: function() {
-                // do something before scrolling begins
-            },
-            onStart: function() {
+            // },
+            // onInit: function() {
+            //     // do something when the instance is ready
+            // },
+            // onUpdate: function() {
+            //     // do something when the instance updates
+            // },    
+            // onBeforeStart: function() {
+            //     // do something before scrolling begins
+            // },
+            // onStart: function() {
 
-                // do something when scrolling begins
-            },
-            onScroll: function() {
-                // do something during scroll
-            },
-            onFinish: function() {
-                destroy();
-                // do something when scrolling ends
-            },
+            //     // do something when scrolling begins
+            // },
+            // onScroll: function() {
+            //     // do something during scroll
+            // },
+            // onFinish: function() {
+            //     destroy();
+            //     // do something when scrolling ends
+            // },
         });
     });
 };
