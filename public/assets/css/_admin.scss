@@ -1,4 +1,8 @@
-//********** Dashboard
+//? Admin
+//? *******************************************/
+
+
+//* Dashboard
 //********************************************/
 
 .dashboard--images {
@@ -100,5 +104,14 @@
         justify-content: space-between;
         align-items: center;
         white-space: nowrap;
+    }
+}
+
+
+//! Tablette
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    /* Tablette */
+    th, td {
+        font-size: 0.75rem;
     }
 }

@@ -1,13 +1,20 @@
-//********** TAGS INDEX
+//? Tags
+//? *******************************************/
+
+//* TAGS INDEX
 //********************************************/
+.tagGroup--title {
+    text-align: center;
+}
+.tagGroup--title::first-letter {
+    color: $yellow;
+}
 .tagGroup {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    .tagGroup--title::first-letter {
-        color: $yellow;
-    }
+
     .tagCard {
         margin: 1rem 0;
         position: relative;
@@ -34,7 +41,7 @@
     }
 }
 
-//********** TAGS Create
+//* TAGS Create
 //********************************************/
 
 .tags__create {
@@ -138,4 +145,61 @@
             color: $bg-grey;
         }
     }
+}
+
+//! Tablette
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    /* Tablette */
+
+    //* TAGS INDEX
+    //********************************************/
+    .tagGroup {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        .tagCard {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    }
+
+
+    
+//* TAGS Create
+//********************************************/
+
+.tags__create {
+    background-color: $bg-light;
+    padding: 0.5rem;
+
+    .tags__create--title {
+        margin: 0.5rem 0 0;
+        text-align: center;
+    }
+    .tags__create--title::first-letter {
+        color: $yellow;
+        font-size: 3.25rem;
+    }
+    &__form {
+        display: flex;
+        flex-flow: row wrap;
+        &__content {
+            width: 50%;
+            .tags__create__form__content--item {
+                width: 80%;
+                padding: 1rem 0;
+            }
+        }
+        &__thumbnail {
+            width: 50%;
+        }
+        button {
+            margin-left: auto;
+        }
+    }
+}
 }

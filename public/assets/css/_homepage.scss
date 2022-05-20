@@ -1,5 +1,9 @@
+//* Globe Animation
+//********************************************/
+
 .globe-animation {
-    
+
+    z-index: -1;
     display: flex;
     min-height: 90vh;
     justify-content: center;
@@ -15,12 +19,14 @@
         display: block;
         text-align: center;
         color: $green;
-        font:normal 45px 'FontAwesome';
-        line-height:60px;
+        font: normal 45px "FontAwesome";
+        line-height: 60px;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
     }
 
+    //* Arrow bounce
+    //********************************************/
     .bounce {
         position: absolute;
         bottom: 80px;
@@ -37,7 +43,6 @@
         -webkit-animation: bounce 2s infinite;
         -moz-animation: bounce 2s infinite;
         -o-animation: bounce 2s infinite;
-        
     }
 
     @keyframes bounce {
@@ -55,9 +60,8 @@
             transform: translateY(-15px);
         }
     }
-
 }
-.homepage--welcome{
+.homepage--welcome {
     padding: 0.75rem;
     margin: 1rem 0;
     background-color: $green;
@@ -69,6 +73,9 @@
     left: 2rem;
     z-index: 10;
 }
+
+//* Homepage Content
+//********************************************/
 
 #homepage {
     .homepage--title {

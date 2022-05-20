@@ -29,7 +29,6 @@ use App\Models\Timelines;
         <nav id="navbar">
             <ul class="navbar__menu">
                 <li class="navbar__menu__item">
-
                     <a class="navbar__menu__item--link" href="/">Accueil</a>
                 </li>
                 <li class="navbar__menu__item">
@@ -41,7 +40,7 @@ use App\Models\Timelines;
                 <?php if (isset($_SESSION['auth'])) : ?>
                     <li class="navbar__menu__item">
                         <p class="navbar__menu__item--link"><?= htmlspecialchars($_SESSION['username']) ?></p>
-                        <ul class="navbar__menu__item dropdown">
+                        <ul class="dropdown">
                             <?php if ($_SESSION['auth'] === 1) : ?>
                                 <li class="dropdown__item">
                                     <i class="fa-solid fa-chart-line"></i>
@@ -63,7 +62,7 @@ use App\Models\Timelines;
                             <?php endif ?>
                             <li class="dropdown__item">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                <a href="/logout">Se deconnecter</a>
+                                <a href="/logout">Déconnexion</a>
                             </li>
                         </ul>
                     </li>

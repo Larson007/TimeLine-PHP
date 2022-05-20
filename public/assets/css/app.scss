@@ -37,7 +37,6 @@ body {
     }
 }
 
-
 .containers {
     margin: 80px auto 0;
     padding: 0 0.5rem;
@@ -58,9 +57,25 @@ body {
     border: 1px solid $purple;
 }
 
+@media screen and (max-width: 780px) {
+    .containers {
+        margin: 80px auto 0;
+        padding: 0 0.5rem;
+    
+    }
+}
+
 @media screen and (min-width: 780px) and (max-width: 1200px) {
-    /* Mettre ici les différentes règles concernées la tablette*/
+    .containers {
+        margin: 0;
+        padding: 0 2rem ;
+    
+    }
 }
 @media screen and (min-width: 1200px) {
-    /* Mettre ici les différentes règles concernées le desktop */
+    .containers {
+        margin: 80px auto 0;
+        padding: 0 0.5rem;
+    
+    }
 }
