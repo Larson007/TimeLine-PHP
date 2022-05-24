@@ -1,5 +1,5 @@
+<h1 class="timelines--title">Timelines</h1>
 <div class="cards">
-    <h1 class="timelines--title">Timelines</h1>
 
     <?php foreach ($params['timelines'] as $timeline) : ?>
         <div class="box">

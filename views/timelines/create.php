@@ -1,16 +1,9 @@
 <?php
-
 $faker = Faker\Factory::create();
 ?>
 
+<h1 class="timeline__create--title">Creation d'une TimeLine</h1>
 <div class="timeline__create">
-    <h1 class="timeline__create--title">Creation d'une TimeLine</h1>
-
-    <nav aria-label="Breadcrumb" class="timeline__create__ariane">
-        <ul>
-            <li><span aria-current="page">Timeline</span></li>
-        </ul>
-    </nav>
 
     <form action="/timeline/create" method="POST" class="timeline__create__form" enctype="multipart/form-data">
 

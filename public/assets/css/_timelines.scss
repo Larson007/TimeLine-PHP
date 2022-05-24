@@ -1,17 +1,21 @@
 //? Timelines
 //? *******************************************/
 
-
 //* Timeline index
 //********************************************/
+
+.timelines--title {
+    text-align: center;
+    margin-bottom: 0;
+}
+.timelines--title::first-letter {
+    color: $green;
+}
 .cards {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    .timelines--title::first-letter {
-        color: $green;
-    }
     .box {
         margin: 20px 0;
         border-radius: 0.3rem;
@@ -82,7 +86,6 @@
             position: relative;
             padding: 20px;
             display: block;
-            z-index: 99;
             .box-date {
                 display: flex;
                 flex-flow: row nowrap;
@@ -218,17 +221,6 @@
     .timeline__create--title::first-letter {
         color: $green;
         font-size: 3.25rem;
-    }
-    &__ariane {
-        display: flex;
-        li {
-            background-color: $green;
-            border-radius: 5px;
-            span {
-                padding: 0.75rem;
-                color: $bg-light;
-            }
-        }
     }
     &__form {
         display: flex;
@@ -368,5 +360,74 @@
         background-color: $red;
         border: 2px solid $bg-grey;
         color: $bg-grey;
+    }
+}
+
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    //* Timeline index
+    //********************************************/
+
+    .cards {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    //* Timeline Form
+    //********************************************/
+
+    .timeline__create--title {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    .timeline__create--title::first-letter {
+        color: $green;
+        font-size: 3.25rem;
+    }
+    .timeline__create {
+        &__form {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+            width: 100%;
+            &__content {
+                width: 48%;
+                .timeline__create__form__content--item,
+                .timeline__create__form__content--date {
+                    padding: 0;
+                }
+            }
+            &__detail {
+                width: 48%;
+                &__thumbnail {
+                    margin: 0;
+                }
+                &__tags {
+                    margin: 2rem 0 1rem;
+                    .tags__group {
+                        display: grid; 
+                        grid-template-rows: auto auto;
+                        grid-template-columns: auto auto; 
+                        grid-gap: 0em;
+                        height: auto;
+                        .tags__group--item {
+                            input {
+                                transform: scale(1.5);
+                            }
+                            label {
+                                font-size: 1.5rem;
+                            }
+                            label::first-letter {
+                                font-size: 1.75rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        button {
+            margin: 0 0 0 auto;
+        }
     }
 }

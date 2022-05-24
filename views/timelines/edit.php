@@ -1,11 +1,5 @@
+<h1 class="timeline__create--title">Edition : <?= $params['timeline']->title ?></h1>
 <div class="timeline__create">
-    <h1 class="timeline__create--title">Edition : <?= $params['timeline']->title ?></h1>
-
-    <nav aria-label="Breadcrumb" class="timeline__create__ariane">
-        <ul>
-            <li><span aria-current="page">Timeline</span></li>
-        </ul>
-    </nav>
 
     <form method="POST" class="timeline__create__form" enctype="multipart/form-data">
 

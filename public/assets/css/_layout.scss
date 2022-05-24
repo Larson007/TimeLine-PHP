@@ -226,6 +226,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        z-index: 9998;
 
         .logo {
             display: inline-block;
@@ -334,9 +335,10 @@
     .dropdown {
         display: none;
         position: absolute;
+        z-index: 9999;
         
         .dropdown__item {
-            z-index: 999;
+            z-index: 9999;
             overflow: visible;
             visibility: visible;
             background-color: $bg-dark;
