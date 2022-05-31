@@ -46,7 +46,7 @@ $faker = Faker\Factory::create();
             </div>
             <div class="event__form__content--item">
                 <label for="text">description</label>
-                <textarea name="text" id="text" rows="8" maxlength="687"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
+                <textarea name="text" id="text" rows="6" maxlength="687"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
             </div>
         </div>
         <div class="event__form__detail">
@@ -64,6 +64,8 @@ $faker = Faker\Factory::create();
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt">
             <input type="hidden" name="timeline_id" id="timeline_id" value="<?= $params['timeline']->id ?>">
         </div>
-        <button type="submit" class="event__submit--create event--btn">Enregistrer</button>
+        <div class="event__submit">
+            <button type="submit" class="event__submit--create event--btn">Enregistrer</button>
+        </div>
     </form>
 </div>

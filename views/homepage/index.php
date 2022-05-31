@@ -1,12 +1,14 @@
-<?php if (isset($_GET['success'])) : ?>
-    <div class="container">
-        <p class="homepage--welcome">Bienvenu <?= $_SESSION['username'] ?></p>
-    </div>
-<?php endif ?>
-<div class="globe-animation">
-    <p class="globe-animation--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit enim molestiae culpa, ipsum repellendus recusandae? Obcaecati soluta consectetur inventore ullam, nulla provident facilis ducimus aliquid natus ut, quidem veritatis, minus corrupti ipsa quos perspiciatis maiores!</p>
-    <div class="bounce">
-        <a href="#homepage"><i class="fa-solid fa-angle-down"></i></a>
+
+
+    <?php if (isset($_GET['success'])) : ?>
+        <div class="container">
+            <p class="homepage--welcome">Bienvenu <?= $_SESSION['username'] ?></p>
+        </div>
+        <?php endif ?>
+        <div class="globe-animation">
+            <p class="globe-animation--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit enim molestiae culpa, ipsum repellendus recusandae? Obcaecati soluta consectetur inventore ullam, nulla provident facilis ducimus aliquid natus ut, quidem veritatis, minus corrupti ipsa quos perspiciatis maiores!</p>
+            <div class="bounce">
+                <a href="#homepage"><i class="fa-solid fa-angle-down"></i></a>
     </div>
 </div>
 

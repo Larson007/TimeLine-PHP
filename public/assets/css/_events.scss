@@ -2,7 +2,7 @@
 //? *******************************************/
 
 .event {
-    background-color: $bg-dark;
+    background-color: $bg-grey;
     padding: 0.5rem;
     margin-bottom: 1rem;
     .event--title {
@@ -175,11 +175,57 @@
         margin: 1.5rem 0 0;
     }
     .event__submit--delete {
-
         .event--btn-delete {
             display: inline-block;
             width: 100%;
             margin: 1.5rem 0 3em;
+            background-color: $red;
+            color: $bg-dark;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .event {
+        margin: 0;
+        .event--title {
+            margin: 7rem 0 0;
+            text-align: center;
+        }
+        .event--title::first-letter {
+            color: $blue;
+            font-size: 3.25rem;
+        }
+        &__ariane {
+            padding: 0 2rem;
+        }
+        &__form {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            padding: 0 2rem;
+            &__content {
+                width: 60%;
+            }
+            &__detail {
+                width: 35%;
+            }
+        }
+        .event__submit {
+            display: inline-block;
+            width: 100%;
+            button {
+                width: 330px;
+                margin: 0;
+            }
+        }
+    }
+    .event__submit--delete {
+        display: flex;
+        justify-content: center;
+        width: 330px;
+        margin-left: 2rem;
+        .event--btn-delete {
             background-color: $red;
             color: $bg-dark;
         }

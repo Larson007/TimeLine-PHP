@@ -1,4 +1,4 @@
-const scroll = () => {
+const scrollVertical = () => {
     document.addEventListener('DOMContentLoaded', () =>{
         new Pageable("#container", {
             childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -51,4 +51,10 @@ const scroll = () => {
     });
 };
 
-export default scroll;
+
+/* Removing the class 'containers' from the element with the id 'containers' on view "timelines/show" */
+const containers = document.getElementById('containers')
+if (document.querySelector("#containers").classList.contains('containers'))
+    containers.classList.remove('containers');
+
+export default scrollVertical;

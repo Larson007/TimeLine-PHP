@@ -136,6 +136,8 @@ Demo :
 >
 > [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed?query=roboto+conden)
 
-TODO Comportement pageable lors du click sur une slide qui passe en plein ecran et supprime la bar de tâche
+TODO Comportement pageable lors du click sur une slide qui passe en plein ecran et supprime la bar de tâche version tabeltte
 TODO Ajouter des validation error dans formulaire de creattion tags/timelines pour les champs not null (ex thumbnail)
 TODO add rejex pour le format des date_start/end dans create/edit timeline
+TODO Regler le pb de marge via container dans layout
+

@@ -24,6 +24,7 @@
 body {
     font-family: "Bebas Neue", cursive;
     background-color: $bg-light;
+    //background-image: linear-gradient(to bottom, #2a2d3c, #303445, #363b4e, #3d4257, #434961);
     color: #fff;
     font-size: 1.4em;
     
@@ -66,16 +67,17 @@ body {
 }
 
 @media screen and (min-width: 780px) and (max-width: 1200px) {
-    .containers {
-        margin: 0;
-        padding: 0 2rem ;
+    #containers {
+        margin: 8rem auto 0;
+        padding: 0 8rem;
     
     }
 }
+
 @media screen and (min-width: 1200px) {
     .containers {
-        margin: 80px auto 0;
-        padding: 0 0.5rem;
+        margin: 8rem auto 0;
+        padding: 0 8rem;
     
     }
 }

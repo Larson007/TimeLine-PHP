@@ -50,9 +50,11 @@
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt" value="<?= $params['event']->thumbnail_alt ?>">
             <input type="hidden" name="timeline_id" id="timeline_id" value="<?= $params['event']->timeline_id ?>">
         </div>
-        <button type="submit" class="event__submit--update event--btn">mettre à jour</button>
+        <div class="event__submit">
+            <button type="submit" class="event__submit--update event--btn">mettre à jour</button>
+        </div>
     </form>
     <form action="/events/delete/<?= $params['event']->id ?>" method="POST" class="event__submit--delete">
-        <button type="submit" class="event--btn event--btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Delete</button>
+        <button type="submit" class="event--btn event--btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Supprimer</button>
     </form>
 </div>

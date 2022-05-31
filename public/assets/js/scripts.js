@@ -2,7 +2,8 @@ import burgerMenu from './libs/burgerMenu.js';
 import cardToogle from './libs/cardToogle.js';
 import globeAnimation from './libs/globeAnimation.js';
 import uploadPreview from './libs/uploadPreview.js';
-import scroll from './libs/scroll.js';
+import scrollVertical from './libs/scrollVertical.js';
+import scrollHorizontal from './libs/scrollHorizontal.js';
 
 console.log('✅ script chargé');
 
@@ -10,7 +11,7 @@ console.log('✅ script chargé');
 burgerMenu();
 cardToogle();
 
-scroll();
+//scrollVertical();
 
 
 
@@ -33,12 +34,21 @@ if (imgPreview) {
     uploadPreview();
 }
 
-// const scrollTimeline = document.getElementById(
-//     'container'
-// ).length > 0;
 
-// if (scrollTimeline) {
-//     console.log('✅ pageable() chargé');
-//     scroll();
-// }
+const scrollTimeline = document.getElementsByClassName(
+    'pg-wrapper'
+).length > 0;
+
+if (scrollTimeline) {
+    /* Checking the screen width and if it is less than 780px it will run the scrollVertical function. */
+    if (screen.width < 780) {
+        console.log('✅ pageableVertical() chargé');
+        scrollVertical();
+    }
+    /* Checking the screen width and if it is more than 780px it will run the scrollHorizontal function. */
+    else {
+        console.log('✅ pageableHorizontal() chargé');
+        scrollHorizontal();
+    }
+}
 

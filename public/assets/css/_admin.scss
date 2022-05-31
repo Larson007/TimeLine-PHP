@@ -98,6 +98,11 @@
             }
         }
     }
+
+}
+
+
+@media screen and (max-width: 780px) {
     .table--action {
         display: flex;
         justify-content: space-between;
@@ -131,5 +136,17 @@
             align-items: center;
             width: 100%;
         }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .table--timeline {
+        padding: 5rem;
+    }
+    .table--action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
     }
 }

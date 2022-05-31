@@ -154,10 +154,11 @@
     //* TAGS INDEX
     //********************************************/
     .tagGroup {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 0.5rem;
+        padding: 0 1rem;
 
         .tagCard {
             position: relative;
@@ -167,39 +168,48 @@
         }
     }
 
+    //* TAGS Create
+    //********************************************/
 
-    
-//* TAGS Create
-//********************************************/
+    .tags__create {
+        background-color: $bg-light;
+        padding: 0.5rem;
 
-.tags__create {
-    background-color: $bg-light;
-    padding: 0.5rem;
-
-    .tags__create--title {
-        margin: 0.5rem 0 0;
-        text-align: center;
-    }
-    .tags__create--title::first-letter {
-        color: $yellow;
-        font-size: 3.25rem;
-    }
-    &__form {
-        display: flex;
-        flex-flow: row wrap;
-        &__content {
-            width: 50%;
-            .tags__create__form__content--item {
-                width: 80%;
-                padding: 1rem 0;
+        .tags__create--title {
+            margin: 0.5rem 0 0;
+            text-align: center;
+        }
+        .tags__create--title::first-letter {
+            color: $yellow;
+            font-size: 3.25rem;
+        }
+        &__form {
+            display: flex;
+            flex-flow: row wrap;
+            &__content {
+                width: 50%;
+                .tags__create__form__content--item {
+                    width: 80%;
+                    padding: 1rem 0;
+                }
             }
-        }
-        &__thumbnail {
-            width: 50%;
-        }
-        button {
-            margin-left: auto;
+            &__thumbnail {
+                width: 50%;
+            }
+            button {
+                margin-left: auto;
+            }
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+    //* TAGS INDEX
+    //********************************************/
+    .tagGroup {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto auto;
+        grid-gap: 2rem;
+    }
 }
