@@ -5,6 +5,7 @@
 //********************************************/
 .tagGroup--title {
     text-align: center;
+    margin: 8rem auto 3rem;
 }
 .tagGroup--title::first-letter {
     color: $yellow;
@@ -211,5 +212,59 @@
         grid-template-columns: auto auto auto auto;
         grid-template-rows: auto auto auto auto;
         grid-gap: 2rem;
+    }
+
+    //* TAGS Create
+    //********************************************/
+
+    .tags__create {
+        background-color: $bg-grey;
+        padding: 8rem 5rem 0;
+        height: 94vh;
+        margin: 0;
+
+        .tags__create--title {
+            margin: 0.5rem 0 0;
+            text-align: center;
+        }
+        .tags__create--title::first-letter {
+            color: $yellow;
+            font-size: 3.25rem;
+        }
+        &__form {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            margin: 5rem 3rem 0;
+            &__content {
+                width: 30%;
+                .tags__create__form__content--item {
+                    padding: 1rem 0;
+                    display: flex;
+                    flex-flow: column wrap;
+                    #color {
+                        width: 25%;
+                        height: 5rem;
+                    }
+                }
+            }
+            &__thumbnail {
+                margin: 1rem 0;
+                width: 45%;
+            }
+            .tags__submit {
+                width: 100%;
+                .submit--edit {
+                    background-color: $green;
+                }
+                button {
+                    margin: 1.5rem 0 2.5em;
+                    padding: 1.5rem;
+                    background-color: $red;
+                    border: 2px solid $bg-grey;
+                    color: $bg-grey;
+                }
+            }
+        }
     }
 }

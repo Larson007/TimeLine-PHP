@@ -13,7 +13,7 @@
     <form action="/login" method="POST" class="login__form" autocomplete="off">
         <div class="login__form--item">
             <label for="username">Nom d'utilisateur</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" autofocus>
         </div>
         <div class="login__form--item">
             <label for="password">Mot de passe</label>

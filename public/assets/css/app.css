@@ -1035,7 +1035,7 @@ template {
 
 .timelines--title {
   text-align: center;
-  margin-bottom: 0;
+  margin: 8rem auto 3rem;
 }
 
 .timelines--title::first-letter {
@@ -1707,6 +1707,7 @@ template {
 
 .tagGroup--title {
   text-align: center;
+  margin: 8rem auto 3rem;
 }
 
 .tagGroup--title::first-letter {
@@ -1953,6 +1954,67 @@ template {
     -ms-grid-rows: auto auto auto auto;
         grid-template-rows: auto auto auto auto;
     grid-gap: 2rem;
+  }
+  .tags__create {
+    background-color: #343a40;
+    padding: 8rem 5rem 0;
+    height: 94vh;
+    margin: 0;
+  }
+  .tags__create .tags__create--title {
+    margin: 0.5rem 0 0;
+    text-align: center;
+  }
+  .tags__create .tags__create--title::first-letter {
+    color: #feca72;
+    font-size: 3.25rem;
+  }
+  .tags__create__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 5rem 3rem 0;
+  }
+  .tags__create__form__content {
+    width: 30%;
+  }
+  .tags__create__form__content .tags__create__form__content--item {
+    padding: 1rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+  }
+  .tags__create__form__content .tags__create__form__content--item #color {
+    width: 25%;
+    height: 5rem;
+  }
+  .tags__create__form__thumbnail {
+    margin: 1rem 0;
+    width: 45%;
+  }
+  .tags__create__form .tags__submit {
+    width: 100%;
+  }
+  .tags__create__form .tags__submit .submit--edit {
+    background-color: #c4e791;
+  }
+  .tags__create__form .tags__submit button {
+    margin: 1.5rem 0 2.5em;
+    padding: 1.5rem;
+    background-color: #ee727a;
+    border: 2px solid #343a40;
+    color: #343a40;
   }
 }
 
@@ -2394,6 +2456,7 @@ template {
 }
 
 .table tr .tag__color .tag__color--color p {
+  color: white;
   text-shadow: 2px 2px 2px black;
 }
 
@@ -2458,7 +2521,7 @@ template {
 }
 
 @media screen and (min-width: 1200px) {
-  .table--timeline {
+  .table--form {
     padding: 5rem;
   }
   .table--action {
@@ -2928,7 +2991,7 @@ template {
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
-    padding: 6rem 3rem 1rem;
+    padding: 6rem 4rem 1rem;
   }
   .pg-wrapper .pg-container .slider-timeline .slider .slider__media,
   .pg-vertical .pg-container .slider-timeline .slider .slider__media {
@@ -2942,12 +3005,24 @@ template {
   .pg-vertical .pg-container .slider-timeline .slider .slider__media .slider__media--image {
     max-width: 100%;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .pg-wrapper .pg-container .slider-timeline .slider .slider__media .slider__media--image img,
   .pg-vertical .pg-container .slider-timeline .slider .slider__media .slider__media--image img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .pg-wrapper .pg-container .slider-timeline .slider .slider__detail,
   .pg-vertical .pg-container .slider-timeline .slider .slider__detail {

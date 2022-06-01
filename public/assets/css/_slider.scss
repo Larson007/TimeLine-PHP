@@ -199,9 +199,9 @@
                 .slider {
                     display: flex;
                     justify-content: space-between;
-align-items: center;
+                    align-items: center;
                     flex-flow: row nowrap;
-                    padding: 6rem 3rem 1rem;
+                    padding: 6rem 4rem 1rem;
                     .slider__media {
                         width: 45%;
                         .slider__media--title {
@@ -210,11 +210,14 @@ align-items: center;
                         .slider__media--image {
                             max-width: 100%;
                             width: 100%;
-
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             img {
-                                max-width: 100%;
-                                width: 100%;
-                                height: auto;
+
+                                width:fit-content;
+                                height: fit-content;
+
                             }
                         }
                     }

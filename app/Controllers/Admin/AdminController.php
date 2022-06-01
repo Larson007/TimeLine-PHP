@@ -217,24 +217,36 @@ class AdminController extends Controller
     {
         $this->isAdmin();
 
-        $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
-        $imgDate = (new DateTime())->getTimestamp();
-        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . ".webp";
-        $_POST['thumbnail'] = $imgFile;
+        // $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
+        // $imgDate = (new DateTime())->getTimestamp();
+        // $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+        // $imgFile = $imgName . "_" . $imgDate . ".webp";
+        // $_POST['thumbnail'] = $imgFile;
+
+        if ($_FILES['thumbnail_file']['error'] === 0) {
+            $imgName = trim(str_replace(" ", "", $_POST['name']));
+            $imgDate = (new DateTime())->getTimestamp();
+            $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            $imgFile = $imgName . "_" . $imgDate . ".webp";
+            $_POST['thumbnail'] = $imgFile;
+        } else if ($_FILES['thumbnail_file']['error'] !== 1) {
+            $_POST['thumbnail'] = $_POST['thumbnail'];
+        }
 
         $tags = new Tags($this->getDB());
 
         $result = $tags->update($id, $_POST);
 
-        if ($result) {
+        if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/tags/" . $imgFile);
 
             return header('Location: /admin/tags');
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            return header('Location: /admin/tags');
         } else {
-            echo "erreur";
+            echo "error";
         }
     }
 
@@ -271,6 +283,17 @@ class AdminController extends Controller
             $_POST['thumbnail'] = 'placeholder.webp';
             $_POST['thumbnail_alt'] = 'Pas de visuel disponible';
         }
+
+        if (empty($_POST['day'])) {
+            $_POST['day'] = null;
+        }
+        if (empty($_POST['month'])) {
+            $_POST['month'] = null;
+        }
+
+        // dump($_POST);
+        // dump($_FILES);
+        // die();
 
         $event = new Events($this->getDB());
         $result = $event->create($_POST);

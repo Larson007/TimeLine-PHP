@@ -1,4 +1,4 @@
-    <div class="table--timeline">
+    <div class="table--form">
 
 
         <h1>Administration des timelines</h1>

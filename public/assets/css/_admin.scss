@@ -93,6 +93,7 @@
                 align-items: center;
                 border-radius: 3px;
                 p {
+                    color: white;
                     text-shadow: 2px 2px 2px black;
                 }
             }
@@ -140,7 +141,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .table--timeline {
+    .table--form{
         padding: 5rem;
     }
     .table--action {

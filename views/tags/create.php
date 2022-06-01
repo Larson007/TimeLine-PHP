@@ -1,5 +1,5 @@
 <div class="tags__create">
-    <h1 class="tags__create--title">Create Tags View</h1>
+    <h1 class="tags__create--title">Creation d'une catégories</h1>
 
     <form method="POST" enctype="multipart/form-data" class="tags__create__form">
 
@@ -23,7 +23,9 @@
                 <img id="preview" src="#" alt="aperçu de l'image uploader" />
             </div>
         </div>
-        <button type="submit" class="">Enregistrer</button>
+        <div class="tags__submit">
+            <button type="submit">Enregistrer</button>
+        </div>
     </form>
 
 </div>

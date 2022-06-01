@@ -14,7 +14,7 @@
     <form action="/register" method="POST" class="register__form">
         <div class="register__form--item">
             <label for="username">Nom d'utilisateur</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" autofocus>
         </div>
         <div class="register__form--item">
             <label for="email">email</label>
