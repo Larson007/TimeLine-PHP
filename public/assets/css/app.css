@@ -2890,18 +2890,17 @@ template {
   .anchors {
     position: -webkit-sticky;
     position: sticky;
-    top: 90vh;
+    top: 85vh;
     left: 50%;
     z-index: 100;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     padding: 0;
     margin: 0;
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
-    width: 1600px;
-    display: block;
+    width: 900px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
   }
   .anchors ul {
     display: -webkit-box;
@@ -3085,7 +3084,7 @@ body a {
 
 ::-webkit-scrollbar-thumb {
   background: #3a3f54;
-  border: 1px solid #c694e8;
+  border: 1px solid white;
 }
 
 @media screen and (max-width: 780px) {

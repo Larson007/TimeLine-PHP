@@ -135,15 +135,16 @@
 
     .anchors {
         position: sticky;
-        top: 90vh;
+        top: 85vh;
         left: 50%;
         z-index: 100;
         transform: translateX(-50%);
         padding: 0;
         margin: 0;
-        max-width: fit-content;
-        width: 1600px;
-        display: block;
+        width: 900px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
         ul {
             display: flex;
             flex-direction: row;

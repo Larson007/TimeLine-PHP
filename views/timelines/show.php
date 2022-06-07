@@ -56,7 +56,23 @@
                     </div>
                     <div class="slider__detail">
                         <div class="slider__detail--date">
-                            <p><span><?= $event->day . " / " . $event->month . " / " . $event->year ?></span></p>
+                            <p><span>
+                        <?php if (!isset($event->day) && !isset($event->month)) : ?>
+                            <?php if($event->date_bc === 1): ?>
+                                <?= $event->year ?> <span class="date_bc"> avant J.C.</span>
+                            <?php endif ?>
+                        <?php elseif (!isset($event->day) && isset($event->month)) : ?>
+                            <?=$event->month . " / "?>
+                            <?php if($event->date_bc === 1): ?>
+                                <?= $event->year ?> <span class="date_bc"> avant J.C.</span>
+                            <?php endif ?>
+                        <?php elseif (isset($event->day) && isset($event->month)) : ?>
+                            <?= $event->day . " / " . $event->month . " / " ?>
+                            <?php if($event->date_bc === 1): ?>
+                                <?= $event->year ?> <span class="date_bc"> avant J.C.</span>
+                            <?php endif ?>
+                        <?php endif ?>
+                        </span></p>
                         </div>
                         <div class="slider__detail--description">
                             <p><?= $event->text ?></p>
