@@ -1,7 +1,3 @@
-<?php
-$faker = Faker\Factory::create();
-?>
-
 <h1 class="timeline__create--title">Creation d'une TimeLine</h1>
 <div class="timeline__create">
 
@@ -38,7 +34,7 @@ $faker = Faker\Factory::create();
             </div>
             <div class="timeline__create__form__content--item">
                 <label for="description">description</label>
-                <textarea name="description" id="description" rows="8"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
+                <textarea name="description" id="description" rows="8"></textarea>
             </div>
         </div>
         <div class="timeline__create__form__detail">

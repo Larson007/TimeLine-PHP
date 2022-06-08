@@ -140,4 +140,5 @@ TODO Comportement pageable lors du click sur une slide qui passe en plein ecran 
 TODO Ajouter des validation error dans formulaire de creattion tags/timelines pour les champs not null (ex thumbnail)
 TODO add rejex pour le format des date_start/end dans create/edit timeline
 TODO Regler le pb de marge via container dans layout
+TODO Ajouter bar de recherche en ajax
 

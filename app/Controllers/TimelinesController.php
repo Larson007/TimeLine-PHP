@@ -57,7 +57,7 @@ class TimelinesController extends Controller
         if ($result) {
             // Image Resize and move tu upload folder 
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
-            $image->resizeToWidth(400);
+            // $image->resizeToWidth(400);
             $image->save("./assets/images/timelines/" . $imgFile);
             return header('Location: /timelines/');
         }

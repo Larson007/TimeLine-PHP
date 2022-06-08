@@ -134,7 +134,7 @@ class AdminController extends Controller
 
         if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
-            $image->resizeToWidth(400);
+            // $image->resizeToWidth(400);
             $image->save("./assets/images/timelines/" . $imgFile);
 
             return header('Location: /admin/timelines');

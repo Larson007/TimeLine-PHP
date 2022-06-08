@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 20 avr. 2022 à 20:53
+-- Généré le : mer. 08 juin 2022 à 12:23
 -- Version du serveur : 10.4.10-MariaDB
 -- Version de PHP : 8.1.3
 
@@ -35,22 +35,48 @@ CREATE TABLE IF NOT EXISTS `events` (
   `thumbnail_alt` varchar(255) DEFAULT NULL,
   `text` text DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
-  `date_start` varchar(45) NOT NULL,
-  `date_end` varchar(45) DEFAULT NULL,
+  `year` int(25) NOT NULL,
+  `month` int(2) DEFAULT NULL,
+  `day` int(2) DEFAULT NULL,
+  `date_bc` tinyint(1) DEFAULT NULL,
   `timeline_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `events_timeline_id_foreign` (`timeline_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `thumbnail`, `thumbnail_alt`, `text`, `color`, `date_start`, `date_end`, `timeline_id`) VALUES
-(2, 'TEST EVENT 01', 'TESTEVENT01_1650462589.png', '', 'Gryphon. \'Then, you know,\' said Alice, surprised at her side. She was moving them about as she could, for her neck kept getting entangled among the branches, and every now and then added them up, and began to repeat it, but her head made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be the best way to explain the paper. \'If there\'s no use their putting.', NULL, '01/01/2000', '12/10/2021', 32),
-(4, 'test event 02', 'testevent02_1650466327.png', '', 'Mock Turtle. Alice was silent. The King and the baby violently up and down, and was suppressed. \'Come, that finished the goose, with the words came very queer indeed:-- \'\'Tis the voice of thunder, and people began running when they had settled down again, the Dodo said, \'EVERYBODY has won, and all that,\' said the March Hare. Visit either you like: they\'re both mad.\' \'But I don\'t keep the same.', NULL, '15/02/2020', '', 32),
-(5, '01 event id different', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus dui ante, id varius massa iaculis id. Nulla et dolor eu leo pellentesque consectetur. Praesent viverra scelerisque lorem non facilisis. Cras eu nisl id leo egestas aliquet. Quisque interdum lobortis lobortis. Vestibulum egestas euismod purus, id fringilla odio facilisis sed. Aliquam dignissim in tortor in tempus. Praesent fermentum mauris vitae egestas auctor. Sed tincidunt tincidunt lectus, eu porta mauris pharetra sed. Ut sed pellentesque nulla. Fusce condimentum, massa non cursus pretium, sem purus vehicula est, sed feugiat nibh eros quis dui. Suspendisse dapibus est orci, a vestibulum nunc pellentesque id. Sed non metus ex. Phasellus pellentesque non sapien non tincidunt. Nullam interdum, odio sed cursus dignissim, massa augue consectetur tortor, sit amet rhoncus ipsum turpis vel justo. Aenean blandit tortor sollicitudin rutrum sodales.', NULL, '01/09/2023', NULL, 1),
-(6, '02 event id different', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus dui ante, id varius massa iaculis id. Nulla et dolor eu leo pellentesque consectetur. Praesent viverra scelerisque lorem non facilisis. Cras eu nisl id leo egestas aliquet. Quisque interdum lobortis lobortis. Vestibulum egestas euismod purus, id fringilla odio facilisis sed. Aliquam dignissim in tortor in tempus. Praesent fermentum mauris vitae egestas auctor. Sed tincidunt tincidunt lectus, eu porta mauris pharetra sed. Ut sed pellentesque nulla. Fusce condimentum, massa non cursus pretium, sem purus vehicula est, sed feugiat nibh eros quis dui. Suspendisse dapibus est orci, a vestibulum nunc pellentesque id. Sed non metus ex. Phasellus pellentesque non sapien non tincidunt. Nullam interdum, odio sed cursus dignissim, massa augue consectetur tortor, sit amet rhoncus ipsum turpis vel justo. Aenean blandit tortor sollicitudin rutrum sodales.', NULL, '10/09/2023', NULL, 1);
+INSERT INTO `events` (`id`, `title`, `thumbnail`, `thumbnail_alt`, `text`, `color`, `year`, `month`, `day`, `date_bc`, `timeline_id`) VALUES
+(36, 'Jeunesse et éducation', 'Jeunesseetéducation_1652364323.gif', 'Image de l\'event Jeunesse et éducation', 'Alexandre est né à Pella, la capitale du royaume de Macédoine, le 20 ou le 21 juillet 356 av. J.-C.N 11. Il est le fils du roi de Macédoine Philippe II, de la dynastie des Argéades, et d\'Olympias, sa troisième épouse, princesse d’Épire de la dynastie des Éacides. Par sa mère, il est donc le neveu d\'Alexandre le Molosse, roi d\'Épire. Sa mère donnera naissance en 355 à une fille Cléopâtre. Par son père, Alexandre prétend descendre de Téménos d\'Argos, lui-même supposément descendant d\'Héraclès, fils de Zeus. Par sa mère, Alexandre affirme descendre de Néoptolème, fils d’Achille.', NULL, 356, 7, 20, 1, 63),
+(37, 'Temporibus ut tenetu', 'Temporibusuttenetu_1652702411.webp', 'Vignette de la timeline Temporibus ut tenetu', 'Alexandre est né à Pella, la capitale du royaume de Macédoine, le 20 ou le 21 juillet 356 av. J.-C.N 11. Il est le fils du roi de Macédoine Philippe II, de la dynastie des Argéades, et d\'Olympias, sa troisième épouse, princesse d’Épire de la dynastie des Éacides. Par sa mère, il est donc le neveu d\'Alexandre le Molosse, roi d\'Épire. Sa mère donnera naissance en 355 à une fille Cléopâtre. Par son père, Alexandre prétend descendre de Téménos d\'Argos, lui-même supposément descendant d\'Héraclès, fils de Zeus. Par sa mère, Alexandre affirme descendre de Néoptolème, fils d’Achille. test test test test test test test test test test test test test test test test test test test test test...', NULL, 301, 12, 3, 1, 63),
+(39, 'Bataille de Gaugamèles', 'BatailledeGaugamèles_1654088217.webp', 'Vignette de la timeline Bataille de Gaugamèles', 'La bataille de Gaugamèles, est l\'affrontement décisif entre l\'armée d\'Alexandre le Grand et celle de Darius III. Lors de cette bataille, considérée comme l\'une des plus importantes de l\'Antiquité par les forces impliquées, le royaume de Macédoine vainc définitivement l\'Empire perse. Cette bataille est parfois, quelque peu abusivement, appelée bataille d\'Arbèles en référence à la cité d\'Arbèles (Erbil dans le Kurdistan actuel), située à 100 km environ du champ de bataille.', NULL, 331, 10, 1, 1, 66),
+(40, 'Bataille d\'Issos', 'Batailled\'Issos_1654088284.webp', 'Vignette de la timeline Bataille d\'Issos', 'La bataille d\'Issos s\'est déroulée le 1er novembre 333 av. J.-C. dans l\'antique Cilicie. Elle oppose l\'armée d\'Alexandre le Grand à celle de Darius III. L\'armée macédonienne remporte une victoire décisive sur l\'armée perse commandée par Darius en personne. Cette bataille voit la victoire d\'Alexandre qui peut poursuivre sa conquête vers la Phénicie puis l\'Égypte.', NULL, 333, 11, 1, 1, 66),
+(41, 'Bataille de l\'Hydaspe', 'Batailledel\'Hydaspe_1654089312.webp', 'Vignette de la timeline Bataille de l\'Hydaspe', 'La bataille de l\'Hydaspe oppose Alexandre le Grand à Poros, raja indien du royaume de Paurava, en juillet 326 av. J.-C. sur les rives de l\'Hydaspe (ou Hydaspes), la Jhelum moderne, sur le territoire actuel du Pakistan. Les soldats macédoniens sont confrontés pour la première fois à un nombre important d\'éléphants de guerre.', NULL, 326, 7, NULL, 1, 66),
+(42, 'Bataille du Granique', 'BatailleduGranique_1654089360.webp', 'Vignette de la timeline Bataille du Granique', 'La bataille du Granique oppose en mai 334 av. J.-C. pour la première fois l\'armée macédonienne à l\'armée perse sur les rives du fleuve Granique (actuel Biga Çayı en Turquie). Alexandre le Grand remporte une victoire contre les satrapes perses qui lui ouvre les portes de l\'Asie Mineure. Cet affrontement est la première d\'une série de trois victoires des Macédoniens contre les Perses.', NULL, 334, 5, NULL, 1, 66),
+(43, 'Campagne indienne', 'Campagneindienne_1654089451.webp', 'Vignette de la timeline Campagne indienne', 'La campagne indienne d\'Alexandre le Grand s\'est déroulée du printemps 326 au printemps 325 av. J.-C. Après avoir conquis l\'Empire achéménide, le roi de Macédoine lance une campagne dans le sous-continent indien (Pakistan actuel), dont une partie forme les territoires les plus orientaux de l\'empire perse depuis la fin du vie siècle av. J.-C. Cette campagne a pour objectif principal de soumettre le Pendjab du roi Poros, vaincu en juillet 326 à la bataille de l\'Hydaspe. Alexandre conquiert ensuite la vallée de l\'Indus pour finir par atteindre les rives de l\'océan Indien et entamer le retour vers Babylone où il meurt en juin 323.', NULL, 326, NULL, NULL, 1, 66),
+(44, 'Les troupes allemandes envahissent la Pologne', 'LestroupesallemandesenvahissentlaPologne_1654686550.webp', 'Vignette de la timeline Les troupes allemandes envahissent la Pologne', 'Le 1er septembre 1939, les troupes allemandes envahissent la Pologne : infanterie et blindés allemands progressent rapidement au sein du territoire polonais, tandis que l\'aviation se livre au bombardement des villes et des sites stratégiques.', NULL, 1939, 9, 1, 0, 67),
+(45, 'la France et le Royaume-Uni déclarent la guerre à l\'Allemagne', 'laFranceetleRoyaume-Unidéclarentlaguerreàl\'Allemagne_1654686831.webp', 'Vignette de la timeline la France et le Royaume-Uni déclarent la guerre à l\'Allemagne', 'Les hommes répondent sans joie mais avec détermination à l\'ordre de mobilisation. Certains pacifistes manifestent néanmoins leurs réticences, tel le député socialiste Marcel Déat qui publie le 4 mai 1939 un article intitulé : « Faut-il mourir pour Dantzig ? ».\r\n\r\nLa Wehrmacht ayant violé les frontières de la Pologne, Londres envoie un ultimatum à Berlin en suggérant une ultime conférence internationale ! Hitler dédaignant de répondre, la guerre est de facto déclarée à l\'expiration de l\'ultimatum, le 3 septembre à 11 heures. Le Président du Conseil français Édouard Daladier et son ministre des affaires étrangères Georges Bonnet demandent au président de la République Albert Lebrun ', NULL, 1939, 9, 3, 0, 67),
+(46, 'La Norvège et le Danemark sont envahis par les Allemands', 'LaNorvègeetleDanemarksontenvahisparlesAllemands_1654687009.webp', 'Vignette de la timeline La Norvège et le Danemark sont envahis par les Allemands', 'Le 9 avril 1940, jour de l’invasion du Danemark et de la Norvège par les Allemands. \"L’opération Weser\", Weserübung en Allemand, du nom du fleuve allemand Weser, a commencé tôt, en ce matin du 9 avril : les troupes de Hitler sont entrées en Norvège à 2 h 15 du matin, et au Danemark à 5 h 20. Pour contrecarrer, à titre préventif, une prévisible intervention franco-britannique, envisagée, dès son entrée en fonctions, par le nouveau président du Conseil français, Paul Reynaud. N’oubliez pas qu’à l’époque la guerre est déclarée entre France, Angleterre et Allemagne depuis déjà huit longs mois, une veille armée sans offensive que l’on appelle \"la drôle de guerre\". Du point de vue de ', NULL, 1940, 4, 9, 0, 67),
+(47, 'La bataille de France', 'LabatailledeFrance_1654687581.webp', 'Vignette de la timeline La bataille de France', 'ou campagne de France désigne l\'invasion des Pays-Bas, de la Belgique, du Luxembourg et de la France, par les forces du Troisième Reich, pendant la Seconde Guerre mondiale. L\'offensive débute le 10 mai 1940, mettant fin à la « drôle de guerre ». Après la percée allemande de Sedan et une succession de reculs des armées britannique, française et belge, ponctuées par les batailles de la Dyle, de Gembloux, de Hannut, de la Lys et de Dunkerque, elle se termine par la retraite des troupes britanniques et la demande d\'armistice du gouvernement français, qui est signé le 22 juin, les militaires ayant refusé la capitulation.', NULL, 1940, 5, 10, 0, 67),
+(48, 'Appel du 18 Juin', 'Appeldu18Juin_1654687923.webp', 'Vignette de la timeline Appel du 18 Juin', 'prononcé par le général de Gaulle à la radio de Londres, sur les ondes de la BBC. Ce texte est un appel à tous les militaires, ingénieurs ou ouvriers français spécialistes de l\'armement qui se trouvent en territoire britannique à se mettre en rapport avec lui pour continuer le combat contre l\'Allemagne et où il prédit la mondialisation de la guerre. Ce discours, très peu entendu sur le moment, a donné lieu à la publication le lendemain dans le Times et le Daily Express de la version écrite issue du Ministry of Information (MOI), reprise par quelques journaux français. Il est considéré comme le texte fondateur de la Résistance française, dont il demeure le symbole.', NULL, 1940, 6, 18, 0, 67),
+(49, 'Armistice franco-allemande', 'Armisticefranco-allemande_1654688067.webp', 'Vignette de la timeline Armistice franco-allemande', 'L’armistice du 22 juin 1940 est une convention signée en forêt de Compiègne entre le Troisième Reich allemand, représenté par le général Keitel, et le dernier Gouvernement de la Troisième République, dirigé par le maréchal Philippe Pétain et représenté par le Général Huntziger, afin de suspendre les hostilités ouvertes par la déclaration de guerre de la France envers l\'Allemagne le 3 septembre 1939, marquées notamment par la bataille de France déclenchée le 10 mai 1940, la fuite de l\'armée anglaise et son rembarquement à Dunkerque à partir du 26 mai 1940 et la chute de Paris, déclarée ville ouverte le 14 juin.', NULL, 1940, 6, 22, 0, 67),
+(50, 'Manifestation contre l’armistice à Paris', 'Manifestationcontrel’armisticeàParis_1654688158.webp', 'Vignette de la timeline Manifestation contre l’armistice à Paris', 'La manifestation du 11 novembre 1940 est une manifestation de lycéens et d\'étudiants ayant eu lieu à Paris, sur les Champs-Élysées et devant l\'arc de triomphe de l\'Étoile en commémoration de l\'armistice du 11 novembre 1918. Rassemblant plusieurs milliers de personnes et durement réprimée par les occupants nazis, elle est considérée comme un des tout premiers actes publics de résistance à l\'occupant en France après l\'armistice du 22 juin 1940 et l\'appel du 18 Juin.', NULL, 1940, 11, 11, 0, 67),
+(51, 'Opération Barbarossa', 'OpérationBarbarossa_1654688399.webp', 'Vignette de la timeline Opération Barbarossa', 'L’opération Barbarossa, nommée en référence à l\'empereur Frédéric Barberousse, est le nom de code désignant l\'invasion par le IIIe Reich de l\'Union soviétique pendant la Seconde Guerre mondiale, à partir du 22 juin 1941, et le début du front de l\'Est qui sera le plus grand théâtre d\'opérations de la Seconde Guerre mondiale. L\'opération Barbarossa est la plus grande invasion de l’histoire militaire en termes d’effectifs engagés et de pertes3 : près de quatre millions de soldats de l’Axe pénètrent en Union soviétique. En plus des troupes, l’opération Barbarossa a mobilisé 600 000 véhicules et 600 000 chevaux.', NULL, 1941, 6, 22, 0, 67),
+(52, 'Attaque de Pearl Harbor', 'AttaquedePearlHarbor_1654688523.webp', 'Vignette de la timeline Attaque de Pearl Harbor', 'L’attaque de Pearl Harbor est une attaque surprise menée par les forces aéronavales japonaises le 7 décembre 1941 contre la base navale américaine de Pearl Harbor située sur l’île d’Oahu, dans le territoire américain d’Hawaï. Autorisée par l\'empereur du Japon Hirohito, elle vise à détruire la flotte du Pacifique de l’United States Navy. Cette attaque provoque l\'entrée des États-Unis dans le conflit mondial.', NULL, 1941, 12, 7, 0, 67),
+(53, 'Bataille de Midway', 'BatailledeMidway_1654688803.webp', 'Vignette de la timeline Bataille de Midway', 'La bataille de Midway est un engagement aéronaval majeur et décisif de la Seconde Guerre mondiale qui oppose les marines du Japon et des États-Unis. Elle se déroula dans les premiers jours de juin 1942 au large des Îles Midway, lors de la guerre du Pacifique. La bataille fut livrée alors que le Japon avait atteint, six mois après son entrée en guerre déclenchée par l\'attaque de Pearl Harbor, l\'ensemble de ses objectifs de conquête. L\'objectif de la bataille navale, provoquée par le Japon, était d\'éliminer les forces aéronavales américaines qui constituaient une menace pour les conquêtes japonaises dans le Pacifique.', NULL, 1942, 6, 4, 0, 67),
+(54, 'Rafle du Vélodrome d\'Hiver', 'RafleduVélodromed\'Hiver_1654688919.webp', 'Vignette de la timeline Rafle du Vélodrome d\'Hiver', 'souvent appelée « rafle du Vél\'d\'Hiv » est la plus grande arrestation massive de Juifs réalisée en France pendant la Seconde Guerre mondiale. Entre les 16 et 17 juillet 1942, plus de treize mille personnes, dont près d\'un tiers d\'enfants, sont arrêtées avant d\'être détenues au Vélodrome d\'Hiver1 — dans des conditions d\'hygiène déplorables et presque sans eau ni nourriture pendant cinq jours —, mais aussi dans d\'autres camps. Ils sont ensuite envoyés par trains de la mort vers le camp d\'extermination d\'Auschwitz. Moins d\'une centaine d\'adultes en reviendront.', NULL, 1942, 7, 16, 0, 67),
+(55, 'Bataille de Stalingrad', 'BatailledeStalingrad_1654689248.webp', 'Vignette de la timeline Bataille de Stalingrad', 'La bataille de Stalingrad est la succession des combats qui, du 17 juillet 1942 au 2 février 1943, ont opposé les forces de l\'URSS à celles du Troisième Reich et de ses alliés pour le contrôle de la ville de Stalingrad. Cette bataille s\'est déroulée en quatre phases : l\'approche de la ville par les armées de l’Axe de juillet à septembre 1942, les combats urbains pour son contrôle de septembre 1942 à novembre 1942, puis la contre-offensive soviétique, jusqu\'à l\'encerclement et à la reddition des troupes allemandes fin janvier-début février 1943.', NULL, 1942, 7, 17, 0, 67),
+(56, 'Opération Torch', 'OpérationTorch_1654689352.webp', 'Vignette de la timeline Opération Torch', 'L\'opération Torch est le nom de code donné au débarquement des Alliés le 8 novembre 1942 en Afrique du Nord (Maroc et Algérie).\r\n\r\nLa prise d\'Alger se fait en un jour grâce à la Résistance française, alors qu\'à Oran et au Maroc, les généraux du régime de Vichy accueillent les Alliés à coups de canon, tout en livrant la Tunisie (alors sous protectorat) aux Allemands sans aucune résistance, déclenchant ainsi la campagne de Tunisie. La reddition des troupes françaises vichystes au Maroc eut lieu le 11 novembre. Des sous-marins allemands, arrivés sur les lieux le jour du cessez-le-feu, menèrent ensuite des attaques devant Casablanca jusqu\'au 16 novembre.', NULL, 1942, 11, 8, 0, 67),
+(57, 'Jean Moulin crée le CNR', 'JeanMoulincréeleCNR_1654689503.webp', 'Vignette de la timeline Jean Moulin crée le CNR', 'Le Conseil national de la Résistance (CNR) est l\'organisme qui dirige et coordonne les différents mouvements de la Résistance intérieure française pendant la Seconde Guerre mondiale, toutes tendances politiques comprises, à partir de la mi-1943.\r\n\r\nIl est composé de représentants des dits mouvements, de syndicats et de partis politiques hostiles au gouvernement de Vichy.\r\n\r\nSon programme, adopté en mars 1944, prévoit un « plan d\'action immédiat » (c\'est-à-dire des actions de résistance), mais aussi des « mesures à appliquer dès la libération du territoire », une liste de réformes sociales et économiques.', NULL, 1943, 5, NULL, 0, 67),
+(58, 'Débarquement de Normandie', 'DébarquementdeNormandie_1654689756.webp', 'Vignette de la timeline Débarquement de Normandie', 'à l\'aube, une armada de 4266 navires de transport et 722 navires de guerre s\'approche des côtes normandes. Elle s\'étale sur un front de 35 kilomètres et transporte pas moins de 130 000 hommes, Britanniques, Étasuniens ou Canadiens pour la plupart. Plus de 10 000 avions la protègent. Baptisée du nom de code Overlord, cette opération aéronavale demeure la plus gigantesque de l\'Histoire, remarquable autant par les qualités humaines de ses participants que par les prouesses en matière d\'organisation logistique et d\'innovation industrielle et technique. Elle était attendue depuis plus d\'une année par tous les Européens qui, sur le continent, luttaient contre l\'occupation nazie.', NULL, 1944, 6, 6, 0, 67),
+(59, 'Libération de Paris', 'LibérationdeParis_1654689987.webp', 'Vignette de la timeline Libération de Paris', 'La libération de Paris pendant la Seconde Guerre mondiale a eu lieu du 19 au 25 août 1944, marquant ainsi la fin de la bataille de Paris. Cet épisode a lieu dans le cadre de la Libération et met un terme à quatre années d\'occupation de la capitale française.', NULL, 1944, 8, 19, 0, 67),
+(60, 'Conférence de Yalta', 'ConférencedeYalta_1654690110.webp', 'Vignette de la timeline Conférence de Yalta', 'En février 1945, la conférence de Yalta réunit Joseph Staline, Winston Churchill et Franklin D. Roosevelt, les trois grands vainqueurs de la Seconde Guerre mondiale débutée en septembre 1939. Le but premier de cette conférence est de régler les difficultés posées par la défaite imminente de l\'Allemagne nazie', NULL, 1945, 2, 4, 0, 67),
+(61, 'Hitler se suicide', 'Hitlersesuicide_1654690199.webp', 'Vignette de la timeline Hitler se suicide', 'Dans le bunker où il s\'est réfugié, Hitler se suicide comme il l\'avait envisagé à plusieurs reprises dans sa carrière, en cas d\'échec. Cette fois, ce n\'était plus seulement d\'échec qu\'il s\'agissait, mais de ruine de tous ses rêves de domination.', NULL, 1945, 4, 30, 0, 67),
+(62, 'Les Allemands capitulent', 'LesAllemandscapitulent_1654690451.webp', 'Vignette de la timeline Les Allemands capitulent', 'Le Troisième Reich s’effondre à la fin de la bataille de Berlin, le 2 mai 1945. La conquête de la capitale est symbolique, elle fera l’objet d’un compromis politique entre les alliés. Ainsi, conformément aux accords de Yalta, les troupes américaines arrêtent leur progression sur le front ouest. Ils laissent les Soviétiques pénétrer seuls dans Berlin.\r\nLe 7 mai, au quartier général des forces alliées à Reims, le général Jodl signe la reddition totale de toutes les forces allemandes. A 2h41 du matin, il reconnait ainsi la capitulation sans condition des forces allemandes.', NULL, 1945, 5, 8, 0, 67),
+(63, 'Bombardements atomiques d\'Hiroshima et de Nagasaki', 'Bombardementsatomiquesd\'HiroshimaetdeNagasaki_1654690638.webp', 'Vignette de la timeline Bombardements atomiques d\'Hiroshima et de Nagasaki', 'ultimes bombardements stratégiques américains au Japon, ont lieu les 6 août et 9 août 1945 sur les villes d\'Hiroshima (340 000 habitants) et de Nagasaki (195 000 habitants). Hiroshima est le siège de la 5e division de la deuxième armée générale et le centre de commandement du général Shunroku Hata, et Nagasaki est choisie pour remplacer la cité historique de Kyoto. Le nombre de personnes tuées par l\'explosion, la chaleur et la tempête de feu consécutive est difficile à déterminer et seules des estimations sont disponibles, allant de 103 000 à 220 000 morts, sans compter les cas ultérieurs de cancers (plusieurs centaines) ou autres effets secondaires.', NULL, 1945, 8, 6, 0, 67),
+(64, 'Le Japon capitule, fin de la seconde guerre mondiale', '_1654690713.webp', 'Vignette de la timeline ', 'La capitulation du Japon, intervenue officiellement le 2 septembre 1945 avec la signature des actes de capitulation du Japon à Tokyo, met officiellement un terme aux hostilités de la Seconde Guerre mondiale.', NULL, 1945, 9, 2, 0, 67);
 
 -- --------------------------------------------------------
 
@@ -65,21 +91,19 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `color` varchar(255) NOT NULL,
   `thumbnail` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tags`
 --
 
 INSERT INTO `tags` (`id`, `name`, `color`, `thumbnail`) VALUES
-(1, 'Histoire', '#FECA72', 'tags_histoire.jpeg'),
-(2, 'Guerre', '#C694E8', 'tags_guerre.jpg'),
-(3, 'Mythologie', '#ee727a', 'tags_mythologie.jpg'),
-(4, 'Astronomie', '#000000', 'tags_astronomie.png'),
-(5, 'Personnages Historiques', '#a54040', 'tags_personnages_historique.jpg'),
-(6, 'Sciences', '#000000', 'tags_science.jpg'),
-(24, 'Jeux Vidéo', '#edda07', 'JeuxVidéo_1650449500.jpeg'),
-(25, 'Médecine', '#3a6acb', 'Médecine_1650486816.jpeg');
+(40, 'Histoire', '#feca72', 'Histoire_1654087218.webp'),
+(41, 'Personnages Historiques', '#ff5900', 'PersonnagesHistoriques_1654087751.webp'),
+(42, 'Guerres', '#000000', 'Guerres_1654686049.webp'),
+(43, 'Astronomie', '#1c00f0', 'Astronomie_1654686119.webp'),
+(44, 'Mythologie', '#b89f00', 'Mythologie_1654686148.webp'),
+(45, 'Sciences', '#0bda50', 'Sciences_1654686175.webp');
 
 -- --------------------------------------------------------
 
@@ -110,28 +134,24 @@ CREATE TABLE IF NOT EXISTS `timelines` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `thumbnail` varchar(255) NOT NULL,
   `thumbnail_alt` varchar(255) NOT NULL,
-  `date_start` varchar(45) DEFAULT NULL,
-  `date_end` varchar(45) DEFAULT NULL,
+  `date_start` varchar(25) NOT NULL,
+  `date_end` varchar(25) DEFAULT NULL,
+  `date_start_bc` tinyint(1) DEFAULT 0,
+  `date_end_bc` tinyint(1) DEFAULT 0,
   `rating` decimal(8,2) DEFAULT NULL,
-  `validated` int(11) DEFAULT NULL,
+  `validated` tinyint(1) NOT NULL DEFAULT 1,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `timelines_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `timelines`
 --
 
-INSERT INTO `timelines` (`id`, `title`, `description`, `created_at`, `thumbnail`, `thumbnail_alt`, `date_start`, `date_end`, `rating`, `validated`, `user_id`) VALUES
-(1, 'La II Guerre mondiale', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla eros nec pharetra ultricies. Cras non consectetur nunc. Sed semper libero at condimentum condimentum. Etiam tempor velit sed est sagittis, vitae aliquet odio pretium. Aliquam consectetur vulputate justo quis maximus. Nulla lobortis porttitor ex, vitae sodales lorem finibus maximus. Cras varius vestibulum magna id posuere. Praesent rutrum tincidunt mauris sed faucibus. Curabitur non purus arcu.', '2022-04-12 11:14:00', 'ww2.jpg', 'vignette seconde guerre mondial', '01/09/1939', '02/09/1945', NULL, NULL, 1),
-(26, 'Zeus', 'Zeus (en grec ancien Ζεύς / Zeús) est le dieu suprême dans la mythologie grecque. Fils du titan Cronos et de la titanide Rhéa, marié à sa sœur Héra1, il a engendré, avec cette déesse et avec d\'autres, plusieurs dieux et déesses, et, avec des mortelles, de nombreux héros, comme le conte la théogonie d\'Hésiode (viiie siècle av. J.-C.)2.\r\n\r\nZeus est fréquemment représenté par des artistes grecs dans l\'une des deux poses suivantes : debout, s\'avançant avec un foudre dans sa main droite levée ou assis en majesté.', '2022-04-18 00:49:08', 'zeus.jpg', 'portait de Zeus', '-468', '', NULL, NULL, 1),
-(27, 'Télescope HUBBLE', 'Hubble (en anglais : Hubble Space Telescope, en abrégé HST ou, rarement en français, TSH2) est un télescope spatial conçu par la NASA avec une participation de l\'Agence spatiale européenne, opérationnel depuis 1990. Son miroir de grande taille (2,4 m de diamètre), qui lui permet de restituer des images avec une résolution angulaire inférieure à 0,1 seconde d\'arc, ainsi que sa capacité à observer à l\'aide d\'imageurs et de spectroscopes dans l\'infrarouge proche et l\'ultraviolet, lui permettent de surclasser, pour de nombreux types d\'observation, les instruments au sol les plus puissants, handicapés par la présence de l\'atmosphère terrestre. Les données collectées par Hubble ont contribué à des découvertes de grande portée dans le domaine de l\'astrophysique, telles que la mesure du taux d\'expansion de l\'Univers, la confirmation de la présence de trous noirs supermassifs au centre des galaxies spirales, ou l\'existence de la matière noire et de l\'énergie noire.\r\n\r\nLe développement du télescope Hubble, qui tient son nom de l\'astronome Edwin Hubble, démarre au début des années 1970. Cependant, des problèmes de financement, de mise au point technique et la destruction de la navette spatiale Challenger repoussent son lancement jusqu\'en 1990. Une aberration optique particulièrement grave est découverte peu après qu\'il a été placé sur son orbite terrestre basse à 600 km d\'altitude. Dès le départ, le télescope spatial avait été conçu pour permettre des opérations de maintenance par des missions des navettes spatiales. La première de ces missions, en 1993, est mise à profit pour corriger l\'anomalie de sa partie optique. Quatre autres missions, en 1997, 1999, 2002 et 2009, permettent de moderniser les cinq instruments scientifiques et remplacer certains équipements défaillants ou devenus obsolètes. La dernière mission de maintenance, réalisée en 2009 par la mission STS-125, immédiatement avant le retrait définitif des navettes spatiales, doit permettre au télescope Hubble de fonctionner quelques années de plus, probablement jusqu\'en 2030. Pour les observations dans l\'infrarouge, il doit être remplacé en 2022 par le télescope spatial James-Webb, aux capacités supérieures.', '2022-04-18 00:58:07', 'hubble.png', 'télescope hubble', '29/04/1990', '', NULL, NULL, 1),
-(28, 'Alexandre le Grand', 'Alexandre le Grand (en grec ancien : Ἀλέξανδρος ὁ Μέγας / Aléxandros ho Mégas ou Μέγας Ἀλέξανδρος / Mégas Aléxandros) ou Alexandre III (Ἀλέξανδρος Γ\' / Aléxandros III), né le 21 juillet 356 av. J.-C. à Pella et mort le 11 juin 323 av. J.-C. à Babylone, est un roi de Macédoine et l\'un des personnages les plus célèbres de l\'Antiquité. Fils de Philippe II, élève d\'Aristote et roi de Macédoine à partir de 336, il devient l\'un des plus grands conquérants de l\'histoire en prenant possession de l\'immense empire perse et en s\'avançant jusqu\'aux rives de l\'Indus.\r\n\r\nAprès l\'assassinat de Philippe, Alexandre hérite d\'un royaume puissant et d\'une armée expérimentée. Reprenant le projet panhellénique de son père, il réunit la Macédoine et des cités grecques dans une coalition afin d\'envahir l\'empire perse. En 334, il débarque en Asie, démarrant une campagne qui dure dix ans. Il remporte une première victoire contre les satrapes perses au Granique qui lui offre l\'Anatolie. Puis en 333, il défait le roi Darius III à Issos. Il entreprend la conquête de la Phénicie et marche jusqu\'en Égypte où il est proclamé pharaon. La victoire à Gaugamèles en 331 lui offre la totalité de l\'empire perse. Il mène ensuite une campagne contre les généraux perses insoumis et s\'avance jusqu\'au pays des Scythes. Il dirige enfin une dernière campagne au Pendjab et dans la vallée de l\'Indus (Pakistan actuel) durant laquelle il remporte la bataille de l\'Hydaspe ; mais en 326 ses soldats refusent d\'avancer plus loin. Il meurt en 323 à Babylone probablement de maladie, à l\'âge de trente-deux ans, avant d\'avoir pu mener à bien ses projets de conquête de l\'Arabie.\r\n\r\nRoi-bâtisseur, Alexandre a fondé une vingtaine de cités, la plus importante étant Alexandrie d\'Égypte, et a implanté des colonies jusqu\'aux confins de l\'Asie, étendant notablement l\'influence de l\'hellénisme. Il se place dans la continuité des souverains achéménides et cherche à assimiler les élites asiatiques avec pour objectif d\'assurer la pérennité de l\'empire qu\'il a créé, comme en témoigne notamment son mariage avec une princesse de Bactriane, Roxane. Son empire est partagé à sa mort entre ses principaux généraux, les Diadoques, qui forment à la fin du ive siècle av. J.-C. les différents royaumes de la période hellénistique.\r\n\r\nL\'immense postérité d\'Alexandre à travers l\'histoire, les cultures et les religions s\'explique par l\'ampleur de ses victoires militaires, par sa volonté de conquête de l\'ensemble du monde connu et par sa personnalité empreinte de philosophie mais aussi de démesure. Son épopée suscite dès l\'Antiquité de nombreuses publications littéraires. Néanmoins les écrits des historiens contemporains des événements ont tous disparu ; seuls subsistent de nos jours leurs abréviateurs, dont certains sont à l\'origine des légendes le concernant. Parmi ses récits légendaires, le Roman d\'Alexandre occupe une place à part ; issu des écrits du Pseudo-Callisthène, il mêle l\'histoire et le fantastique pour devenir l\'un des ouvrages non religieux les plus lus au Moyen Âge, en Occident comme en Orient.\r\n\r\nDès le règne d\'Alexandre se construit un mythe qui le présente comme un héros divinisé. Cette renommée, malgré des critiques eu égard à ses excès ou à sa cruauté, dépasse ensuite les frontières du monde grec pour prendre place parmi les écrits des religions monothéistes. Dans la Rome antique, il est considéré comme un modèle pour nombre de généraux et d\'empereurs. Dans l\'Empire byzantin, il bénéficie d\'une grande popularité dans tous les milieux sociaux et représente l\'idéal du souverain, tout en connaissant une forme de christianisation. Dans l\'Europe médiévale, il est vu comme un exemple de vertus chevaleresques au travers du Roman d\'Alexandre. À l\'époque moderne, il est un temps un modèle pour Louis XIV. Au siècle des Lumières, il apparaît comme celui qui a étendu la civilisation européenne et ouvert le commerce entre l\'Europe et l\'Asie. À l\'époque contemporaine, il inspire la volonté d\'indépendance des Grecs et devient le modèle du « conquérant-civilisateur » pour les promoteurs de la colonisation européenne. En Asie, il bénéficie d\'une grande postérité sous le nom d\'Iskandar (ou Iskander). Enfin, il est représenté dans de nombreuses œuvres d\'art de l\'Antiquité jusqu\'à nos jours.', '2022-04-18 01:10:33', 'Alexandre_le_grand.jpg', 'portait d\'alexandre le grand', '336 av. J.-C.', '11 juin 323 av. J.-C.', NULL, NULL, 1),
-(30, 'Napoléon Bonaparte', 'Napoléon Bonaparte, né le 15 août 1769 à Ajaccio et mort le 5 mai 1821 sur l\'île Sainte-Hélène, est un militaire et homme d\'État français, premier empereur des Français du 18 mai 1804 au 6 avril 1814 et du 20 mars au 22 juin 1815, sous le nom de Napoléon Ier.\r\n\r\nSecond enfant de Charles Bonaparte et Letizia Ramolino, Napoléon Bonaparte devient en 1793 général dans les armées de la Première République française, née de la Révolution, où il est notamment commandant en chef de l\'armée d\'Italie puis de l\'armée d\'Orient. Arrivé au pouvoir en 1799 par le coup d\'État du 18 Brumaire, il est Premier consul — consul à vie à partir du 2 août 1802 — jusqu\'au 18 mai 1804, date à laquelle l\'Empire est proclamé par un sénatus-consulte suivi d\'un plébiscite. Il est sacré empereur, en la cathédrale Notre-Dame de Paris, le 2 décembre 1804, par le pape Pie VII, en même temps que son épouse Joséphine de Beauharnais.', '2022-04-18 20:29:07', 'bonaparte.jpg', 'Image de la timeline Napoléon Bonaparte', '15/08/1769', '05/05/1821', NULL, NULL, 1),
-(31, 'Harum explicabo Et ', 'Perspiciatis ut cum', '2022-04-19 12:01:47', '', 'Vignette de la timeline Harum explicabo Et ', '10-Dec-1998', '23-Sep-1980', NULL, NULL, 1),
-(32, 'Albert Einstein', 'Albert Einstein né le 14 mars 1879 à Ulm, dans le Wurtemberg, et mort le 18 avril 1955 à Princeton, dans le New Jersey, est un physicien théoricien. Il fut successivement allemand, apatride, suisse et de double nationalité helvético-américaine. Il épousa Mileva Marić, puis sa cousine Elsa Einstein.', '2022-04-19 14:26:57', 'Albert_Einstein.jpg', 'Vignette de la timeline Albert Einstein', '14/03/1879', '18/04/1955', NULL, NULL, 1),
-(43, 'Les antibiotiques', 'I should be free of them with large eyes like a frog; and both creatures hid their faces in their mouths--and they\'re all over crumbs.\' \'You\'re wrong about the crumbs,\' said the King. (The jury all looked puzzled.) \'He must have imitated somebody else\'s hand,\' said the Mock Turtle. \'Seals, turtles, salmon, and so on; then, when you\'ve cleared all the children she knew, who might do something.', '2022-04-20 22:34:11', 'Lesantibiotiques_1650486851.jpeg', 'Vignette de la timeline Les antibiotiques', '1930', '', NULL, NULL, 1);
+INSERT INTO `timelines` (`id`, `title`, `description`, `created_at`, `thumbnail`, `thumbnail_alt`, `date_start`, `date_end`, `date_start_bc`, `date_end_bc`, `rating`, `validated`, `user_id`) VALUES
+(66, 'campagnes d\'Alexandre le Grand', 'Alexandre le Grand ou Alexandre III, né le 21 juillet 356 av. J.-C. à Pella et mort le 11 juin 323 av. J.-C. à Babylone, est un roi de Macédoine et l\'un des personnages les plus célèbres de l\'Antiquité.', '2022-06-01 14:50:11', 'campagnesd\'AlexandreleGrand_1654685863.webp', 'Vignette de la timeline campagnes d\'Alexandre le Grand', '336', '323', 1, 1, NULL, 1, 1),
+(67, 'Seconde Guerre mondiale', 'La Seconde Guerre mondiale, ou Deuxième Guerre mondiale3, est un conflit armé à l\'échelle planétaire qui dure du 1er septembre 1939 au 2 septembre 1945. Ce conflit oppose schématiquement les Alliés et l’Axe.', '2022-06-08 13:08:23', 'SecondeGuerremondiale_1654690868.webp', 'Vignette de la timeline Seconde Guerre mondiale', '1939', '1945', 0, 0, NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -147,38 +167,13 @@ CREATE TABLE IF NOT EXISTS `timeline_tag` (
   PRIMARY KEY (`id`),
   KEY `timeline_tag_tag_id_index` (`tag_id`),
   KEY `timeline_tag_timeline_id_index` (`timeline_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `timeline_tag`
 --
 
 INSERT INTO `timeline_tag` (`id`, `tag_id`, `timeline_id`) VALUES
-(27, 1, 1),
-(28, 2, 1),
-(29, 3, 26),
-(30, 4, 27),
-(31, 5, 28),
-(32, 1, 28),
-(33, 5, 29),
-(34, 5, 30),
-(35, 1, 30),
-(36, 2, 31),
-(37, 1, 31),
-(38, 6, 32),
-(39, 5, 32),
-(40, 6, 33),
-(41, 6, 34),
-(42, 4, 34),
-(43, 3, 34),
-(44, 2, 34),
-(45, 1, 34),
-(46, 6, 35),
-(47, 5, 35),
-(48, 4, 35),
-(49, 3, 35),
-(50, 2, 35),
-(51, 1, 35),
 (52, 6, 36),
 (53, 5, 36),
 (54, 4, 36),
@@ -196,7 +191,66 @@ INSERT INTO `timeline_tag` (`id`, `tag_id`, `timeline_id`) VALUES
 (66, 6, 40),
 (67, 1, 41),
 (68, 1, 42),
-(69, 25, 43);
+(69, 25, 43),
+(70, 6, 44),
+(71, 1, 45),
+(72, 3, 46),
+(73, 6, 47),
+(74, 6, 48),
+(75, 4, 48),
+(76, 28, 49),
+(78, 24, 0),
+(79, 5, 0),
+(80, 3, 0),
+(81, 1, 0),
+(82, 24, 0),
+(83, 6, 0),
+(84, 24, 0),
+(85, 6, 0),
+(86, 5, 0),
+(87, 3, 0),
+(88, 1, 0),
+(89, 24, 0),
+(90, 6, 0),
+(91, 4, 0),
+(95, 37, 50),
+(96, 6, 50),
+(97, 6, 51),
+(98, 5, 51),
+(99, 3, 51),
+(100, 2, 51),
+(101, 39, 52),
+(102, 39, 53),
+(103, 39, 54),
+(104, 39, 55),
+(105, 39, 56),
+(123, 37, 57),
+(124, 39, 58),
+(125, 37, 59),
+(126, 24, 59),
+(127, 6, 59),
+(128, 5, 59),
+(129, 4, 59),
+(130, 3, 59),
+(131, 2, 59),
+(132, 1, 59),
+(143, 37, 60),
+(144, 39, 61),
+(145, 37, 61),
+(146, 24, 61),
+(147, 4, 61),
+(160, 39, 62),
+(161, 5, 63),
+(162, 1, 63),
+(163, 37, 64),
+(164, 6, 64),
+(165, 5, 64),
+(166, 4, 64),
+(167, 1, 65),
+(176, 41, 66),
+(177, 40, 66),
+(180, 42, 67),
+(181, 40, 67);
 
 -- --------------------------------------------------------
 
@@ -210,9 +264,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `admin` int(11) NOT NULL,
+  `admin` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
@@ -220,7 +274,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `admin`) VALUES
 (1, 'admin', 'admin@admin.fr', '$2y$10$2QtOqSFY41HhJQ5KnJbuKu08/RdkrJA7jK3ATgjgP16OaGLskNGFi', 1),
-(2, 'test', 'test@test.fr', 'admin', 0);
+(2, 'test', 'test@test.fr', '$2y$10$VymBORnDUT77.e3gefVEteKyOBYo5gtuukG3jSgTP2j446z4WW2Zi', 0),
+(15, 'momo', 'momo@msn.com', '$2y$10$OibU/uFZkvtqAP/fvbWO/uJAJmE1IYBhRJHw8VeTPX4rU8aXjvl2a', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

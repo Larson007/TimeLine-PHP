@@ -1,17 +1,17 @@
 <div class="anchors">
     <ul>
         <li class="anchors-timeline">
-            <a href="#page-1" class="active"><span><?= ($params['timeline']->date_start_bc === 1) ? '- ' . $params['timeline']->date_start :  $params['timeline']->date_start ?></span><?= $params['timeline']->title ?></a>
+            <a href="#page-1" class="active"><span><?= ($params['timeline']->date_start_bc === 1 || $params['timeline']->date_start_bc === '1') ? '- ' . $params['timeline']->date_start :  $params['timeline']->date_start ?></span><?= $params['timeline']->title ?></a>
         </li>
         <span><i class="fa-solid fa-arrow-left"></i></span>
         <?php foreach ($params['timeline']->getEvents() as $event) : ?>
             <li>
-                <a href="#page-<?= $event->id ?>"><span><?= ($event->date_bc === 1) ? '- ' . $event->year : $event->year ?></span><?= $event->title ?></a>
+                <a href="#page-<?= $event->id ?>"><span><?= ($event->date_bc === 1 || $event->date_bc === '1') ? '- ' . $event->year : $event->year ?></span><?= $event->title ?></a>
             </li>
             <span><i class="fa-solid fa-arrow-left"></i></span>
         <?php endforeach ?>
         <li class="anchors-timeline">
-            <a href="#page-1" class="active"><span><?= ($params['timeline']->date_end_bc === 1) ? '- ' . $params['timeline']->date_end :  $params['timeline']->date_end ?></span>Fin</a>
+            <a href="#page-1" class="active"><span><?= ($params['timeline']->date_end_bc === 1 || $params['timeline']->date_end_bc === '1') ? '- ' . $params['timeline']->date_end :  $params['timeline']->date_end ?></span>Fin</a>
         </li>
 
     </ul>
@@ -29,15 +29,8 @@
                 </div>
                 <div class="slider__detail">
                     <div class="slider__detail--date">
-                        <p>De
-                            <span>
-                                <?= ($params['timeline']->date_start_bc === 1) ? $params['timeline']->date_start . ' avant J.C.' :  $params['timeline']->date_start ?>
-                            </span>
-                            à
-                            <span>
-                                <?= ($params['timeline']->date_end_bc === 1) ? $params['timeline']->date_end . ' avant J.C.' :  $params['timeline']->date_end ?>
-                            </span>
-                        </p>
+                        <p>De <span><?= $params['timeline']->date_start ?></span><?= ($params['timeline']->date_start_bc === '1' || $params['timeline']->date_start_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '' ?>
+                            à <span><?= $params['timeline']->date_end ?></span><?= ($params['timeline']->date_end_bc === '1' || $params['timeline']->date_end_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '' ?> </p>
                     </div>
                     <div class="slider__detail--description">
                         <p><?= $params['timeline']->description ?></p>
@@ -57,22 +50,28 @@
                     <div class="slider__detail">
                         <div class="slider__detail--date">
                             <p><span>
-                        <?php if (!isset($event->day) && !isset($event->month)) : ?>
-                            <?php if($event->date_bc === 1): ?>
-                                <?= $event->year ?> <span class="date_bc"> avant J.C.</span>
-                            <?php endif ?>
-                        <?php elseif (!isset($event->day) && isset($event->month)) : ?>
-                            <?=$event->month . " / "?>
-                            <?php if($event->date_bc === 1): ?>
-                                <?= $event->year ?> <span class="date_bc"> avant J.C.</span>
-                            <?php endif ?>
-                        <?php elseif (isset($event->day) && isset($event->month)) : ?>
-                            <?= $event->day . " / " . $event->month . " / " ?>
-                            <?php if($event->date_bc === 1): ?>
-                                <?= $event->year ?> <span class="date_bc"> avant J.C.</span>
-                            <?php endif ?>
-                        <?php endif ?>
-                        </span></p>
+                                    <?php if (!isset($event->day) && !isset($event->month)) : ?>
+                                        <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
+                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                        <?php else : ?>
+                                            <?= $event->year ?>
+                                        <?php endif ?>
+                                    <?php elseif (!isset($event->day) && isset($event->month)) : ?>
+                                        <?= $event->month . " / " ?>
+                                        <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
+                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                        <?php else : ?>
+                                            <?= $event->year ?>
+                                        <?php endif ?>
+                                    <?php elseif (isset($event->day) && isset($event->month)) : ?>
+                                        <?= $event->day . " / " . $event->month . " / " ?>
+                                        <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
+                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                        <?php else : ?>
+                                            <?= $event->year ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                </span></p>
                         </div>
                         <div class="slider__detail--description">
                             <p><?= $event->text ?></p>
