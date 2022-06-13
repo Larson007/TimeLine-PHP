@@ -23,7 +23,7 @@
                     <p><?= $timeline->getExcerpt() ?></p>
                     <div class="badges">
                         <?php foreach ($timeline->getTags() as $tags) : ?>
-                            <div class="badges--items">
+                            <div class="badges--items" style="background-color:<?= $tags->color ?>">
                                 <a href="/tags/<?= $tags->tag_id ?>"><?= $tags->name ?></a>
                             </div>
                         <?php endforeach ?>

@@ -229,7 +229,7 @@ class AdminController extends Controller
         if ($_FILES['thumbnail_file']['error'] === 0) {
             $imgName = trim(str_replace(" ", "", $_POST['name']));
             $imgDate = (new DateTime())->getTimestamp();
-            $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            // $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
             $imgFile = $imgName . "_" . $imgDate . ".webp";
             $_POST['thumbnail'] = $imgFile;
         } else if ($_FILES['thumbnail_file']['error'] !== 1) {

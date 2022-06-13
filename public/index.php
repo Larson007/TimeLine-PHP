@@ -40,7 +40,12 @@ $router->get('/logout', 'App\Controllers\UserController@logout');
 
 //Timelines
 $router->get('/timelines', 'App\Controllers\TimelinesController@index');
-$router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
+
+//? Bonne route
+//$router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
+
+//! TEST
+$router->get('/timelines/:id', 'App\Controllers\TimelinesController@slider');
 
 //Tags
 $router->get('/tags', 'App\Controllers\TagsController@index');

@@ -27,6 +27,14 @@ class TimelinesController extends Controller
         return $this->view('timelines.show', compact('timeline'));
     }
 
+    public function slider(int $id)
+    {
+        $timeline = new Timelines($this->getDB());
+        $timeline = $timeline->findById($id);
+
+        return $this->view('timelines.slider', compact('timeline'));
+    }
+
 
     public function create()
     {

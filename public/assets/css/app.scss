@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 
 @import "normalize";
 @import "pageable";
@@ -12,9 +11,8 @@
 @import "events";
 @import "admin";
 @import "auth";
+// @import "show";
 @import "slider";
-
-
 
 //********** CSS GLOBALE
 //********************************************/
@@ -27,7 +25,7 @@ body {
     //background-image: linear-gradient(to bottom, #2a2d3c, #303445, #363b4e, #3d4257, #434961);
     color: #fff;
     font-size: 1.4em;
-    
+
     ul {
         list-style: none;
         padding: 0;
@@ -41,7 +39,6 @@ body {
 .containers {
     margin: 80px auto 0;
     padding: 0 0.5rem;
-
 }
 
 //********** ScrollBar
@@ -62,7 +59,6 @@ body {
     .containers {
         margin: 80px auto 0;
         padding: 0 0.5rem;
-    
     }
 }
 
@@ -70,7 +66,6 @@ body {
     #containers {
         margin: 5rem auto 0;
         padding: 0 1rem;
-    
     }
 }
 
@@ -78,6 +73,5 @@ body {
     .containers {
         margin: 8rem auto 0;
         padding: 0 8rem;
-    
     }
 }

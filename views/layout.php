@@ -12,10 +12,11 @@ use App\Models\Timelines;
     <link rel="stylesheet" href="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'app.css' ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title><?= $params['timeline']->title ?? "Timelines" ?></title>
-    <meta name="description" content="<?= $params['timeline']->description ?? "Bienvenu sur le site ..." ?>">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css">
     <link rel="icon" type="image/png" href="<?= IMAGES . 'favicon' . DIRECTORY_SEPARATOR . 'favicon-32x32.png' ?>" sizes="32x32" />
     <link rel="icon" type="image/png" href="<?= IMAGES . 'favicon' . DIRECTORY_SEPARATOR . 'favicon-16x16.png' ?>" sizes="16x16" />
+    <title><?= $params['timeline']->title ?? "Timelines" ?></title>
+    <meta name="description" content="<?= $params['timeline']->description ?? "Bienvenu sur le site ..." ?>">
 </head>
 
 <body>
@@ -89,11 +90,14 @@ use App\Models\Timelines;
 
     <script src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'three.min.js' ?>"></script>
     <script src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'vanta.globe.min.js' ?>"></script>
+
     <script src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'pageable.js' ?>"></script>
+
     <script type="module" src="<?= SCRIPTS . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts.js' ?>"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

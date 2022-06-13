@@ -17,6 +17,7 @@
                 <div class="thumbnail__file">
                     <p>Thumbnail</p>
                     <input type="file" name="thumbnail_file" id="thumbnail_file" hidden>
+                    <input type="hidden" name="thumbnail" id="thumbnail" value="<?= $params['tags']->thumbnail ?>">
                     <label for="thumbnail_file"><i class="fa-solid fa-upload"></i>Choisir un fichier <span>(max 2mo)</span></label>
                 </div>
                 <div class="thumbnail__preview">

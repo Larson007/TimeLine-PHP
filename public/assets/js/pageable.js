@@ -1,3 +1,5 @@
+console.log('pageable chargé');
+
 function _instanceof(left, right) {
     if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
         return right[Symbol.hasInstance](left);
@@ -295,13 +297,18 @@ if (!Element.prototype.closest) {
             }, this);
 
             if (o.pips) {
-                var nav = document.createElement("nav");
+                var nav = document.createElement("aside");
                 var ul = document.createElement("ul");
                 nav.classList.add("pg-pips");
+                ul.classList.add("pg-pips__ul");
                 this.pages.forEach(function(page, index) {
                     var li = document.createElement("li");
                     var a = document.createElement("a");
                     var span = document.createElement("span");
+                    li.classList.add("pg-pips__li");
+                    a.classList.add("pg-pips__a");
+                    span.classList.add("pg-pips__span");
+
                     a.href = "#" + page.id;
 
                     if (index == 0) {
@@ -487,15 +494,15 @@ if (!Element.prototype.closest) {
         var size = this.size[this.axis];
         var opp = this.horizontal ? this.size.y : this.size.x; // set wrapper size and scroll
 
-        // this.wrapper.style["overflow-" + this.axis] = "scroll";
-        // this.wrapper.style[size] = this.data.window[size] + "px";
-        // this.wrapper.style[opp] = this.data.window[opp] + this.bar + "px"; // set container size
+        this.wrapper.style["overflow-" + this.axis] = "scroll";
+        this.wrapper.style[size] = this.data.window[size] + "px";
+        this.wrapper.style[opp] = this.data.window[opp] + this.bar + "px"; // set container size
 
         var len = this.config.infinite ? this.pages.length + 2 : this.pages.length;
         var offset = this.config.infinite ? this.data.window[size] : 0;
         this.container.style[size] = len * this.data.window[size] + "px"; // offset for scroll bars
 
-        //this.wrapper.style["padding-" + (this.horizontal ? "bottom" : "right")] = this.bar + "px"; // reset scroll position (do this AFTER setting dimensions)
+        this.wrapper.style["padding-" + (this.horizontal ? "bottom" : "right")] = this.bar + "px"; // reset scroll position (do this AFTER setting dimensions)
 
         this.wrapper[this.scrollAxis[this.axis]] = this.index * this.data.window[size] + offset;
         this.scrollSize = len * this.data.window[size] - this.data.window[size];
