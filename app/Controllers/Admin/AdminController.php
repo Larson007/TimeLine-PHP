@@ -54,13 +54,12 @@ class AdminController extends Controller
         if ($_FILES['thumbnail_file']['error'] === 0) {
             $imgName = trim(str_replace(" ", "", $_POST['title']));
             $imgDate = (new DateTime())->getTimestamp();
-            $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            // $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
             $imgFile = $imgName . "_" . $imgDate . ".webp";
-
             $_POST['thumbnail'] = $imgFile;
             $_POST['thumbnail_alt'] = "Vignette de la timeline " . $_POST['title'];
         } else if ($_FILES['thumbnail_file']['error'] === 4) {
-            $_POST['thumbnail'] = 'placeholder.webp';
+            $_POST['thumbnail'] = null;
             $_POST['thumbnail_alt'] = 'Pas de visuel disponible';
         }
 
@@ -168,22 +167,26 @@ class AdminController extends Controller
     public function postTags()
     {
         $this->isAdmin();
-
-        $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
-        $imgDate = (new DateTime())->getTimestamp();
-        $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
-        $imgFile = $imgName . "_" . $imgDate . ".webp";
-        $_POST['thumbnail'] = $imgFile;
+        if ($_FILES['thumbnail_file']['error'] === 0) {
+            $imgName = trim(str_replace(" ", "", $_POST['name'], $test));
+            $imgDate = (new DateTime())->getTimestamp();
+            // $imgExtention = str_replace("image/", ".", $_FILES['thumbnail_file']['type']);
+            $imgFile = $imgName . "_" . $imgDate . ".webp";
+            $_POST['thumbnail'] = $imgFile;
+        } else if ($_FILES['thumbnail_file']['error'] === 4) {
+            $_POST['thumbnail'] = null;
+        }
 
         $tags = new Tags($this->getDB());
         $result = $tags->create($_POST);
 
-        if ($result) {
+        if ($result === true && $_FILES['thumbnail_file']['error'] === 0) {
             // Image Resize and move tu upload folder 
             $image = new ImageResize($_FILES['thumbnail_file']['tmp_name']);
             $image->resizeToWidth(400);
             $image->save("./assets/images/tags/" . $imgFile);
-
+            return header('Location: /admin/tags');
+        } else if ($_FILES['thumbnail_file']['error'] === 4){
             return header('Location: /admin/tags');
         } else {
             echo "erreur";

@@ -11,11 +11,6 @@
 .timelines--title::first-letter {
     color: $green;
 }
-.cards {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
     .box {
         margin: 20px 0;
         border-radius: 0.3rem;
@@ -205,7 +200,7 @@
             }
         }
     }
-}
+
 
 //* Timeline Form
 //********************************************/
@@ -363,16 +358,34 @@
     }
 }
 
+
+
+@media screen and (max-width: 780px){
+    .cards {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
 @media screen and (min-width: 780px) and (max-width: 1200px) {
     //* Timeline index
     //********************************************/
 
     .cards {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 300px;
+        .box {
+            margin: 2rem auto;
+            .box-card {
+                z-index: 9;
+            }
+            .active {
+                z-index: 999;
+            }
+        }
     }
 
     //* Timeline Form
@@ -384,9 +397,10 @@
     }
     .timeline__create--title::first-letter {
         color: $green;
-        font-size: 3.25rem;
+        font-size: 3rem;
     }
     .timeline__create {
+        font-size: 1rem;
         &__form {
             display: flex;
             justify-content: space-between;
@@ -397,15 +411,36 @@
                 .timeline__create__form__content--item,
                 .timeline__create__form__content--date {
                     padding: 0;
+                    label {
+                        font-size: 1.5rem;
+                    }
+                    label::first-letter {
+                        font-size: 1.8rem;
+                    }
+                    .date__group--start {
+                        padding-bottom: 0.5rem;
+                    }
                 }
             }
             &__detail {
                 width: 48%;
                 &__thumbnail {
                     margin: 0;
+                    p {
+                        font-size: 1.5rem;
+                    }
+                    p::first-letter {
+                        font-size: 1.8rem;
+                    }
                 }
                 &__tags {
                     margin: 2rem 0 1rem;
+                    p {
+                        font-size: 1.5rem;
+                    }
+                    p::first-letter {
+                        font-size: 1.8rem;
+                    }
                     .tags__group {
                         display: grid;
                         grid-template-rows: auto auto;
@@ -417,10 +452,10 @@
                                 transform: scale(1.5);
                             }
                             label {
-                                font-size: 1.5rem;
+                                font-size: 1.2rem;
                             }
                             label::first-letter {
-                                font-size: 1.75rem;
+                                font-size: 1.4rem;
                             }
                         }
                     }
@@ -429,6 +464,8 @@
         }
         button {
             margin: 0 0 0 auto;
+            width: 50%;
+            font-size: 1.3rem;
         }
     }
 }
@@ -437,10 +474,19 @@
     //* Timeline INDEX
     //********************************************/
     .cards {
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: auto auto auto auto;
-        grid-gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-rows: 300px;
+        .box {
+            margin: 2rem auto;
+            .box-card {
+                z-index: 9;
+            }
+            .active {
+                z-index: 999;
+            }
+        }
     }
 
     //* Timeline Form

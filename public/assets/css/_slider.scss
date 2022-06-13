@@ -270,9 +270,133 @@
 
 
 
-// @media screen and (min-width: 780px) and (max-width: 1200px) {
-//     .containers {
-//         margin: 0;
-//         padding: 0 2rem;
-//     }
-// }
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    //* Ariane line
+    //********************************************/
+
+    .anchors {
+        position: sticky;
+        top: 75vh;
+        // left: 50%;
+        // transform: translateX(-50%);
+        z-index: 100;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        width: 70%;
+        margin: 0 auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            width: 815px;
+            margin: 0.3rem 0;
+
+            span {
+                margin: 0 0.75rem;
+                i {
+                    transform: rotate(-180deg);
+                }
+            }
+            li {
+                background-color: $yellow;
+                padding: 0.2rem 0.5rem;
+                border-radius: 5px;
+                margin-right: 0.5rem;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-size: 1.5rem;
+                    color: $bg-grey;
+                    white-space: nowrap;
+                    span {
+                        color: $red;
+                        margin: 0 0.75rem 0 0;
+                    }
+                }
+            }
+            .anchors-timeline {
+                background-color: $green;
+            }
+        }
+        ul::-webkit-scrollbar {
+            height: 0;
+        }
+    }
+
+    .pg-wrapper,
+    .pg-vertical {
+        padding: 0 !important;
+        max-width: fit-content;
+        .pg-container {
+            max-width: fit-content;
+            width: 100%;
+            .slider-timeline {
+                background-color: $bg-grey;
+                .slider {
+                    display: flex;
+                    justify-content: space-between;
+                    // align-items: center;
+                    flex-flow: row nowrap;
+                    padding: 5rem 2rem 0rem;
+                    .slider__media {
+                        width: 50%;
+                        .slider__media--title {
+                            text-align: center;
+                            font-size: 2rem;
+                            margin: 32px 0;
+                        }
+                        .slider__media--image {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 50%;
+                            img {
+                                max-height: 100%;
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                    .slider__detail {
+                        width: 48%;
+                        .slider__detail--date {
+                            text-align: center;
+                            font-size: 1.75rem;
+                            p {
+                                color: white;
+                            }
+                            span {
+                                //font-size: 1.5rem;
+                                color: $red;
+                                margin: 0 0.75rem;
+                            }
+                            .date_bc {
+                                color: $blue;
+                                margin: 0 0.5rem 0 0;
+                            }
+                        }
+                        .slider__detail--description {
+                            text-align: justify;
+                            font-size: 1.3rem;
+                            p {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            // .slider-event {
+            //     padding: 1rem 0.5rem 0;
+            // }
+        }
+    }
+}

@@ -185,6 +185,15 @@
     }
 }
 
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    .event__submit--create {
+width: 100%;
+    }
+    .event__submit--update {
+        width: 100%;
+    }
+}
+
 @media screen and (min-width: 1200px) {
     .event {
         margin: 0;

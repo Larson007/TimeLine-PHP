@@ -9,6 +9,8 @@
                 <a href="/tags/<?= $tag->id ?>">
                     <?php if (isset($tag->thumbnail) && $tag->thumbnail != null) : ?>
                         <img src="<?= IMAGES . "tags/" . $tag->thumbnail ?>" alt="" width="380px" height="210px">
+                        <?php else : ?>
+                            <img src="<?= IMAGES . "placeholder.webp" . $tag->thumbnail ?>" alt="Visuel non disponible" width="380px" height="210px">
                     <?php endif ?>
                 </a>
             </div>

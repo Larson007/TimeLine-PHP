@@ -148,7 +148,6 @@
     }
 }
 
-//! Tablette
 @media screen and (min-width: 780px) and (max-width: 1200px) {
     /* Tablette */
 
@@ -156,8 +155,8 @@
     //********************************************/
     .tagGroup {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
         grid-gap: 0.5rem;
         padding: 0 1rem;
 
