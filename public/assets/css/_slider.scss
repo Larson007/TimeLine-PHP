@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
-
 .pg-wrapper,
-.pg-vertical {
+.pg-vertical,
+.pg-horizontal {
     width: 100% !important;
     padding: 0 !important;
     overflow: hidden !important;
@@ -17,117 +16,117 @@
     background-color: $bg-grey;
 }
 
-aside {
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-aside ul li a span {
-    background: #fff;
-}
-
-aside li {
-    display: block;
-    width: 10px;
-    height: 10px;
-    margin: 16px;
-    position: relative;
-}
-
-aside span:after {
-    background: rgba(255, 255, 255, 0.15);
-    position: absolute;
-    content: "";
-    display: block;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    border-radius: 100%;
-    transition: 0.3s;
-}
-
-aside li .active span {
-    background: $green;
-    position: absolute;
-}
-
-aside li .active span:after {
-    top: -6px;
-    left: -6px;
-    bottom: -6px;
-    right: -6px;
-}
-
-aside ul {
-    margin: 0;
-    padding: 0;
-}
-
-aside ul li {
-    display: block;
-    width: 14px;
-    height: 13px;
-    margin: 7px;
-    position: relative;
-}
-
-aside ul li a {
-    display: block;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-aside ul li a.active span,
-aside ul li:hover a.active span {
-    height: 12px;
-    width: 12px;
-    margin: -6px 0 0 -6px;
-    border-radius: 100%;
-}
-
-aside ul li a span {
-    border-radius: 50%;
-    position: absolute;
-    z-index: 1;
-    height: 4px;
-    width: 4px;
-    border: 0;
-    background: #fff;
-    left: 50%;
-    top: 50%;
-    margin: -2px 0 0 -2px;
-    transition: all 0.1s ease-in-out;
-}
-
-aside ul li:hover a span {
-    width: 10px;
-    height: 10px;
-    margin: -5px 0px 0px -5px;
-}
-
-.pg-horizontal aside {
-    width: 100vw;
-    left: 0;
-    bottom: 20px;
-}
-.pg-horizontal aside ul li {
-    float: left;
-}
-
 // ******************************************************************
 
 @media screen and (max-width: 780px) {
+    aside {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    aside ul li a span {
+        background: #fff;
+    }
+
+    aside li {
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin: 16px;
+        position: relative;
+    }
+
+    aside span:after {
+        background: rgba(255, 255, 255, 0.15);
+        position: absolute;
+        content: "";
+        display: block;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        border-radius: 100%;
+        transition: 0.3s;
+    }
+
+    aside li .active span {
+        background: $green;
+        position: absolute;
+    }
+
+    aside li .active span:after {
+        top: -6px;
+        left: -6px;
+        bottom: -6px;
+        right: -6px;
+    }
+
+    aside ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    aside ul li {
+        display: block;
+        width: 14px;
+        height: 13px;
+        margin: 7px;
+        position: relative;
+    }
+
+    aside ul li a {
+        display: block;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    aside ul li a.active span,
+    aside ul li:hover a.active span {
+        height: 12px;
+        width: 12px;
+        margin: -6px 0 0 -6px;
+        border-radius: 100%;
+    }
+
+    aside ul li a span {
+        border-radius: 50%;
+        position: absolute;
+        z-index: 1;
+        height: 4px;
+        width: 4px;
+        border: 0;
+        background: #fff;
+        left: 50%;
+        top: 50%;
+        margin: -2px 0 0 -2px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    aside ul li:hover a span {
+        width: 10px;
+        height: 10px;
+        margin: -5px 0px 0px -5px;
+    }
+
+    .pg-horizontal aside {
+        width: 100vw;
+        left: 0;
+        bottom: 20px;
+    }
+    .pg-horizontal aside ul li {
+        float: left;
+    }
+
     section {
         .slider {
             padding: 4.5rem 2.5rem 0;
@@ -199,7 +198,193 @@ aside ul li:hover a span {
     }
 }
 
+// ******************************************************************
+
 @media screen and (min-width: 780px) and (max-width: 1200px) {
+    .progress {
+        position: fixed;
+        bottom: 10px;
+        left: 60px;
+        width: calc(100vw - 100px);
+        height: 5px;
+    }
+    .progress .bar {
+        position: absolute;
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: scale(0, 1);
+        transform: scale(0, 1);
+        -webkit-transform-origin: 0 0 0;
+        transform-origin: 0 0 0;
+        background-color: $green;
+    }
+
+    .page-progress {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        left: 10px;
+        bottom: 15px;
+    }
+
+    svg {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+    circle {
+        stroke: $red;
+        fill: transparent;
+        stroke-dasharray: 87.9645943005 87.9645943005;
+        stroke-dashoffset: 87.9645943005;
+    }
+
+    // section {
+    //     .slider {
+    //         padding: 6rem 2.5rem 5rem;
+    //         max-height: fit-content;
+    //         height: 80%;
+    //         h2 {
+    //             font-size: 3rem;
+    //             margin: 0 0 1.5rem;
+    //             width: 50%;
+    //         }
+    //         h2::first-letter {
+    //             font-size: 3.3rem;
+
+    //             color: $green;
+    //         }
+    //         .slider__content {
+    //             display: flex;
+    //             flex-flow: row-reverse nowrap;
+    //             justify-content: space-between;
+    //             max-height: 60vh;
+
+    //             .slider__media {
+    //                 display: flex;
+    //                 justify-content: flex-end;
+    //                 margin-top: -5rem;
+    //                 width: 50%;
+    //                 height: 100%;
+    //                 img {
+    //                     // display: block;
+    //                     max-width: 100%;
+    //                     max-height: 100%;
+    //                 }
+    //             }
+    //             .slider__detail {
+    //                 padding-right: 2rem;
+    //                 width: 50%;
+    //                 .slider__detail--date {
+    //                     margin: 0 0 1rem;
+    //                     p {
+    //                         font-size: 2rem;
+    //                         color: white;
+    //                         margin: 0;
+    //                     }
+    //                     span {
+    //                         font-size: 2.5rem;
+    //                         color: $red;
+    //                         margin: 0 0.75rem;
+    //                     }
+    //                     .date_bc {
+    //                         color: $blue;
+    //                         margin: 0 0.5rem 0 0;
+    //                     }
+    //                 }
+    //                 .slider__detail--description {
+    //                     text-align: justify;
+    //                     font-size: 1.5rem;
+    //                     p {
+    //                         margin: 0;
+    //                     }
+    //                     p::first-letter {
+    //                         font-size: 2.5rem;
+    //                         font-weight: bold;
+    //                         float: left;
+    //                         margin: 0 1rem 0.5rem 0;
+    //                         color: $green;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+        section {
+        .slider {
+            padding: 6rem 2.5rem 5rem;
+            max-height: fit-content;
+            height: 80%;
+            h2 {
+                font-size: 3rem;
+                margin: 0 0 1.5rem;
+                width: 50%;
+            }
+            h2::first-letter {
+                font-size: 3.3rem;
+
+                color: $green;
+            }
+            .slider__content {
+                display: flex;
+                flex-flow: row-reverse nowrap;
+                justify-content: space-between;
+                max-height: 60vh;
+
+                .slider__media {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: -5rem;
+                    width: 50%;
+                    height: 100%;
+                    img {
+                        // display: block;
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+                .slider__detail {
+                    padding-right: 2rem;
+                    width: 50%;
+                    .slider__detail--date {
+                        margin: 0 0 1rem;
+                        p {
+                            font-size: 2rem;
+                            color: white;
+                            margin: 0;
+                        }
+                        span {
+                            font-size: 2.5rem;
+                            color: $red;
+                            margin: 0 0.75rem;
+                        }
+                        .date_bc {
+                            color: $blue;
+                            margin: 0 0.5rem 0 0;
+                        }
+                    }
+                    .slider__detail--description {
+                        text-align: justify;
+                        font-size: 1.5rem;
+                        p {
+                            margin: 0;
+                        }
+                        p::first-letter {
+                            font-size: 2.5rem;
+                            font-weight: bold;
+                            float: left;
+                            margin: 0 1rem 0.5rem 0;
+                            color: $green;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 1200px) {
