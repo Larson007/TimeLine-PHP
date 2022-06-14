@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DateTime;
+use IntlDateFormatter;
 
 class Timelines extends Model
 {
@@ -124,5 +125,19 @@ HTML;
         if ($result) {
             return true;
         }
+    }
+
+    public function eventMonth($month)
+    {
+
+        $fmt = new IntlDateFormatter(
+            'fr_FR',
+            IntlDateFormatter::FULL,
+            IntlDateFormatter::FULL,
+            'Europe/Paris',
+            IntlDateFormatter::GREGORIAN,
+            'MMMM'
+        );
+        return $fmt->format(mktime(0, 0, 0, $month));
     }
 }

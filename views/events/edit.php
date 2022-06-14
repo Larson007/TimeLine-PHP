@@ -1,6 +1,5 @@
 <div class="event">
     <h1 class="event--title">Edition : <?= $params['event']->title ?></h1>
-
     <form method="POST" enctype="multipart/form-data" class="event__form">
 
         <div class="event__form__content">

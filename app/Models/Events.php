@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use DateTime;
 use App\Models\Model;
+use IntlDateFormatter;
 
 class Events extends Model
 {
@@ -31,6 +33,21 @@ class Events extends Model
             // [$this->timeline_id]
 
         );
+    }
+
+    //* Doublon avec Timeline Model ?
+    public function eventMonth($month)
+    {
+
+        $fmt = new IntlDateFormatter(
+            'fr_FR',
+            IntlDateFormatter::FULL,
+            IntlDateFormatter::FULL,
+            'Europe/Paris',
+            IntlDateFormatter::GREGORIAN,
+            'MMMM'
+        );
+        return $fmt->format(mktime(0, 0, 0, $month));
     }
 
     // public function dateStart($id)

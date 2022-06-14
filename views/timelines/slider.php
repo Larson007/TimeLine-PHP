@@ -31,24 +31,24 @@
                     </div>
                     <div class="slider__detail">
                         <div class="slider__detail--date">
-                            <p><span class='date_bc'>Date : </span><span>
+                            <p><span class='date'>Date : </span><span>
                                     <?php if (!isset($event->day) && !isset($event->month)) : ?>
                                         <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
-                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                            <?= $event->year . "<span class='date_bc'> av J.C.</span>" ?>
                                         <?php else : ?>
                                             <?= $event->year ?>
                                         <?php endif ?>
                                     <?php elseif (!isset($event->day) && isset($event->month)) : ?>
-                                        <?= $event->month . " / " ?>
+                                        <?= $event->eventMonth($event->month) . " " ?>
                                         <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
-                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                            <?= $event->year . "<span class='date_bc'> av J.C.</span>" ?>
                                         <?php else : ?>
                                             <?= $event->year ?>
                                         <?php endif ?>
                                     <?php elseif (isset($event->day) && isset($event->month)) : ?>
-                                        <?= $event->day . " / " . $event->month . " / " ?>
+                                        <?= $event->day . " " . $event->eventMonth($event->month) . " " ?>
                                         <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
-                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                            <?= $event->year . "<span class='date_bc'> av J.C.</span>" ?>
                                         <?php else : ?>
                                             <?= $event->year ?>
                                         <?php endif ?>

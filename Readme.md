@@ -142,3 +142,6 @@ TODO add rejex pour le format des date_start/end dans create/edit timeline
 TODO Regler le pb de marge via container dans layout
 TODO Ajouter bar de recherche en ajax
 
+TODO ds slider.scss tablette mettre l'image en float a droite vet le texte autour
+TODO gestion des coockies ?
+TODO add loader on slider
