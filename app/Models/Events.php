@@ -35,20 +35,7 @@ class Events extends Model
         );
     }
 
-    //* Doublon avec Timeline Model ?
-    public function eventMonth($month)
-    {
 
-        $fmt = new IntlDateFormatter(
-            'fr_FR',
-            IntlDateFormatter::FULL,
-            IntlDateFormatter::FULL,
-            'Europe/Paris',
-            IntlDateFormatter::GREGORIAN,
-            'MMMM'
-        );
-        return $fmt->format(mktime(0, 0, 0, $month));
-    }
 
     // public function dateStart($id)
     // {

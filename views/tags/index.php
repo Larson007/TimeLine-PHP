@@ -8,9 +8,9 @@
             <div class="tagCard--link">
                 <a href="/tags/<?= $tag->id ?>">
                     <?php if (isset($tag->thumbnail) && $tag->thumbnail != null) : ?>
-                        <img src="<?= IMAGES . "tags/" . $tag->thumbnail ?>" alt="" width="380px" height="210px">
+                        <img src="<?= IMAGES . "tags/" . $tag->thumbnail ?>" alt="visuel catégorie <?= $tag->name ?>">
                         <?php else : ?>
-                            <img src="<?= IMAGES . "placeholder.webp" . $tag->thumbnail ?>" alt="Visuel non disponible" width="380px" height="210px">
+                            <img src="<?= IMAGES . "placeholder.webp" . $tag->thumbnail ?>" alt="Visuel non disponible">
                     <?php endif ?>
                 </a>
             </div>
