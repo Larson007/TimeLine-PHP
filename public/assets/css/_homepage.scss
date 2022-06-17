@@ -1,15 +1,17 @@
-
 //* Globe Animation
 //********************************************/
 
 .globe-animation {
-    margin: 0 -8rem;
+    margin: 0;
     z-index: -1;
     display: flex;
-    min-height: 90vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
+    max-width: 100vw;
+    width: 100%;
     .globe-animation--text {
+        font-size: 1.5rem;
         margin: 0 3rem;
         padding: 2rem;
         background-color: $bg-txt;
@@ -29,6 +31,8 @@
     //* Arrow bounce
     //********************************************/
     .bounce {
+        cursor: pointer;
+        z-index: 999;
         position: absolute;
         bottom: 80px;
         left: 50%;
@@ -55,10 +59,10 @@
             transform: translateY(0);
         }
         40% {
-            transform: translateY(-30px);
+            transform: translateY(-20px);
         }
         60% {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
         }
     }
 }
@@ -79,7 +83,6 @@
 //********************************************/
 
 #homepage {
-    
     .homepage--title {
         padding-top: 5rem;
         text-align: center;
@@ -87,7 +90,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-
     .globe-animation--text {
         display: block;
         width: 30%;
@@ -96,6 +98,4 @@
         background-color: $bg-txt;
         text-shadow: 2px 2px 2px black;
     }
-
 }
-

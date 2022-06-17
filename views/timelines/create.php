@@ -56,8 +56,8 @@
                 <div class="tags__group">
                     <?php foreach ($params['tags'] as $tag) : ?>
                         <div class="tags__group--item">
-                            <input class="check" type="checkbox" name="tags[]" id=<?= $tag->id ?> value="<?= $tag->id ?>">
-                            <label for=<?= $tag->id ?>><?= $tag->name ?></label>
+                            <input class="check" type="checkbox" name="tags[]" id=<?= htmlspecialchars($tag->id) ?> value="<?= htmlspecialchars($tag->id) ?>">
+                            <label for=<?= htmlspecialchars($tag->id) ?>><?= htmlspecialchars($tag->name) ?></label>
                         </div>
                     <?php endforeach ?>
                 </div>

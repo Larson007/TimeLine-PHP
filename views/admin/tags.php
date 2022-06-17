@@ -27,9 +27,9 @@
                     <td class="dashboard--images"><img src="<?= IMAGES . "tags/" . $tag->thumbnail ?>" alt=""></td>
                     <td>
                         <div class="table--action">
-                            <a href="/tags/edit/<?= $tag->id ?>" class="btn btn-edit">Edit</a>
+                            <a href="/tags/edit/<?= $tag->id ?>" class="btn btn-edit">Edition</a>
                             <form action="/tag/delete/<?= $tag->id ?>" method="POST" class="">
-                                <button type="submit" class="btn btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Delete</button>
+                                <button type="submit" class="btn btn-delete" onclick="return confirm('êtes-vous sûrs ?')">Supression</button>
                         </div>
                         </form>
                     </td>

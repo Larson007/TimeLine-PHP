@@ -7,24 +7,24 @@
                 <div class="box-content">
                     <div class="box-image">
                         <?php if (isset($timeline->thumbnail) && !empty($timeline->thumbnail)) : ?>
-                            <img src="<?= IMAGES . "timelines/" . $timeline->thumbnail ?>" alt="<?= $timeline->thumbnail_alt ?>" width="380px" height="210px">
+                            <img src="<?= htmlspecialchars(IMAGES . "timelines/" . $timeline->thumbnail) ?>" alt="<?= htmlspecialchars($timeline->thumbnail_alt) ?>" width="380px" height="210px">
                         <?php else : ?>
-                            <img src="<?= IMAGES . "timelines/" . 'placeholder.webp' ?>" alt="Pas de visuel disponible" width="380px" height="210px">
+                            <img src="<?= htmlspecialchars(IMAGES . "timelines/" . 'placeholder.webp') ?>" alt="Pas de visuel disponible" width="380px" height="210px">
                         <?php endif ?>
-                        <span class="box-created">Ajouté le <?= $timeline->getCreatedAt() ?></span>
+                        <span class="box-created">Ajouté le <?= htmlspecialchars($timeline->getCreatedAt()) ?></span>
                     </div>
-                    <h2 class="timeline__content--title"><?= $timeline->title ?></h2>
+                    <h2 class="timeline__content--title"><?= htmlspecialchars($timeline->title) ?></h2>
                 </div>
                 <div class="box-detail">
                     <div class="box-date">
                         <?= $timeline->getDateStart()?>
                         <?= (isset($timeline->date_end) ? $timeline->getDateEnd() : '') ?>
                     </div>
-                    <p><?= $timeline->getExcerpt() ?></p>
+                    <p><?= htmlspecialchars($timeline->getExcerpt()) ?></p>
                     <div class="badges">
                         <?php foreach ($timeline->getTags() as $tags) : ?>
-                            <div class="badges--items" style="background-color:<?= $tags->color ?>">
-                                <a href="/tags/<?= $tags->tag_id ?>"><?= $tags->name ?></a>
+                            <div class="badges--items" style="background-color:<?= htmlspecialchars($tags->color) ?>">
+                                <a href="/tags/<?= htmlspecialchars($tags->tag_id) ?>"><?= htmlspecialchars($tags->name) ?></a>
                             </div>
                         <?php endforeach ?>
                     </div>

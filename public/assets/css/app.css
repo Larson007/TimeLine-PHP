@@ -919,21 +919,24 @@ template {
 }
 
 .globe-animation {
-  margin: 0 -8rem;
+  margin: 0;
   z-index: -1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 90vh;
+  min-height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 100vw;
+  width: 100%;
 }
 
 .globe-animation .globe-animation--text {
+  font-size: 1.5rem;
   margin: 0 3rem;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.2);
@@ -952,6 +955,8 @@ template {
 }
 
 .globe-animation .bounce {
+  cursor: pointer;
+  z-index: 999;
   position: absolute;
   bottom: 80px;
   left: 50%;
@@ -976,12 +981,12 @@ template {
             transform: translateY(0);
   }
   40% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
   }
   60% {
-    -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
   }
 }
 
@@ -995,12 +1000,12 @@ template {
             transform: translateY(0);
   }
   40% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
   }
   60% {
-    -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
   }
 }
 

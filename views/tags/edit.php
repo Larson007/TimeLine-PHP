@@ -1,16 +1,16 @@
 <div class="tags__create">
-    <h1 class="tags__create--title">Edition : <?= $params['tags']->name ?></h1>
+    <h1 class="tags__create--title">Edition : <?= htmlspecialchars($params['tags']->name) ?></h1>
 
     <form method="POST" enctype="multipart/form-data" class="tags__create__form">
 
         <div class="tags__create__form__content">
             <div class="tags__create__form__content--item">
                 <label for="name">Titre</label>
-                <input type="text" name="name" id="name" value="<?= $params['tags']->name ?>">
+                <input type="text" name="name" id="name" value="<?= htmlspecialchars($params['tags']->name) ?>">
             </div>
             <div class="tags__create__form__content--item">
                 <label for="color">Couleur</label>
-                <input type="color" name="color" id="color"  value="<?= $params['tags']->color ?>">
+                <input type="color" name="color" id="color"  value="<?= htmlspecialchars($params['tags']->color) ?>">
             </div>
         </div>
         <div class="tags__create__form__thumbnail">
