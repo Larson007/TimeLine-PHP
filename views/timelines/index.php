@@ -1,4 +1,10 @@
 <h1 class="timelines--title">Timelines</h1>
+<!-- 
+<form action="" class="search">
+    <input id="search" name="search" type="text" placeholder="Type here">
+    <input id="submit" type="submit" value="Search">
+</form> -->
+
 <div class="cards">
 
     <?php foreach ($params['timelines'] as $timeline) : ?>
@@ -17,7 +23,7 @@
                 </div>
                 <div class="box-detail">
                     <div class="box-date">
-                        <?= $timeline->getDateStart()?>
+                        <?= $timeline->getDateStart() ?>
                         <?= (isset($timeline->date_end) ? $timeline->getDateEnd() : '') ?>
                     </div>
                     <p><?= htmlspecialchars($timeline->getExcerpt()) ?></p>
@@ -30,7 +36,7 @@
                     </div>
                     <div class="box-link">
                         <div class="link">
-                            <?= $timeline->getButton() ?>
+                            <?= ($timeline->getButton()) ?>
                             <!-- <?= $timeline->addEvents() ?> -->
 
                         </div>

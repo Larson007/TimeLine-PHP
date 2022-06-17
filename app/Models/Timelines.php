@@ -10,6 +10,15 @@ class Timelines extends Model
 
     protected $table = 'timelines';
 
+    // public function search($query)
+    // {
+    //     return $this->query(
+    //         "SELECT title FROM timelines
+    //         WHERE title = ?",
+    //         [$this->query]
+    //     );
+    // }
+
     public function getTags()
     {
         return $this->query(

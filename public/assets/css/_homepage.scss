@@ -87,6 +87,20 @@
         padding-top: 5rem;
         text-align: center;
     }
+    .homepage--texte {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+    .homepage--title {
+        font-size: 3rem;
+    }
+    .homepage--texte > div {
+        padding: 0 3rem 3rem;
+        font-size: 1.75rem;
+        text-align: justify;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -97,5 +111,13 @@
         padding: 2rem;
         background-color: $bg-txt;
         text-shadow: 2px 2px 2px black;
+    }
+    .homepage--title {
+        font-size: 3rem;
+    }
+    .homepage--texte > div {
+        padding: 0 6rem 3rem;
+        font-size: 1.75rem;
+        text-align: justify;
     }
 }

@@ -8,15 +8,11 @@ import scrollHorizontal from './libs/scrollHorizontal.js';
 
 console.log('✅ script chargé');
 
-
-
 burgerMenu();
 cardToogle();
 
+
 //scrollVertical();
-
-
-
 
 const homepageAnimation = document.getElementsByClassName(
     'globe-animation'
@@ -35,6 +31,9 @@ if (imgPreview) {
     console.log('✅ uploadPreview() chargé');
     uploadPreview();
 }
+
+
+
 
 
 // const scrollTimeline = document.getElementsByClassName(

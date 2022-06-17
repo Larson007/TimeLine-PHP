@@ -1027,6 +1027,21 @@ template {
   text-align: center;
 }
 
+#homepage .homepage--texte {
+  padding: 0 2rem;
+}
+
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+  .homepage--title {
+    font-size: 3rem;
+  }
+  .homepage--texte > div {
+    padding: 0 3rem 3rem;
+    font-size: 1.75rem;
+    text-align: justify;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .globe-animation--text {
     display: block;
@@ -1035,6 +1050,14 @@ template {
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.2);
     text-shadow: 2px 2px 2px black;
+  }
+  .homepage--title {
+    font-size: 3rem;
+  }
+  .homepage--texte > div {
+    padding: 0 6rem 3rem;
+    font-size: 1.75rem;
+    text-align: justify;
   }
 }
 
@@ -2967,7 +2990,7 @@ template {
   }
   section .slider .slider__content .slider__detail .slider__detail--description {
     text-align: justify;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   section .slider .slider__content .slider__detail .slider__detail--description p {
     margin: 0;

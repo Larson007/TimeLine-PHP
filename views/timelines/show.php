@@ -1,17 +1,17 @@
 <div class="anchors">
     <ul>
         <li class="anchors-timeline">
-            <a href="#page-1" class="active"><span><?= ($params['timeline']->date_start_bc === 1 || $params['timeline']->date_start_bc === '1') ? '- ' . $params['timeline']->date_start :  $params['timeline']->date_start ?></span><?= $params['timeline']->title ?></a>
+            <a href="#page-1" class="active"><span><?= htmlspecialchars(($params['timeline']->date_start_bc === 1 || $params['timeline']->date_start_bc === '1') ? '- ' . $params['timeline']->date_start :  $params['timeline']->date_start) ?></span><?= htmlspecialchars($params['timeline']->title) ?></a>
         </li>
         <span><i class="fa-solid fa-arrow-left"></i></span>
         <?php foreach ($params['timeline']->getEvents() as $event) : ?>
             <li>
-                <a href="#page-<?= $event->id ?>"><span><?= ($event->date_bc === 1 || $event->date_bc === '1') ? '- ' . $event->year : $event->year ?></span><?= $event->title ?></a>
+                <a href="#page-<?= htmlspecialchars($event->id) ?>"><span><?= htmlspecialchars(($event->date_bc === 1 || $event->date_bc === '1') ? '- ' . $event->year : $event->year) ?></span><?= htmlspecialchars($event->title) ?></a>
             </li>
             <span><i class="fa-solid fa-arrow-left"></i></span>
         <?php endforeach ?>
         <li class="anchors-timeline">
-            <a href="#page-1"><span><?= ($params['timeline']->date_end_bc === 1 || $params['timeline']->date_end_bc === '1') ? '- ' . $params['timeline']->date_end :  $params['timeline']->date_end ?></span>Fin</a>
+            <a href="#page-1"><span><?= htmlspecialchars(($params['timeline']->date_end_bc === 1 || $params['timeline']->date_end_bc === '1') ? '- ' . $params['timeline']->date_end :  $params['timeline']->date_end) ?></span>Fin</a>
         </li>
 
     </ul>
@@ -22,29 +22,29 @@
         <div data-anchor="page-1" class="pg-page active slider-timeline">
             <div class="slider">
                 <div class="slider__media">
-                    <h2 class="slider__media--title"><?= $params['timeline']->title ?></h2>
+                    <h2 class="slider__media--title"><?= htmlspecialchars($params['timeline']->title) ?></h2>
                     <div class="slider__media--image">
-                        <img src="<?= IMAGES . "timelines/" . $params['timeline']->thumbnail ?>" alt="<?= $params['timeline']->thumbnail_alt ?>">
+                        <img src="<?= htmlspecialchars(IMAGES . "timelines/" . $params['timeline']->thumbnail) ?>" alt="<?= htmlspecialchars($params['timeline']->thumbnail_alt) ?>">
                     </div>
                 </div>
                 <div class="slider__detail">
                     <div class="slider__detail--date">
-                        <p>De <span><?= $params['timeline']->date_start ?></span><?= ($params['timeline']->date_start_bc === '1' || $params['timeline']->date_start_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '' ?>
-                            à <span><?= $params['timeline']->date_end ?></span><?= ($params['timeline']->date_end_bc === '1' || $params['timeline']->date_end_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '' ?> </p>
+                        <p>De <span><?= htmlspecialchars($params['timeline']->date_start) ?></span><?= htmlspecialchars(($params['timeline']->date_start_bc === '1' || $params['timeline']->date_start_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '') ?>
+                            à <span><?= htmlspecialchars($params['timeline']->date_end) ?></span><?= htmlspecialchars(($params['timeline']->date_end_bc === '1' || $params['timeline']->date_end_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '') ?> </p>
                     </div>
                     <div class="slider__detail--description">
-                        <p><?= $params['timeline']->description ?></p>
+                        <p><?= htmlspecialchars($params['timeline']->description) ?></p>
                     </div>
                 </div>
             </div>
         </div>
         <?php foreach ($params['timeline']->getEvents() as $event) : ?>
-            <div data-anchor="page-<?= $event->id ?>" class="pg-page slider-timeline">
+            <div data-anchor="page-<?= htmlspecialchars($event->id) ?>" class="pg-page slider-timeline">
                 <div class="slider">
                     <div class="slider__media">
-                        <h2 class="slider__media--title"><?= $event->title ?></h2>
+                        <h2 class="slider__media--title"><?= htmlspecialchars($event->title) ?></h2>
                         <div class="slider__media--image">
-                            <img src="<?= IMAGES . "events/" . $event->thumbnail ?>" alt="<?= $event->thumbnail_alt ?>">
+                            <img src="<?= htmlspecialchars(IMAGES . "events/" . $event->thumbnail) ?>" alt="<?= htmlspecialchars($event->thumbnail_alt) ?>">
                         </div>
                     </div>
                     <div class="slider__detail">
@@ -52,29 +52,29 @@
                             <p><span>
                                     <?php if (!isset($event->day) && !isset($event->month)) : ?>
                                         <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
-                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                            <?= htmlspecialchars($event->year . "<span class='date_bc'> avant J.C.</span>") ?>
                                         <?php else : ?>
-                                            <?= $event->year ?>
+                                            <?= htmlspecialchars($event->year) ?>
                                         <?php endif ?>
                                     <?php elseif (!isset($event->day) && isset($event->month)) : ?>
-                                        <?= $event->month . " / " ?>
+                                        <?= htmlspecialchars($event->month . " / ") ?>
                                         <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
-                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                            <?= htmlspecialchars($event->year . "<span class='date_bc'> avant J.C.</span>") ?>
                                         <?php else : ?>
-                                            <?= $event->year ?>
+                                            <?= htmlspecialchars($event->year) ?>
                                         <?php endif ?>
                                     <?php elseif (isset($event->day) && isset($event->month)) : ?>
-                                        <?= $event->day . " / " . $event->month . " / " ?>
+                                        <?= htmlspecialchars($event->day . " / " . $event->month . " / ") ?>
                                         <?php if ($event->date_bc === 1 || $event->date_bc === '1') : ?>
-                                            <?= $event->year . "<span class='date_bc'> avant J.C.</span>" ?>
+                                            <?= htmlspecialchars($event->year . "<span class='date_bc'> avant J.C.</span>") ?>
                                         <?php else : ?>
-                                            <?= $event->year ?>
+                                            <?= htmlspecialchars($event->year) ?>
                                         <?php endif ?>
                                     <?php endif ?>
                                 </span></p>
                         </div>
                         <div class="slider__detail--description">
-                            <p><?= $event->text ?></p>
+                            <p><?= htmlspecialchars($event->text) ?></p>
                         </div>
                     </div>
                 </div>

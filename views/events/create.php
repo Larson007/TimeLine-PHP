@@ -3,14 +3,14 @@ $faker = Faker\Factory::create();
 ?>
 
 <div class="event">
-    <h1 class="event--title"><?= $params['timeline']->title ?> : Creation d'un événement</h1>
+    <h1 class="event--title"><?= htmlspecialchars($params['timeline']->title) ?> : Creation d'un événement</h1>
 
     <nav aria-label="Breadcrumb" class="event__ariane">
         <p>Selectionner une date pour editer l'évènement</p>
         <ul>
-            <li><a href=""><?= $params['timeline']->date_start ?> <span><?= ($params['timeline']->date_start_bc === 1) ? "av. J.C." : "" ?></span></a><i class="fa-solid fa-circle-chevron-right"></i></li>
+            <li><a href=""><?= htmlspecialchars($params['timeline']->date_start) ?> <span><?= htmlspecialchars(($params['timeline']->date_start_bc === 1) ? "av. J.C." : "") ?></span></a><i class="fa-solid fa-circle-chevron-right"></i></li>
             <?php foreach ($params['events'] as $event) : ?>
-                <li><a href="/events/edit/<?= $event->id ?>"><?= $event->year ?><span><?= ($event->date_bc === 1) ? " av. J.C. : " : " : " ?></span><?= $event->title ?></a><i class="fa-solid fa-circle-chevron-right"></i></li>
+                <li><a href="/events/edit/<?= htmlspecialchars($event->id) ?>"><?= htmlspecialchars($event->year) ?><span><?= htmlspecialchars(($event->date_bc === 1) ? " av. J.C. : " : " : ") ?></span><?= htmlspecialchars($event->title) ?></a><i class="fa-solid fa-circle-chevron-right"></i></li>
             <?php endforeach ?>
         </ul>
     </nav>
@@ -46,7 +46,7 @@ $faker = Faker\Factory::create();
             </div>
             <div class="event__form__content--item">
                 <label for="text">description</label>
-                <textarea name="text" id="text" rows="6" maxlength="687"><?= $faker->realText($maxNbChars = 400, $indexSize = 2) ?></textarea>
+                <textarea name="text" id="text" rows="6" maxlength="1000"></textarea>
             </div>
         </div>
         <div class="event__form__detail">
@@ -62,7 +62,7 @@ $faker = Faker\Factory::create();
             </div>
             <input type="hidden" name="thumbnail" id="thumbnail">
             <input type="hidden" name="thumbnail_alt" id="thumbnail_alt">
-            <input type="hidden" name="timeline_id" id="timeline_id" value="<?= $params['timeline']->id ?>">
+            <input type="hidden" name="timeline_id" id="timeline_id" value="<?= htmlspecialchars($params['timeline']->id) ?>">
         </div>
         <div class="event__submit">
             <button type="submit" class="event__submit--create event--btn">Enregistrer</button>

@@ -140,6 +140,5 @@ TODO Ajouter des validation error dans formulaire de creattion tags/timelines po
 TODO add rejex pour le format des date_start/end dans create/edit timeline
 TODO Ajouter bar de recherche en ajax
 
-TODO ds slider.scss tablette mettre l'image en float a droite vet le texte autour
 TODO gestion des coockies ?
 TODO add loader on slider

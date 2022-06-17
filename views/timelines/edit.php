@@ -27,7 +27,7 @@
                         <div class="date__group__check">
                             <label for="date_end_bc">Avant JC</label>
                             <input type="hidden" name="date_end_bc" value="0">
-                            <input type="checkbox" name="date_end_bc" id="date_end_bc" value="1" <?= htmlspecialchars(($params['timeline']->date_end_bc === 1) ? "checked" : '')?>>
+                            <input type="checkbox" name="date_end_bc" id="date_end_bc" value="1" <?= htmlspecialchars(($params['timeline']->date_end_bc === 1) ? "checked" : '') ?>>
                         </div>
                     </div>
                 </div>
@@ -57,8 +57,8 @@
                     <?php foreach ($params['tags'] as $tag) : ?>
                         <div class="tags__group--item">
                             <input class="check" type="checkbox" name="tags[]" id=<?= htmlspecialchars($tag->id) ?> value="<?= htmlspecialchars($tag->id) ?>" <?php foreach ($params['timeline']->getTags() as $timelineTags) {
-                                                                                                                                echo ($timelineTags->tag_id === $tag->id) ? 'checked' : '';
-                                                                                                                            } ?>>
+                                    echo htmlspecialchars(($timelineTags->tag_id === $tag->id) ? 'checked' : '');
+                                } ?>>
                             <label for=<?= htmlspecialchars($tag->id) ?>><?= htmlspecialchars($tag->name) ?></label>
                         </div>
                     <?php endforeach ?>
