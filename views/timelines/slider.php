@@ -9,8 +9,8 @@
                 </div>
                 <div class="slider__detail">
                     <div class="slider__detail--date">
-                        <p>De <span><?= htmlspecialchars($params['timeline']->date_start) ?></span><?= ($params['timeline']->date_start_bc === '1' || $params['timeline']->date_start_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '' ?>
-                            à <span><?= $params['timeline']->date_end ?></span><?= ($params['timeline']->date_end_bc === '1' || $params['timeline']->date_end_bc === 1) ? "<span class='date_bc'> avant J.C.</span>" : '' ?> </p>
+                        <p>De <span><?= htmlspecialchars($params['timeline']->date_start) ?></span><?= ($params['timeline']->date_start_bc === '1' || $params['timeline']->date_start_bc === 1) ? "<span class='date_bc'> av J.C.</span>" : '' ?>
+                            à <span><?= $params['timeline']->date_end ?></span><?= ($params['timeline']->date_end_bc === '1' || $params['timeline']->date_end_bc === 1) ? "<span class='date_bc'> av J.C.</span>" : '' ?> </p>
                     </div>
                     <div class="slider__detail--description">
                         <p><?= htmlspecialchars($params['timeline']->description) ?></p>

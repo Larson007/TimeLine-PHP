@@ -83,7 +83,7 @@ class Timelines extends Model
      */
     public function getDateStart(): string
     {
-        if ($this->date_start_bc === 1) {
+        if ($this->date_start_bc === 1 || $this->date_start_bc === '1') {
             return <<<HTML
             <p>début : </p><p class="date">$this->date_start<span>av. J.-C.</span></p>
 HTML;
@@ -104,7 +104,7 @@ HTML;
      */
     public function getDateEnd(): string
     {
-        if ($this->date_end_bc === 1) {
+        if ($this->date_end_bc === 1 || $this->date_end_bc === '1') {
             return <<<HTML
             <p class="date--end">Fin : </p><p class="date">$this->date_end<span>av. J.-C.</span></p>
 HTML;
@@ -124,7 +124,7 @@ HTML;
      */
     public function getExcerpt(): string
     {
-        return substr($this->description, 0, 150) . ' ...';
+        return substr($this->description, 0, 140) . '...';
     }
 
 

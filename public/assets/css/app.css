@@ -1111,6 +1111,7 @@ template {
   padding: 10px;
   text-shadow: 2px 2px 2px black;
   letter-spacing: 1px;
+  opacity: 0.8;
 }
 
 .box .box-card .box-content .timeline__content--title::first-letter {
@@ -2994,7 +2995,10 @@ template {
   section .slider .slider__content .slider__detail .slider__detail--date span {
     font-size: 1.5rem;
     color: #ee727a;
-    margin: 0 0.75rem;
+  }
+  section .slider .slider__content .slider__detail .slider__detail--date .date {
+    color: #feca72;
+    margin-right: 0.5rem;
   }
   section .slider .slider__content .slider__detail .slider__detail--date .date_bc {
     color: #84acfc;
@@ -3002,7 +3006,7 @@ template {
   }
   section .slider .slider__content .slider__detail .slider__detail--description {
     text-align: justify;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   section .slider .slider__content .slider__detail .slider__detail--description p {
     margin: 0;
@@ -3116,6 +3120,7 @@ template {
   }
   section .slider .slider__content .slider__detail .slider__detail--date .date {
     color: #feca72;
+    margin-right: 0.5rem;
   }
   section .slider .slider__content .slider__detail .slider__detail--date .date_bc {
     color: #84acfc;
@@ -3236,6 +3241,7 @@ template {
   }
   section .slider .slider__content .slider__detail .slider__detail--date .date {
     color: #feca72;
+    margin-right: 0.5rem;
   }
   section .slider .slider__content .slider__detail .slider__detail--date .date_bc {
     color: #84acfc;

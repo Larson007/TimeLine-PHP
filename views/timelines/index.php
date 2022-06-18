@@ -37,10 +37,7 @@
                     <div class="box-link">
                         <div class="link">
                             <?= ($timeline->getButton()) ?>
-                            <!-- <?= $timeline->addEvents() ?> -->
-
                         </div>
-
                     </div>
                 </div>
                 <div class="box-toggle">
