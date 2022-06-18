@@ -16,6 +16,10 @@
     background-color: $bg-grey;
 }
 
+.slider__detail--description {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
 // ******************************************************************
 
 @media screen and (max-width: 780px) {
@@ -416,7 +420,7 @@
                     }
                     .slider__detail--description {
                         text-align: justify;
-                        font-size: 2.2rem;
+                        font-size: 1.7rem;
                         p {
                             margin: 0;
                         }
