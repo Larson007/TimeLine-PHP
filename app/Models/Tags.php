@@ -6,7 +6,15 @@ class Tags extends Model
 {
     protected $table = 'tags';
 
-    public function getTimelines()
+
+/**
+ * "Get all timelines that have this tag."
+ * 
+ * The `query` function is a helper function that runs a query and returns the results
+ * 
+ * @return array An array of timelines.
+ */
+    public function getTimelines(): array
     {
         return $this->query(
             "SELECT t.* FROM timelines t
@@ -16,6 +24,11 @@ class Tags extends Model
             [$this->id]);
     }
 
+/**
+ * It returns a string containing a link to the tag's page
+ * 
+ * @return string A string.
+ */
     public function getButton(): string
     {
         return <<<HTML

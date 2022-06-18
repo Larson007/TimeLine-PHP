@@ -136,9 +136,4 @@ Demo :
 >
 > [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed?query=roboto+conden)
 
-TODO Ajouter des validation error dans formulaire de creattion tags/timelines pour les champs not null (ex thumbnail)
-TODO add rejex pour le format des date_start/end dans create/edit timeline
-TODO Ajouter bar de recherche en ajax
-
-TODO gestion des coockies ?
-TODO add loader on slider
+> [Kdam Thmor Pro](https://fonts.google.com/specimen/Kdam+Thmor+Pro#standard-styles)

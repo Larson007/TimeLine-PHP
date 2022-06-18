@@ -2801,6 +2801,13 @@ template {
   border-radius: 5px;
 }
 
+@media screen and (min-width: 780px) and (max-width: 1200px) {
+  .login, .register {
+    width: 50%;
+    margin: 6rem auto 0;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .login, .register {
     width: 40%;
@@ -3247,6 +3254,32 @@ template {
     margin: 0 1.5rem 0.5rem 0;
     color: #c4e791;
   }
+}
+
+.error404 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  height: 100vh;
+}
+
+.error404 h1 span {
+  color: #ee727a;
+}
+
+.error404 a {
+  color: #84acfc;
+  font-size: 2rem;
 }
 
 body {

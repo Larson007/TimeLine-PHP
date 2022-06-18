@@ -26,33 +26,13 @@ $router->get('/register', 'App\Controllers\UserController@register');
 $router->post('/register', 'App\Controllers\UserController@registerPost');
 $router->get('/logout', 'App\Controllers\UserController@logout');
 
-// //Timelines
-// $router->get('/timelines', 'App\Controllers\TimelinesController@index');
-// $router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
-// $router->get('/timeline/create', 'App\Controllers\TimelinesController@create');
-// $router->post('/timeline/create', 'App\Controllers\TimelinesController@createTimeline');
-
-// //Tags
-// $router->get('/tags', 'App\Controllers\TagsController@index');
-// $router->get('/tags/:id', 'App\Controllers\TagsController@show');
-// $router->get('/tag/create', 'App\Controllers\TagsController@create');
-// $router->post('/tag/create', 'App\Controllers\TagsController@createTags');
-
 //Timelines
 $router->get('/timelines', 'App\Controllers\TimelinesController@index');
-
-//? Bonne route
-//$router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
-
-//! TEST
 $router->get('/timelines/:id', 'App\Controllers\TimelinesController@slider');
 
 //Tags
 $router->get('/tags', 'App\Controllers\TagsController@index');
 $router->get('/tags/:id', 'App\Controllers\TagsController@show');
-
-
-
 
 //Account
 $router->get('/account/:id', 'App\Controllers\AccountController@index');
@@ -84,19 +64,19 @@ $router->get('/events/edit/:id', 'App\Controllers\Admin\AdminController@editEven
 $router->post('/events/edit/:id', 'App\Controllers\Admin\AdminController@updateEvent');
 
 
-// $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
-// $router->post('/admin/posts/create', 'App\Controllers\Admin\PostController@createPost');
-// $router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@destroy');
-// $router->get('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@edit');
-// $router->post('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@update');
+//* Futur Routes pour utilisateurs
 
+//Timelines
+// $router->get('/timelines', 'App\Controllers\TimelinesController@index');
+// $router->get('/timelines/:id', 'App\Controllers\TimelinesController@show');
+// $router->get('/timeline/create', 'App\Controllers\TimelinesController@create');
+// $router->post('/timeline/create', 'App\Controllers\TimelinesController@createTimeline');
 
-
-
-// $router->get('/', 'App\Controllers\BlogController@welcome');
-// $router->get('/posts', 'App\Controllers\BlogController@index');
-// $router->get('/posts/:id', 'App\Controllers\BlogController@show');
-// $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
+//Tags
+// $router->get('/tags', 'App\Controllers\TagsController@index');
+// $router->get('/tags/:id', 'App\Controllers\TagsController@show');
+// $router->get('/tag/create', 'App\Controllers\TagsController@create');
+// $router->post('/tag/create', 'App\Controllers\TagsController@createTags');
 
 
 

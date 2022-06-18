@@ -12,14 +12,12 @@
 @import "events";
 @import "admin";
 @import "auth";
-// @import "show";
 @import "slider";
+@import "404";
 
 //********** CSS GLOBALE
 //********************************************/
-* {
-    //scroll-behavior: smooth;
-}
+
 body {
     font-family: "Bebas Neue", cursive;
     background-color: $bg-light;
@@ -56,6 +54,9 @@ body {
     border: 1px solid white;
 }
 
+
+//********** Margin
+//********************************************/
 @media screen and (max-width: 780px) {
     .containers {
         margin: 80px auto 0;
