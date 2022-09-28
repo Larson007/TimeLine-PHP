@@ -2,6 +2,18 @@
 
 ![Timelines](public/assets/images/logo.svg "logo Timelines")
 
+## Présentation
+
+**Timelines** est un projet de fin de formation en tant que développeur Web au sein de la 3w Academy (2022).
+
+Les principaux languages utilisés sont les suivants :
+
+- PHP
+- SQL
+- SASS
+- JS
+
+
 ## Sommaire
 
 1. Structure

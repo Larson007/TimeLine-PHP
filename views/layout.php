@@ -73,6 +73,11 @@
                         <a class="navbar__menu__item--link" href="/register">Inscription</a>
                     </li>
                 <?php endif ?>
+                <li class="navbar__menu__item">
+                    <a class="navbar__menu__item--link" href="https://github.com/Larson007/TimeLine-PHP" target="_blank">
+                        <ion-icon name="logo-github"></ion-icon>Github
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
